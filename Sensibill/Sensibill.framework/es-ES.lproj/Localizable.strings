@@ -1,0 +1,153 @@
+/* SBCategory */
+"category-accommodations" = "Alojamiento";
+"category-apparel" = "Indumentaria";
+"category-auto-gas-parking" = "Vehículo, combustible y aparcamiento";
+"category-business" = "Servicios empresariales";
+"category-donations" = "Regalos y donaciones";
+"category-education" = "Educación";
+"category-electronics-software" = "Electrónica y programas";
+"category-entertain" = "Entretenimiento";
+"category-fees-taxes-dues" = "Tarifas, impuestos y cuotas";
+"category-financial" = "Servicios financieros";
+"category-fitness-recreation" = "Deporte y recreación";
+"category-groceries-liquor" = "Comestibles y bebidas alcohólicas";
+"category-health" = "Salud";
+"category-home-garden" = "Hogar y jardín";
+"category-industrial-wholesale" = "Industria y venta al por mayor";
+"category-kids" = "Niños";
+"category-personal-care" = "Cuidado personal";
+"category-pets" = "Mascotas";
+"category-restaurants-cafes" = "Restaurantes y cafés";
+"category-shipping-storage" = "Transporte y almacenamiento";
+"category-shopping" = "Venta al por menor";
+"category-telecommunications" = "Telecomunicación";
+"category-travel" = "Viaje y transporte";
+"category-unknown" = "Categoría desconocida";
+"category-utilities" = "Servicios públicos";
+
+/* SBReceipt+UI */
+"business-expense-type" = "Empresa";
+"es-tax" = "IVA";
+"missing-amount" = "Desconocido";
+"missing-merchant" = "Comerciante";
+"nettotal" = "Base Total";
+"personal-expense-type" = "Personal";
+"receipt-added-on-at" = "Añadido en %@";
+"subtotal" = "Subtotal";
+"tax" = "Impuesto";
+"uk-tax" = "VAT";
+
+/* Error Messages (SDK) */
+"ok" = "De acuerdo";
+"retry" = "Volver a intentar";
+"ui-web-fatal-error-message" = "La aplicación se detuvo debido a un error interno. Inténtelo de nuevo más tarde.";
+"ui-web-offline-message" = "Parece que su dispositivo está desconectado. Vuelva a intentarlo cuando tenga acceso a la red.";
+
+/* Capture */
+"auto-capture-button-hint" = "Alternar el estado de captura automática";
+"auto-capture-off" = "Captura automática desactivada";
+"auto-capture-on" = "Captura automática activada";
+"back" = "Atrás";
+"close" = "Cerrar";
+"blur-error-keep" = "Mantener";
+"blur-error-message" = "Esta foto se ve un poco borrosa. ¿Le gustaría volver a tomarla?";
+"blur-error-retake" = "Volver a tomar";
+"blur-error-title" = "Desenfoque detectado";
+"button-add-page" = "Añadir";
+"camera-permission-button-title" = "Permitir el acceso";
+"camera-permission-title" = "Se requiere acceso a la cámara";
+"camera-permission-message" = "Necesitamos acceso a la cámara para capturar un recibo.";
+"camera-preview-label" = "Vista previa de la cámara";
+"capture-button-hint" = "Tomar una foto manualmente";
+"capture-button-label" = "Capturar";
+"capture-capturing-announcement" = "Captura de recibo";
+"capture-detection-announcement" = "Detección de recibo";
+"capture-error-failed-to-capture-image" = "No se pudo capturar la imagen. Intentar otra vez.";
+"capture-feedback-capturing-receipt" = "Capturando, mantener quieto!";
+"capture-feedback-looking-receipt" = "Buscando un recibo...";
+"capture-feedback-looking-receipt-announcement" = "Buscando un recibo";
+"capture-feedback-processing-receipt" = "¡Ya casi está!";
+"capture-feedback-processing-receipt-announcement" = "Recibo capturado, procesando";
+"capture-preview-current-selected-page" = "Página %d de %d";
+"capture-preview-discard-button-label" = "Descarte";
+"capture-preview-next-page-button-disabled-label" = "Imagen siguiente. Deshabilitado";
+"capture-preview-next-page-button-hint" = "Se desplaza a la siguiente imagen capturada";
+"capture-preview-next-page-button-label" = "Imagen siguiente";
+"capture-preview-previous-page-button-hint" = "Se desplaza a la imagen capturada anterior";
+"capture-preview-previous-page-button-disabled-label" = "Imagen anterior. Deshabilitado";
+"capture-preview-previous-page-button-label" = "Imagen anterior";
+"capture-permissions-dialog-title" = "Permitir el acceso";
+"capture-permissions-dialog-message-photo-library" = "Necesitamos acceso a la cámara para capturar un recibo.";
+"capture-permissions-dialog-action-open-settings" = "Ir a \"Ajustes\"";
+"capture-permissions-settings-dialog-action-cancel" = "Ahora no";
+"capture-screen-title" = "capturar";
+"capture-top-of-receipt-indicator-title" = "Parte superior del recibo";
+"change-camera-flash-mode" = "Alternar el estado del flash";
+"crop" = "Cosecha";
+"crop-button-cancel" = "Cancelar";
+"crop-button-done" = "Hecho";
+"crop-screen-title" = "cosecha";
+"flash-off" = "Flash apagado";
+"flash-on" = "Flash encendido";
+"goes-back" = "Vuelve a la pantalla anterior";
+"image-preview-next-button-hint" = "Acepte esta imagen para la primera sección y comience a capturar la siguiente";
+"image-preview-done-button-hint" = "Aceptar imagen y salir de captura";
+"image-preview-done-button-title" = "Hecho";
+"image-preview-headline" = "Revisar imagen (%d/%d)";
+"image-preview-next-button-title" = "Siguiente sección";
+"long-capture-button" = "Captura larga";
+"long-capture-button-hint" = "Capturar un recibo largo que requiere más de una foto";
+"long-capture-button-selected" = "Seleccionado. Captura larga";
+"long-capture-button-short-title" = "Largo";
+"long-capture-button-title" = "Recibo largo";
+"long-capture-toast-top" = "Capturar la sección superior";
+"long-capture-toast-bottom" = "Capturar la sección inferior";
+"normal-capture-button" = "Captura normal";
+"normal-capture-button-hint" = "Capturar un recibo en una foto";
+"normal-capture-button-selected" = "Seleccionado. Captura normal";
+"normal-capture-button-title" = "Normal";
+"photo-gallery" = "Galería de fotos";
+"photo-picker-hint" = "Abra su biblioteca de fotos para elegir una imagen existente.";
+"preview-header" = "Revisar imagen (%@/%@)";
+"previous-page-button-hint" = "Regrese a la pantalla de vista previa de la imagen para ver y modificar las imágenes capturadas actualmente";
+"previous-page-button-title" = "Imágenes capturadas. %@";
+"retake" = "Volver a tomar";
+
+/* Capture Screen */
+
+"capture-discard-image-alert-cancel" = "No, conserve esta imagen";
+"capture-discard-images-alert-cancel" = "No, conserve estas imágenes";
+"capture-discard-image-alert-confirm" = "Sí, descartar y continuar";
+"capture-discard-image-alert-title" = "descartar imagen";
+"capture-discard-images-alert-title" = "descartar las imagenes";
+"capture-discard-image-alert-message" = "Su imágen será descartada. Está seguro de que quiere continuar?";
+"capture-discard-images-alert-message" = "Sus imágenes serán descartadas. Está seguro de que quiere continuar?";
+
+/* Capture Preview Screen */
+
+"discard-image-alert-cancel" = "No, conserve esta imagen";
+"discard-images-alert-cancel" = "No, conserve estas imágenes";
+"discard-image-alert-confirm" = "Sí, descartar y continuar";
+"discard-image-alert-title" = "descartar imagen";
+"discard-images-alert-title" = "descartar las imagenes";
+"discard-image-alert-message" = "Su imágen será descartada. Está seguro de que quiere continuar?";
+"discard-images-alert-message" = "Sus imágenes serán descartadas. Está seguro de que quiere continuar?";
+
+/* Capture Tips Screen */
+
+"capture-tips-button-tips-accessibility-label" = "Consejos";
+
+"capture-tips-button-close-label" = "Cerrar";
+"capture-tips-button-next-label" = "Siguiente";
+
+"capture-tips-page-flattenreceipt-title" = "Aplana tu recibo";
+"capture-tips-page-flattenreceipt-description" = "Aplana los pliegues y rizos en tu recibo y colócalo sobre una superficie oscura y sin patrón.";
+
+"capture-tips-page-holdsteady-title" = "¡Manténgalo firme!";
+"capture-tips-page-holdsteady-description" = "Mantenga su dispositivo firme sobre el recibo mientras tomamos la foto.";
+
+"capture-tips-page-makeitbright-title" = "¡Hazlo brillante!";
+"capture-tips-page-makeitbright-description" = "Encienda el flash en áreas oscuras para suavizar las sombras o acercarse a una fuente de luz.";
+
+"capture-tips-page-longreceipt-title" = "¿Tiene un recibo largo?";
+"capture-tips-page-longreceipt-description" = "¡Tome una foto de la parte superior, luego baje a la siguiente parte y tome una foto!";

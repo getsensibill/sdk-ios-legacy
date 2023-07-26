@@ -1,0 +1,154 @@
+/* SBCategory */
+"category-accommodations" = "Accommodations";
+"category-apparel" = "Apparel";
+"category-auto-gas-parking" = "Auto, Gas & Parking";
+"category-business" = "Business Services";
+"category-donations" = "Gifts & Donations";
+"category-education" = "Education";
+"category-electronics-software" = "Electronics & Software";
+"category-entertain" = "Entertainment";
+"category-fees-taxes-dues" = "Fees, Taxes & Dues";
+"category-financial" = "Financial Services";
+"category-fitness-recreation" = "Fitness & Recreation";
+"category-groceries-liquor" = "Groceries & Liquor";
+"category-health" = "Health";
+"category-home-garden" = "Home & Garden";
+"category-industrial-wholesale" = "Industrial & Wholesale";
+"category-kids" = "Kids";
+"category-personal-care" = "Personal Care";
+"category-pets" = "Pets";
+"category-restaurants-cafes" = "Restaurants & Cafes";
+"category-shipping-storage" = "Shipping & Storage";
+"category-shopping" = "General Retail";
+"category-telecommunications" = "Telecommunications";
+"category-travel" = "Transport & Travel";
+"category-unknown" = "Unknown Category";
+"category-utilities" = "Utilities";
+
+/* SBReceipt+UI */
+"business-expense-type" = "Business";
+"es-tax" = "IVA";
+"missing-amount" = "Unknown";
+"missing-merchant" = "Merchant";
+"nettotal" = "NET Total";
+"not-now" = "Not Now";
+"personal-expense-type" = "Personal";
+"receipt-added-on-at" = "Added on %@ at %@";
+"subtotal" = "Subtotal";
+"tax" = "Tax";
+"uk-tax" = "VAT";
+
+/* Error Messages (SDK) */
+"ok" = "Ok";
+"retry" = "Retry";
+"ui-web-fatal-error-message" = "The application has been stopped due to an internal error. Please try again later.";
+"ui-web-offline-message" = "It looks like your device is offline. Please try again when you have network access.";
+
+/* Capture */
+"auto-capture-button-hint" = "Toggle auto capture state";
+"auto-capture-off" = "Auto capture off";
+"auto-capture-on" = "Auto capture on";
+"back" = "Back";
+"close" = "Close";
+"blur-error-keep" = "Keep";
+"blur-error-message" = "This photo looks a little blurry. Would you like to retake it?";
+"blur-error-retake" = "Retake";
+"blur-error-title" = "Blur Detected";
+"button-add-page" = "Add";
+"camera-permission-button-title" = "Allow Access";
+"camera-permission-title" = "Camera Access Required";
+"camera-permission-message" = "We need access to the camera in order to capture a receipt.";
+"camera-preview-label" = "Camera Preview";
+"capture-button-hint" = "Take photo manually";
+"capture-button-label" = "Capture";
+"capture-capturing-announcement" = "Capturing receipt";
+"capture-detection-announcement" = "Detecting receipt";
+"capture-error-failed-to-capture-image" = "Failed to capture image. Try again.";
+"capture-feedback-capturing-receipt" = "Capturing, hold still!";
+"capture-feedback-looking-receipt" = "Looking for a receipt...";
+"capture-feedback-looking-receipt-announcement" = "Looking for a receipt";
+"capture-feedback-processing-receipt" = "Almost done!";
+"capture-feedback-processing-receipt-announcement" = "Receipt captured, processing";
+"capture-preview-current-selected-page" = "Page %d of %d";
+"capture-preview-discard-button-label" = "Discard";
+"capture-preview-next-page-button-disabled-label" = "Next Image. Disabled";
+"capture-preview-next-page-button-hint" = "Scrolls to the next captured image";
+"capture-preview-next-page-button-label" = "Next Image";
+"capture-preview-previous-page-button-hint" = "Scrolls to the previous captured image";
+"capture-preview-previous-page-button-disabled-label" = "Previous Image. Disabled";
+"capture-preview-previous-page-button-label" = "Previous Image";
+"capture-permissions-dialog-title" = "Allow Access";
+"capture-permissions-dialog-message-photo-library" = "We need access to the photo library in order to select a receipt.";
+"capture-permissions-dialog-action-open-settings" = "Go To Settings";
+"capture-permissions-dialog-action-cancel" = "Not Now";
+"capture-screen-title" = "capture";
+"capture-top-of-receipt-indicator-title" = "Top of receipt";
+"change-camera-flash-mode" = "Toggle flash state";
+"crop" = "Crop";
+"crop-button-cancel" = "Cancel";
+"crop-button-done" = "Done";
+"crop-screen-title" = "crop";
+"flash-off" = "Flash off";
+"flash-on" = "Flash on";
+"goes-back" = "Goes back to the previous screen";
+"image-preview-next-button-hint" = "Accept this image for the first section and start capturing the next one";
+"image-preview-done-button-hint" = "Accept image and exit capture";
+"image-preview-done-button-title" = "Done";
+"image-preview-headline" = "Review Image (%d/%d)";
+"image-preview-next-button-title" = "Next Section";
+"long-capture-button" = "Long capture";
+"long-capture-button-hint" = "Capture a long receipt that requires more than one photo";
+"long-capture-button-selected" = "Selected. Long capture";
+"long-capture-button-short-title" = "Long";
+"long-capture-button-title" = "Long Receipt";
+"long-capture-toast-top" = "Capture top section";
+"long-capture-toast-bottom" = "Capture bottom section";
+"normal-capture-button" = "Normal capture";
+"normal-capture-button-hint" = "Capture a receipt in one photo";
+"normal-capture-button-selected" = "Selected. Normal capture";
+"normal-capture-button-title" = "Normal";
+"photo-gallery" = "Photo Gallery";
+"photo-picker-hint" = "Open your photo library to choose an existing image.";
+"preview-header" = "Review Image (%@/%@)";
+"previous-page-button-hint" = "Go back to the image preview screen to view and modify your currently captured images";
+"previous-page-button-title" = "Captured Images. %@";
+"retake" = "Retake";
+
+/* Capture Screen */
+
+"capture-discard-image-alert-cancel" = "No, keep this image";
+"capture-discard-images-alert-cancel" = "No, keep these images";
+"capture-discard-image-alert-confirm" = "Yes, discard and continue";
+"capture-discard-image-alert-title" = "Discard Image";
+"capture-discard-images-alert-title" = "Discard Images";
+"capture-discard-image-alert-message" = "Your image will be discarded. Are you sure you want to continue?";
+"capture-discard-images-alert-message" = "Your images will be discarded. Are you sure you want to continue?";
+
+/* Capture Preview Screen */
+
+"discard-image-alert-cancel" = "No, keep this image";
+"discard-images-alert-cancel" = "No, keep these images";
+"discard-image-alert-confirm" = "Yes, discard and continue";
+"discard-image-alert-title" = "Discard Image";
+"discard-images-alert-title" = "Discard Images";
+"discard-image-alert-message" = "Your image will be discarded. Are you sure you want to continue?";
+"discard-images-alert-message" = "Your images will be discarded. Are you sure you want to continue?";
+
+/* Capture Tips Screen */
+
+"capture-tips-button-tips-accessibility-label" = "tips";
+
+"capture-tips-button-close-label" = "Close";
+"capture-tips-button-next-label" = "Next";
+
+"capture-tips-page-flattenreceipt-title" = "Flatten your receipt";
+"capture-tips-page-flattenreceipt-description" = "Flatten folds and curls in your receipt and place it on a dark, patternless surface.";
+
+"capture-tips-page-holdsteady-title" = "Hold it steady!";
+"capture-tips-page-holdsteady-description" = "Hold your device steady above the receipt while we take the photo.";
+
+"capture-tips-page-makeitbright-title" = "Make it bright!";
+"capture-tips-page-makeitbright-description" = "Turn on flash in dark areas to soften shadows or move closer to a light source.";
+
+"capture-tips-page-longreceipt-title" = "Have a long receipt?";
+"capture-tips-page-longreceipt-description" = "Take a picture of the top, then move down to the next part and take a picture!";

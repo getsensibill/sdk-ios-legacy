@@ -1,0 +1,3474 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name Sensibill
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import Accelerate
+import Combine
+import CommonCrypto
+import CoreGraphics
+import CoreLocation
+import CryptoKit
+import Foundation
+import Metal
+import MetalKit
+import MetalPerformanceShaders
+import ObjectiveC
+import Photos
+import PhotosUI
+import Security
+@_exported import Sensibill
+import Swift
+import SwiftUI
+import SystemConfiguration
+import UIKit
+import Vision
+import WebKit
+import _Concurrency
+import _StringProcessing
+import libkern
+import os.log
+import os
+import ObjectiveC.runtime
+import os.signpost
+@_hasMissingDesignatedInitializers final public class SensibillAPITask<Model> where Model : Swift.Decodable, Model : Swift.Encodable {
+  final public var result: Swift.Result<Model, Swift.Error>? {
+    get
+  }
+  final public func execute(completion: @escaping (Sensibill.SensibillAPITask<Model>) -> Swift.Void) throws
+  @objc deinit
+}
+public enum SensibillAPIError : Swift.Error {
+  case success
+  case badRequest
+  case unauthorized
+  case forbidden
+  case notFound
+  case conflict
+  case internalServerError
+  case unknown
+  public static func == (a: Sensibill.SensibillAPIError, b: Sensibill.SensibillAPIError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Sensibill.SensibillAPIError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public enum SensibillAPITaskError : Swift.Error {
+  case noResponse
+  case executionFailure(Swift.Error)
+  case apiFailure(Sensibill.SensibillAPIError)
+  case unparsableData(Swift.Error)
+}
+extension Sensibill.SensibillAPITaskError : Foundation.LocalizedError {
+  public var localizedError: Swift.String {
+    get
+  }
+}
+extension Sensibill.SensibillAPITaskError : Swift.Equatable {
+  public static func == (lhs: Sensibill.SensibillAPITaskError, rhs: Sensibill.SensibillAPITaskError) -> Swift.Bool
+}
+public enum SensibillAPIModel {
+}
+extension Sensibill.SensibillAPIClient {
+  public class Configuration {
+    public init(baseUrl: Swift.String, certificatePinningEnabled: Swift.Bool = true)
+    @objc deinit
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct Empty {
+    public static func == (a: Sensibill.SensibillAPIModel.Empty, b: Sensibill.SensibillAPIModel.Empty) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct GeneralInfo {
+    public let hostname: Swift.String
+    public let version: Swift.String
+    public let status: Swift.String
+    public let environment: Swift.String
+    public let name: Swift.String
+    public let bootedAt: Swift.String
+    public let baseUrl: Swift.String
+    public let endpoints: [Swift.String : Swift.String]
+    public static func == (a: Sensibill.SensibillAPIModel.GeneralInfo, b: Sensibill.SensibillAPIModel.GeneralInfo) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct ClientCredentials {
+    public let key: Swift.String
+    public let secret: Swift.String
+    public init(key: Swift.String, secret: Swift.String)
+    public static func == (a: Sensibill.SensibillAPIModel.ClientCredentials, b: Sensibill.SensibillAPIModel.ClientCredentials) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct AccessToken {
+    public let tokenId: Swift.String?
+    public let accessToken: Swift.String?
+    public let refreshToken: Swift.String?
+    public let tokenType: Swift.String?
+    public let expiresIn: Swift.Int?
+    public let refreshExpiresIn: Swift.Int?
+    public static func == (a: Sensibill.SensibillAPIModel.AccessToken, b: Sensibill.SensibillAPIModel.AccessToken) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct AuthorizationGrant {
+    public let code: Swift.String?
+    public static func == (a: Sensibill.SensibillAPIModel.AuthorizationGrant, b: Sensibill.SensibillAPIModel.AuthorizationGrant) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct UserCredentials {
+    public let username: Swift.String
+    public let password: Swift.String
+    public init(username: Swift.String, password: Swift.String)
+    public static func == (a: Sensibill.SensibillAPIModel.UserCredentials, b: Sensibill.SensibillAPIModel.UserCredentials) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct ClientInfo {
+    public let clientID: Swift.String
+    public let name: Swift.String?
+    public let type: Swift.String
+    public let status: Swift.String
+    public let key: Swift.String?
+    public let redirectURI: Swift.String?
+    public let accessTokenExpiry: Swift.String?
+    public let providerIDs: [Swift.String : Swift.String?]?
+    public let notificationSettings: [Swift.String : Swift.Bool?]?
+    public let policies: [Sensibill.SensibillAPIModel.ClientInfo.Policies]?
+    public let authenticationSettings: Sensibill.SensibillAPIModel.ClientInfo.AuthenticationSettings?
+    public static func == (a: Sensibill.SensibillAPIModel.ClientInfo, b: Sensibill.SensibillAPIModel.ClientInfo) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct LookupLocalesDto {
+    public var name: Swift.String
+    public var code: Swift.String
+    public static func == (a: Sensibill.SensibillAPIModel.LookupLocalesDto, b: Sensibill.SensibillAPIModel.LookupLocalesDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel.ClientInfo {
+  public struct Policies {
+    public let webSDKOptions: Sensibill.SensibillAPIModel.ClientInfo.Policies.WebSDKOptions?
+    public let credentialTypes: [Swift.String]?
+    public let receiptEmailDomains: [Swift.String]?
+    public let receiptEmailDomainsAndAliases: [Sensibill.SensibillAPIModel.ClientInfo.Policies.ReceiptEmailDomainAndAliases]?
+    public static func == (a: Sensibill.SensibillAPIModel.ClientInfo.Policies, b: Sensibill.SensibillAPIModel.ClientInfo.Policies) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel.ClientInfo {
+  public struct AuthenticationSettings {
+    public let oauth: Swift.Bool?
+    public let jwt: Swift.Bool?
+    public let refreshTokenExpiryDays: Swift.Int?
+    public let accessTokenExpiryMinutes: Swift.Int?
+    public let setTempAccessSecret: Swift.Bool?
+    public let disablePasswordStrengthCheck: Swift.Bool?
+    public let maximumFailedLoginAttempts: Swift.Int?
+    public let allowResetTempPassword: Swift.Bool?
+    public static func == (a: Sensibill.SensibillAPIModel.ClientInfo.AuthenticationSettings, b: Sensibill.SensibillAPIModel.ClientInfo.AuthenticationSettings) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel.ClientInfo.Policies {
+  public struct WebSDKOptions {
+    public let webBaseUrl: Swift.String?
+    public let webDebug: Swift.Bool
+    public let webSDKUrl: Swift.String?
+    public static func == (a: Sensibill.SensibillAPIModel.ClientInfo.Policies.WebSDKOptions, b: Sensibill.SensibillAPIModel.ClientInfo.Policies.WebSDKOptions) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel.ClientInfo.Policies {
+  public struct ReceiptEmailDomainAndAliases {
+    public let emailDomain: Swift.String
+    public let aliases: [Swift.String]
+    public static func == (a: Sensibill.SensibillAPIModel.ClientInfo.Policies.ReceiptEmailDomainAndAliases, b: Sensibill.SensibillAPIModel.ClientInfo.Policies.ReceiptEmailDomainAndAliases) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+public protocol EndpointsProvider {
+  var version: Sensibill.EndpointVersion { get }
+}
+public protocol SensibillAPIProvider : AnyObject {
+  var configuration: Sensibill.SensibillAPIClient.Configuration { get }
+  var home: Sensibill.HomeEndpointsProvider { get }
+  var authentication: Sensibill.AuthenticationEndpointsProvider { get }
+  var documents: Sensibill.DocumentsEndpointsProvider { get }
+  var users: Sensibill.UsersEndpointsProvider { get }
+  var folders: Sensibill.FoldersEndpointsProvider { get }
+  var receipts: Sensibill.ReceiptsEndpointsProvider { get }
+  var reminders: Sensibill.RemindersEndpointsProvider { get }
+  var exports: Sensibill.ExportsEndpointsProvider { get }
+  var lookups: Sensibill.LookupsEndpointsProvider { get }
+  var emails: Sensibill.EmailsEndpointsProvider { get }
+  var merchants: Sensibill.MerchantsEndpointsProvider { get }
+  var emailAccounts: Sensibill.EmailAccountsEndpointsProvider { get }
+  var intercepts: Sensibill.InterceptsEndpointsProvider { get }
+  init(configuration: Sensibill.SensibillAPIClient.Configuration)
+}
+public protocol RemindersEndpointsProvider : Sensibill.EndpointsProvider {
+}
+public protocol UsersEndpointsProvider : Sensibill.EndpointsProvider {
+  func me(accessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.UserResponseDto>
+  func passwordStrength(password: Swift.String, checkType: Swift.String?, userType: Swift.String?, clientCredentials: Sensibill.SensibillAPIModel.ClientCredentials) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.PasswordStrength>
+  func resetTempPassword(_ resetPasswordRequest: Sensibill.SensibillAPIModel.ResetTempPasswordRequestDto, accessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.Empty>
+  func setPassword(_ passwordRequest: Sensibill.SensibillAPIModel.SetPasswordRequestDto, accessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.Empty>
+  func register(_ userRequestDto: Sensibill.SensibillAPIModel.UserRequestDto, clientAccessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.RegisterUserResponseDto>
+  func receiptEmailAvailability(email: Swift.String, accesToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.ReceiptEmailAvailabilityResponseDto>
+  func emailAvailability(email: Swift.String, accesToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.EmailOrUsernameAvailabilityResponseDto>
+  func usernameAvailability(username: Swift.String, accesToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.EmailOrUsernameAvailabilityResponseDto>
+}
+extension Sensibill.SensibillAPIModel {
+  public enum SourceFormat : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case image
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Sensibill.SensibillAPIModel.SourceFormat]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Sensibill.SensibillAPIModel.SourceFormat] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+public protocol AuthenticationEndpointsProvider : Sensibill.EndpointsProvider {
+  func authorizationGrant(userCredentials: Sensibill.SensibillAPIModel.UserCredentials, clientKey: Swift.String, redirectUri: Swift.String, credentialType: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.AuthorizationGrant>
+  func accessToken(withClientCredentials clientCredentials: Sensibill.SensibillAPIModel.ClientCredentials) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.AccessToken>
+  func accessToken(withAuthorizationCode code: Swift.String, redirectUri: Swift.String, clientCredentials: Sensibill.SensibillAPIModel.ClientCredentials) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.AccessToken>
+  func accessToken(withRefreshToken refreshToken: Swift.String, clientCredentials: Sensibill.SensibillAPIModel.ClientCredentials) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.AccessToken>
+  func logout(accessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.Empty>
+  func invalidate(accessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.Empty>
+  func jwtAuthenticate(jwt: Swift.String, clientID: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.AccessToken>
+  func clientInfo(withClientCredentials: Sensibill.SensibillAPIModel.ClientCredentials) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.ClientInfo>
+  func clientInfo(accessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.ClientInfo>
+}
+public protocol FoldersEndpointsProvider : Sensibill.EndpointsProvider {
+}
+public protocol ReceiptsEndpointsProvider : Sensibill.EndpointsProvider {
+  func receipt(update: Sensibill.SensibillAPIModel.ReceiptUpdateDto, id: Swift.String, accessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.EditReceiptResponseDto>
+}
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentDto {
+    public let id: Swift.String
+    public let foreignId: Swift.String?
+    public let arrivalDateTime: Swift.String?
+    public let lastUpdateDateTime: Swift.String?
+    public let documentType: Sensibill.SensibillAPIModel.DocumentType?
+    public let status: Sensibill.SensibillAPIModel.Status?
+    public let content: Sensibill.SensibillAPIModel.DocumentContentDto?
+    public let source: Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto?
+    public init(id: Swift.String, foreignId: Swift.String? = nil, arrivalDateTime: Swift.String? = nil, lastUpdateDateTime: Swift.String? = nil, documentType: Sensibill.SensibillAPIModel.DocumentType? = nil, status: Sensibill.SensibillAPIModel.Status? = nil, content: Sensibill.SensibillAPIModel.DocumentContentDto? = nil, source: Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentDto, b: Sensibill.SensibillAPIModel.DocumentDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel.DocumentDto {
+  public struct DocumentUserMetadataDto {
+    public let expenseType: Sensibill.SensibillAPIModel.DocumentDto.ExpenseTypes?
+    public let folders: [Swift.String]?
+    public let isNew: Swift.Bool?
+    public let notes: Swift.String?
+    public init(expenseType: Sensibill.SensibillAPIModel.DocumentDto.ExpenseTypes? = nil, folders: [Swift.String]? = nil, isNew: Swift.Bool? = nil, notes: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentDto.DocumentUserMetadataDto, b: Sensibill.SensibillAPIModel.DocumentDto.DocumentUserMetadataDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+public protocol MerchantsEndpointsProvider : Sensibill.EndpointsProvider {
+}
+public protocol ExportsEndpointsProvider : Sensibill.EndpointsProvider {
+}
+public protocol LookupsEndpointsProvider : Sensibill.EndpointsProvider {
+  func locales(accessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.LookupLocalesResponse>
+}
+public protocol HomeEndpointsProvider : Sensibill.EndpointsProvider {
+  func home() throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.GeneralInfo>
+}
+public protocol InterceptsEndpointsProvider : Sensibill.EndpointsProvider {
+}
+public protocol EmailAccountsEndpointsProvider : Sensibill.EndpointsProvider {
+}
+public protocol EmailsEndpointsProvider : Sensibill.EndpointsProvider {
+}
+extension Sensibill.SensibillAPIModel.DocumentFeeDto {
+  public enum FeeTypes : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case donation
+    case shipping
+    case duties
+    case general
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Sensibill.SensibillAPIModel.DocumentFeeDto.FeeTypes]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Sensibill.SensibillAPIModel.DocumentFeeDto.FeeTypes] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct GetDocumentListResponseDto {
+    public let documents: [Sensibill.SensibillAPIModel.DocumentDto]?
+    public let count: Swift.Int
+    public init(documents: [Sensibill.SensibillAPIModel.DocumentDto], count: Swift.Int)
+    public static func == (a: Sensibill.SensibillAPIModel.GetDocumentListResponseDto, b: Sensibill.SensibillAPIModel.GetDocumentListResponseDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentTaxDto {
+    public var amount: Swift.Double?
+    public var percent: Swift.Double?
+    public var type: Swift.String?
+    public init(amount: Swift.Double? = nil, percent: Swift.Double? = nil, type: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentTaxDto, b: Sensibill.SensibillAPIModel.DocumentTaxDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SDKConfiguration {
+  @_inheritsConvenienceInitializers @objc(SBLCaptureTipsStyle) public class CaptureTipsStyle : ObjectiveC.NSObject, Swift.Decodable {
+    public var viewBackgroundColor: UIKit.UIColor {
+      get
+      set
+    }
+    public var closeIconButtonForegroundColor: UIKit.UIColor {
+      get
+      set
+    }
+    public var closeIconButtonBackgroundColor: UIKit.UIColor {
+      get
+      set
+    }
+    public var closeButtonBackgroundColor: UIKit.UIColor {
+      get
+      set
+    }
+    public var closeButtonTextColor: UIKit.UIColor {
+      get
+      set
+    }
+    public var nextButtonBackgroundColor: UIKit.UIColor {
+      get
+      set
+    }
+    public var nextButtonTextColor: UIKit.UIColor {
+      get
+      set
+    }
+    public var pageIndicatorTintColor: UIKit.UIColor {
+      get
+      set
+    }
+    public var currentPageIndicatorTintColor: UIKit.UIColor {
+      get
+      set
+    }
+    public var tipImageLinearGradientTopColor: UIKit.UIColor {
+      get
+      set
+    }
+    public var tipImageLinearGradientBottomColor: UIKit.UIColor {
+      get
+      set
+    }
+    public var tipTitleLabelTextColor: UIKit.UIColor {
+      get
+      set
+    }
+    public var tipDescriptionLabelTextColor: UIKit.UIColor {
+      get
+      set
+    }
+    public var closeButtonWidth: Swift.Float {
+      get
+      set
+    }
+    public var nextButtonWidth: Swift.Float {
+      get
+      set
+    }
+    public var closeButtonCornerRadius: Swift.Float {
+      get
+      set
+    }
+    public var nextButtonCornerRadius: Swift.Float {
+      get
+      set
+    }
+    @objc override dynamic public init()
+    required public init(from decoder: Swift.Decoder) throws
+    @objc deinit
+  }
+}
+extension Sensibill.SDKConfiguration.CaptureTipsStyle {
+  @objc dynamic public func setViewBackground(color: UIKit.UIColor)
+  @objc dynamic public func setCloseIconButtonBackground(color: UIKit.UIColor)
+  @objc dynamic public func setCloseIconButtonForeground(color: UIKit.UIColor)
+  @objc dynamic public func setCloseButtonBackground(color: UIKit.UIColor)
+  @objc dynamic public func setCloseButtonText(color: UIKit.UIColor)
+  @objc dynamic public func setNextButtonBackground(color: UIKit.UIColor)
+  @objc dynamic public func setNextButtonText(color: UIKit.UIColor)
+  @objc dynamic public func setPageIndicatorTint(color: UIKit.UIColor)
+  @objc dynamic public func setCurrentPageIndicatorTint(color: UIKit.UIColor)
+  @objc dynamic public func setTipImageLinearGradientTop(color: UIKit.UIColor)
+  @objc dynamic public func setTipImageLinearGradientBottom(color: UIKit.UIColor)
+  @objc dynamic public func setTipTitleLabelText(color: UIKit.UIColor)
+  @objc dynamic public func setTipDescriptionLabelText(color: UIKit.UIColor)
+  @objc dynamic public func setCloseButton(width: Swift.Float)
+  @objc dynamic public func setNextButton(width: Swift.Float)
+  @objc dynamic public func setCloseButton(cornerRadius: Swift.Float)
+  @objc dynamic public func setNextButton(cornerRadius: Swift.Float)
+}
+public enum WebUIConfigurationBuilderError : Swift.Error, Swift.Equatable {
+  case missingUrl
+  case missingClientID
+  case missingToken
+  case missingSDKVersion
+  case missingEnvironment
+  case cannotObtainUrl
+  case onlySecureSchemeAllowed(providedScheme: Swift.String?)
+  public static func == (a: Sensibill.WebUIConfigurationBuilderError, b: Sensibill.WebUIConfigurationBuilderError) -> Swift.Bool
+}
+extension Sensibill.WebUIConfigurationBuilderError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public class WebUIConfigurationBuilder {
+  public init()
+  public func add(url: Foundation.URL?) throws -> Sensibill.WebUIConfigurationBuilder
+  public func add(url urlString: Swift.String?) throws -> Sensibill.WebUIConfigurationBuilder
+  public func add(token: Swift.String?) throws -> Sensibill.WebUIConfigurationBuilder
+  public func add(clientID: Swift.String?) throws -> Sensibill.WebUIConfigurationBuilder
+  public func add(sdkVersion: Swift.String?) throws -> Sensibill.WebUIConfigurationBuilder
+  public func add(environment: Swift.String?) throws -> Sensibill.WebUIConfigurationBuilder
+  public func add(navigationIntent: Sensibill.NavigationIntent?) -> Sensibill.WebUIConfigurationBuilder
+  public func add(brand: Sensibill.WebUIBrand?) -> Sensibill.WebUIConfigurationBuilder
+  public func add(logging: Sensibill.WebUILogging?) -> Sensibill.WebUIConfigurationBuilder
+  public func build() throws -> Sensibill.WebUIConfiguration
+  @objc deinit
+}
+public struct WebUIAuthentication : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension Sensibill.NavigationIntent {
+  public var intent: Sensibill.WebUIIntent {
+    get
+  }
+}
+public struct WebUIConfiguration : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension Sensibill.SensibillUICoordinator.StartOptions {
+  @_inheritsConvenienceInitializers @objc(SensibillUICoordinatorStartOptionsBuilder) public class Builder : ObjectiveC.NSObject {
+    @objc override dynamic public init()
+    @objc public func add(animated: Swift.Bool) -> Sensibill.SensibillUICoordinator.StartOptions.Builder
+    public func add(navigationIntent: Sensibill.NavigationIntent?) -> Sensibill.SensibillUICoordinator.StartOptions.Builder
+    @objc public func addEditMetadataIntent(withTransactions transactions: [Sensibill.SBLTransaction]) -> Sensibill.SensibillUICoordinator.StartOptions.Builder
+    @objc public func add(navigationIntent: Sensibill.SBLNavigationIntent, parameter: Swift.String?) -> Sensibill.SensibillUICoordinator.StartOptions.Builder
+    @objc public func build() -> Sensibill.SensibillUICoordinator.StartOptions
+    @objc deinit
+  }
+}
+public struct WebUILogging : Swift.Codable {
+  public init(enableMessageLogs: Swift.Bool, enableErrorLogs: Swift.Bool)
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension Sensibill.WebUILogging : Swift.Equatable {
+  public static func == (lhs: Sensibill.WebUILogging, rhs: Sensibill.WebUILogging) -> Swift.Bool
+}
+extension Sensibill.WebUIBrand {
+  public class Colors : Swift.Codable {
+    public init(primary: UIKit.UIColor, primaryVariant: UIKit.UIColor, onPrimary: UIKit.UIColor, secondary: UIKit.UIColor, onSecondary: UIKit.UIColor, background: UIKit.UIColor, onBackground: UIKit.UIColor, surface: UIKit.UIColor, surfaceVariant: UIKit.UIColor, onSurface: UIKit.UIColor, onSurfaceFocus: UIKit.UIColor, error: UIKit.UIColor, onError: UIKit.UIColor)
+    @objc deinit
+    public func encode(to encoder: Swift.Encoder) throws
+    required public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.WebUIBrand.Colors : Swift.Equatable {
+  public static func == (lhs: Sensibill.WebUIBrand.Colors, rhs: Sensibill.WebUIBrand.Colors) -> Swift.Bool
+}
+public struct WebUIIntent : Swift.Codable {
+  public init(screen: Swift.String, parameters: [Swift.String : Sensibill.WebUIIntent.ParameterValue]?)
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension Sensibill.WebUIIntent : Swift.Equatable {
+  public static func == (lhs: Sensibill.WebUIIntent, rhs: Sensibill.WebUIIntent) -> Swift.Bool
+}
+extension Sensibill.WebUIIntent : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public class WebUIBrand : Swift.Codable {
+  public init(colors: Sensibill.WebUIBrand.Colors, fonts: Sensibill.WebUIBrand.Fonts)
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+extension Sensibill.WebUIBrand : Swift.Equatable {
+  public static func == (lhs: Sensibill.WebUIBrand, rhs: Sensibill.WebUIBrand) -> Swift.Bool
+}
+public enum NavigationIntent {
+  case dashboard
+  case receiptList
+  case receiptDetails(id: Swift.String)
+  case folderList
+  case folderDetails(id: Swift.String)
+  case exportList
+  case tips
+  case achievements
+  case metadataEdit(localIds: [Swift.String])
+}
+extension Sensibill.NavigationIntent : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct GetDocumentListFilter {
+    public var amountDue: [Swift.Double]?
+    public var amountDueGTE: Swift.Double?
+    public var amountDueLTE: Swift.Double?
+    public var arrivalDateTimeGTE: Swift.String?
+    public var arrivalDateTimeLTE: Swift.String?
+    public var categoryCode: [Swift.String]?
+    public var currencyCode: [Sensibill.SensibillAPIModel.CurrencyCode]?
+    public var documentDate: [Swift.String]?
+    public var documentDateGTE: Swift.String?
+    public var documentDateLTE: Swift.String?
+    public var documentNumber: [Swift.String]?
+    public var documentTime: [Swift.String]?
+    public var documentTimeGTE: Swift.String?
+    public var documentTimeLTE: Swift.String?
+    public var documentType: [Sensibill.SensibillAPIModel.DocumentType]?
+    public var foreignId: [Swift.String]?
+    public var id: [Swift.String]?
+    public var lastUpdateDateTimeGTE: Swift.String?
+    public var lastUpdateDateTimeLTE: Swift.String?
+    public var merchantName: [Swift.String]?
+    public var merchantTaxIdNumber: [Swift.String]?
+    public var paymentTender: [Sensibill.SensibillAPIModel.TenderTypes]?
+    public var sourceFormat: [Sensibill.SensibillAPIModel.SourceFormat]?
+    public var status: [Sensibill.SensibillAPIModel.Status]?
+    public var total: [Swift.Double]?
+    public var totalGTE: Swift.Double?
+    public var totalLTE: Swift.Double?
+    public var limit: Swift.Int?
+    public var offset: Swift.Int?
+    public init()
+    public static func == (a: Sensibill.SensibillAPIModel.GetDocumentListFilter, b: Sensibill.SensibillAPIModel.GetDocumentListFilter) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.WebUIBrand {
+  public class Font : Swift.Codable {
+    public init(family: Swift.String, url: Swift.String)
+    @objc deinit
+    public func encode(to encoder: Swift.Encoder) throws
+    required public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.WebUIBrand.Font : Swift.Equatable {
+  public static func == (lhs: Sensibill.WebUIBrand.Font, rhs: Sensibill.WebUIBrand.Font) -> Swift.Bool
+}
+extension Sensibill.WebUIBrand {
+  public class Fonts : Swift.Codable {
+    public init(regular: Sensibill.WebUIBrand.Font? = nil)
+    @objc deinit
+    public func encode(to encoder: Swift.Encoder) throws
+    required public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.WebUIBrand.Fonts : Swift.Equatable {
+  public static func == (lhs: Sensibill.WebUIBrand.Fonts, rhs: Sensibill.WebUIBrand.Fonts) -> Swift.Bool
+}
+public enum TimeDirection : Swift.String {
+  case future
+  case past
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc(SBLTimeDirection) public enum SBLTimeDirection : Swift.Int {
+  case future
+  case past
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class WebUINavigationController : UIKit.UINavigationController {
+  @_Concurrency.MainActor(unsafe) required public init(configuration: Sensibill.WebUIConfiguration)
+  @objc deinit
+}
+extension Sensibill.WebUINavigationController : Sensibill.WebUIEntryPoint {
+  @_Concurrency.MainActor(unsafe) public func setAuthenticationHandler(_ authenticationHandler: Sensibill.WebUIAuthenticationHandler?)
+  @_Concurrency.MainActor(unsafe) public func setCaptureFlowHandler(_ captureHandler: Sensibill.WebUICaptureFlowHandler?)
+  @_Concurrency.MainActor(unsafe) public func setDownloadHandler(_ downloadHandler: Sensibill.WebUIDownloadHandler?)
+  @_Concurrency.MainActor(unsafe) public func setReceiptEventHandler(_ receiptEventHandler: Sensibill.WebUIReceiptEventHandler?)
+  @_Concurrency.MainActor(unsafe) public func setReceiptMetadataHandler(_ receiptMetadataHandler: Sensibill.WebUIReceiptMetadataHandler?)
+  @_Concurrency.MainActor(unsafe) public func setReceiptUploadStatusHandler(_ receiptUploadStatusHandler: Sensibill.WebUIReceiptUploadStatusHandler?)
+  @_Concurrency.MainActor(unsafe) public func setLifecycleDelegate(_ lifecycleDelegate: Sensibill.WebUILifecycleDelegate)
+  @_Concurrency.MainActor(unsafe) public func getNetworkStateListener() -> Sensibill.WebUINetworkStateListener
+}
+public protocol WebUICaptureFlowHandler : AnyObject {
+  var captureFlowListener: Sensibill.WebUICaptureFlowListener? { get set }
+  func launchCapture()
+}
+public protocol WebUIEntryPoint : AnyObject {
+  init(configuration: Sensibill.WebUIConfiguration)
+  func setAuthenticationHandler(_ authenticationHandler: Sensibill.WebUIAuthenticationHandler?)
+  func setCaptureFlowHandler(_ captureHandler: Sensibill.WebUICaptureFlowHandler?)
+  func setReceiptEventHandler(_ receiptEventHandler: Sensibill.WebUIReceiptEventHandler?)
+  func setReceiptMetadataHandler(_ receiptMetadataHandler: Sensibill.WebUIReceiptMetadataHandler?)
+  func setReceiptUploadStatusHandler(_ receiptUploadStatusHandler: Sensibill.WebUIReceiptUploadStatusHandler?)
+  func setDownloadHandler(_ downloadHandler: Sensibill.WebUIDownloadHandler?)
+  func getNetworkStateListener() -> Sensibill.WebUINetworkStateListener
+}
+public protocol WebUIAuthenticationHandler : AnyObject {
+  var authenticationListener: Sensibill.WebUIAuthenticationListener? { get set }
+  func updateToken()
+}
+public protocol WebUIDownloadHandler : AnyObject {
+  var downloadListener: Sensibill.WebUIDownloadListener? { get set }
+  func downloadFile(downloadUrl: Foundation.URL, filename: Swift.String?)
+}
+public protocol WebUIDownloadListener : AnyObject {
+  var downloadHandler: Sensibill.WebUIDownloadHandler? { get set }
+  func onDownloadComplete(downloadUrl: Swift.String)
+  func onDownloadFailed(downloadUrl: Swift.String)
+}
+public enum EndpointVersion : Swift.String {
+  case v1
+  case v2
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol WebUILifecycleDelegate : AnyObject {
+  func moduleWillRestartWebView()
+  func moduleDidRequestTerminate()
+  func moduleDidEncounterFatalError()
+}
+public protocol WebUIAuthenticationListener : AnyObject {
+  var authenticationHandler: Sensibill.WebUIAuthenticationHandler? { get set }
+  func onTokenChangeSuccess(token: Swift.String)
+}
+public protocol WebUINetworkStateListener : AnyObject {
+  func reachabilityDidChange(isOnline: Swift.Bool)
+}
+public protocol WebUICaptureFlowListener : AnyObject {
+  var captureFlowHandler: Sensibill.WebUICaptureFlowHandler? { get set }
+  func onCaptureFlowSuccess(transactionLocalIds: [Swift.String])
+  func onCaptureFlowCancelled()
+  func onTransactionUpdate(status: Swift.String, localID: Swift.String, transactionID: Swift.String?, receiptID: Swift.String?)
+}
+extension Foundation.Data {
+  public var metadata: [Swift.String : Any]? {
+    get
+  }
+  public func getLocation() -> CoreLocation.CLLocation?
+}
+@objc extension Foundation.NSData {
+  @objc dynamic public var metadata: [Swift.String : Any]? {
+    @objc get
+  }
+  @objc dynamic public func getLocation() -> CoreLocation.CLLocation?
+}
+extension Sensibill.SensibillAPIModel {
+  public struct PasswordStrength {
+    public let minStrength: Swift.Float
+    public let maxStrength: Swift.Float
+    public let strength: Swift.Float
+    public static func == (a: Sensibill.SensibillAPIModel.PasswordStrength, b: Sensibill.SensibillAPIModel.PasswordStrength) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct EmailOrUsernameAvailabilityResponseDto {
+    public let available: Swift.Bool
+    public static func == (a: Sensibill.SensibillAPIModel.EmailOrUsernameAvailabilityResponseDto, b: Sensibill.SensibillAPIModel.EmailOrUsernameAvailabilityResponseDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SDKConfiguration.SensibillUIConfiguration {
+  public var webAppUrl: Foundation.URL? {
+    get
+    set
+  }
+}
+extension Foundation.URL {
+  public func urlByAddingOrUpdatingQueryItems(_ items: [Foundation.URLQueryItem]) -> Foundation.URL?
+}
+extension Sensibill.PasswordAuthenticator {
+  @objc dynamic public func checkExistence(accessId: Swift.String, completion: @escaping (_ exists: Swift.Bool, _ error: Sensibill.SensibillError) -> Swift.Void)
+}
+extension Sensibill.PasswordAuthenticator {
+  @objc dynamic public func checkExistence(receiptEmail: Swift.String, completion: @escaping (_ exists: Swift.Bool, _ error: Sensibill.SensibillError) -> Swift.Void)
+}
+extension Sensibill.SensibillAPIModel.DocumentDto {
+  public struct SourceDocumentDto {
+    public let format: Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto.SourceDocumentFormats?
+    public let url: Swift.String?
+    public let imagePreview: Swift.String?
+    public init(format: Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto.SourceDocumentFormats? = nil, url: Swift.String? = nil, imagePreview: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto, b: Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct GetDocumentResponseDto {
+    public let document: Sensibill.SensibillAPIModel.DocumentDto?
+    public let error: Sensibill.SensibillAPIModel.DocumentErrorDto?
+    public init(document: Sensibill.SensibillAPIModel.DocumentDto? = nil, error: Sensibill.SensibillAPIModel.DocumentErrorDto? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.GetDocumentResponseDto, b: Sensibill.SensibillAPIModel.GetDocumentResponseDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct LookupLocalesResponse {
+    public var locales: [Sensibill.SensibillAPIModel.LookupLocalesDto]
+    public static func == (a: Sensibill.SensibillAPIModel.LookupLocalesResponse, b: Sensibill.SensibillAPIModel.LookupLocalesResponse) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLSharedMetaData) public class SharedMetaData : ObjectiveC.NSObject, Foundation.NSSecureCoding, Swift.Codable {
+  @objc public static var supportsSecureCoding: Swift.Bool {
+    @objc get
+  }
+  @objc public var expenseType: Sensibill.ReceiptExpenseType
+  @objc public var favorite: Swift.Bool
+  @objc public var folders: [Swift.String]?
+  @objc public var note: Swift.String?
+  @objc public var receiptCategory: Swift.String?
+  @objc public var tags: [Swift.String]?
+  @objc override dynamic public init()
+  @objc required public init?(coder: Foundation.NSCoder)
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+extension Sensibill.SharedMetaData {
+  public var dictionary: [Swift.String : Any] {
+    get
+  }
+}
+extension Sensibill.SharedMetaData {
+  @objc dynamic public var sblDictionary: Foundation.NSDictionary {
+    @objc get
+  }
+  @objc dynamic public var expenseTypeCode: Swift.String? {
+    @objc get
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct ResetTempPasswordRequestDto {
+    public let accessID: Swift.String
+    public let tempPassword: Swift.String
+    public let password: Swift.String
+    public let credentialType: Swift.String?
+    public init(accessID: Swift.String, tempPassword: Swift.String, password: Swift.String, credentialType: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.ResetTempPasswordRequestDto, b: Sensibill.SensibillAPIModel.ResetTempPasswordRequestDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel.DocumentDiscountDto {
+  public enum DiscountTypes : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case general
+    case coupon
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Sensibill.SensibillAPIModel.DocumentDiscountDto.DiscountTypes]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Sensibill.SensibillAPIModel.DocumentDiscountDto.DiscountTypes] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension Sensibill.SensibillUICoordinator {
+  @objc(SensibillUICoordinatorStartOptions) public class StartOptions : ObjectiveC.NSObject {
+    final public let animated: Swift.Bool
+    final public let navigationIntent: Sensibill.NavigationIntent?
+    public init(animated: Swift.Bool, navigationIntent: Sensibill.NavigationIntent?)
+    @objc deinit
+  }
+}
+extension Sensibill.PasswordAuthenticator {
+  @objc dynamic public func login(accessId: Swift.String? = nil, password: Swift.String? = nil, completion: @escaping (_ error: Sensibill.SensibillError) -> Swift.Void)
+  @objc dynamic public func logout(completion: @escaping (_ error: Sensibill.SensibillError) -> Swift.Void)
+}
+public func ranged<T>(_ value: T, _ range: Swift.ClosedRange<T>) -> T where T : Swift.Comparable
+extension Sensibill.SensibillAPIModel {
+  public enum TenderTypes : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case amex
+    case cash
+    case check
+    case coupon
+    case credit
+    case creditDebit
+    case customerAccount
+    case debit
+    case dinersClub
+    case fleet
+    case giftCard
+    case giftCertificate
+    case houseAccount
+    case interac
+    case internationalMaestro
+    case loyalty
+    case masterCard
+    case paypal
+    case prepaid
+    case storeCard
+    case storedValue
+    case travelersCheck
+    case ukmaestro
+    case visaCredit
+    case visaDebit
+    case visa
+    case voucher
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Sensibill.SensibillAPIModel.TenderTypes]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Sensibill.SensibillAPIModel.TenderTypes] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentFeeDto {
+    public let description: Swift.String?
+    public let type: Sensibill.SensibillAPIModel.DocumentFeeDto.FeeTypes?
+    public let taxes: [Sensibill.SensibillAPIModel.DocumentTaxDto]?
+    public let beforeTax: Swift.Double?
+    public let afterTax: Swift.Double?
+    public init(description: Swift.String? = nil, type: Sensibill.SensibillAPIModel.DocumentFeeDto.FeeTypes? = nil, taxes: [Sensibill.SensibillAPIModel.DocumentTaxDto]? = nil, beforeTax: Swift.Double? = nil, afterTax: Swift.Double? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentFeeDto, b: Sensibill.SensibillAPIModel.DocumentFeeDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+public enum TimeUnit : Swift.String {
+  case day
+  case month
+  case week
+  case year
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc(SBLTimeUnit) public enum SBLTimeUnit : Swift.Int {
+  case notSet
+  case day
+  case month
+  case week
+  case year
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers final public class SensibillAPIClient {
+  public static func get(configuration: Sensibill.SensibillAPIClient.Configuration) -> Sensibill.SensibillAPIProvider
+  @objc deinit
+}
+public func SBLocalizedString(key: Swift.String) -> Swift.String
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentItemDto {
+    public let description: Swift.String?
+    public let brand: Swift.String?
+    public let buyLink: Swift.String?
+    public let discounts: [Sensibill.SensibillAPIModel.DocumentDiscountDto]?
+    public let fees: [Sensibill.SensibillAPIModel.DocumentFeeDto]?
+    public let imageUrl: Swift.String?
+    public let itemIds: [Swift.String]?
+    public let listPrice: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto?
+    public let loyaltyRewards: Sensibill.SensibillAPIModel.DocumentLoyaltyRewardsDto?
+    public let name: Swift.String?
+    public let price: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto?
+    public let priceBeforeDiscountsFees: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto?
+    public let properties: [Sensibill.SensibillAPIModel.DocumentItemDto.DocumentItemDtoProperties]?
+    public let serialNumbers: [Swift.String]?
+    public let sku: Swift.String?
+    public let unitListPrice: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto?
+    public let unitOfMeasure: Swift.String?
+    public let unitPrice: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto?
+    public let unitQuantity: Swift.Double?
+    public init(description: Swift.String? = nil, brand: Swift.String? = nil, buyLink: Swift.String? = nil, discounts: [Sensibill.SensibillAPIModel.DocumentDiscountDto]? = nil, fees: [Sensibill.SensibillAPIModel.DocumentFeeDto]? = nil, imageUrl: Swift.String? = nil, itemIds: [Swift.String]? = nil, listPrice: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, loyaltyRewards: Sensibill.SensibillAPIModel.DocumentLoyaltyRewardsDto? = nil, name: Swift.String? = nil, price: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, priceBeforeDiscountsFees: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, properties: [Sensibill.SensibillAPIModel.DocumentItemDto.DocumentItemDtoProperties]? = nil, serialNumbers: [Swift.String]? = nil, sku: Swift.String? = nil, unitListPrice: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, unitOfMeasure: Swift.String? = nil, unitPrice: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, unitQuantity: Swift.Double? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentItemDto, b: Sensibill.SensibillAPIModel.DocumentItemDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+@objc(SBLEventListener) public protocol EventListener {
+  @objc func onSensibillEvent(_ event: Sensibill.TrackingEvent)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SBLAnalytics) public class Analytics : ObjectiveC.NSObject {
+  @objc public static let shared: Sensibill.Analytics
+  @objc deinit
+}
+extension Sensibill.Analytics {
+  @objc dynamic public func addListener(key: Swift.String, listener: Sensibill.EventListener)
+  @objc dynamic public func removeListener(key: Swift.String)
+}
+@_hasMissingDesignatedInitializers public class DetectedReceipt {
+  @objc deinit
+}
+extension Sensibill.DetectedReceipt : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension Sensibill.DetectedReceipt : Foundation.NSCopying {
+  @objc dynamic public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+}
+extension Sensibill.DetectedReceipt : Swift.Equatable {
+  public static func == (lhs: Sensibill.DetectedReceipt, rhs: Sensibill.DetectedReceipt) -> Swift.Bool
+}
+extension Sensibill.SBReceipt {
+  @objc public static func getReceiptsModels(fromResponse responses: [[Swift.AnyHashable : Any]]) -> [Sensibill.SBReceipt]
+}
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentDiscountDto {
+    public let description: Swift.String?
+    public let methodCode: Swift.String?
+    public let percent: Swift.Double?
+    public let type: Sensibill.SensibillAPIModel.DocumentDiscountDto.DiscountTypes?
+    public let taxes: [Sensibill.SensibillAPIModel.DocumentTaxDto]?
+    public let beforeTax: Swift.Double?
+    public let afterTax: Swift.Double?
+    public init(description: Swift.String? = nil, methodCode: Swift.String? = nil, percent: Swift.Double? = nil, type: Sensibill.SensibillAPIModel.DocumentDiscountDto.DiscountTypes? = nil, taxes: [Sensibill.SensibillAPIModel.DocumentTaxDto]? = nil, beforeTax: Swift.Double? = nil, afterTax: Swift.Double? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentDiscountDto, b: Sensibill.SensibillAPIModel.DocumentDiscountDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLCaptureConfigurationBuilder) public class CaptureConfigurationBuilder : ObjectiveC.NSObject {
+  @objc public func add(bundle: Foundation.Bundle?) -> Sensibill.CaptureConfigurationBuilder
+  @objc public func add(theme: Sensibill.CaptureTheme?) -> Sensibill.CaptureConfigurationBuilder
+  @objc public func build() -> Sensibill.CaptureConfiguration
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SBLCaptureConfiguration) @objcMembers public class CaptureConfiguration : ObjectiveC.NSObject {
+  @objc final public let bundle: Foundation.Bundle?
+  @objc final public let theme: Sensibill.CaptureTheme?
+  @objc deinit
+}
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentDeleteRequestDto {
+    public let ids: [Swift.String]
+    public init(ids: [Swift.String])
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentDeleteRequestDto, b: Sensibill.SensibillAPIModel.DocumentDeleteRequestDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+@_hasMissingDesignatedInitializers @objc(SBLCaptureTheme) @objcMembers public class CaptureTheme : Sensibill.DefaultTheme {
+  @objc public var captureBackgroundColor: UIKit.UIColor
+  @objc public var onCaptureBackgroundColor: UIKit.UIColor
+  @objc public var detectionStrokeColor: UIKit.UIColor
+  @objc public var detectionFillColor: UIKit.UIColor
+  @objc public var captureCircleStrokeColor: UIKit.UIColor
+  @objc public var captureCircleFillColor: UIKit.UIColor
+  @objc public var capturePageCountBackgroundColor: UIKit.UIColor
+  @objc public var capturePageCountTextColor: UIKit.UIColor
+  @objc public var captureDocumentTypeButtonTextColor: UIKit.UIColor
+  @objc public var autoCaptureButtonTextColor: UIKit.UIColor
+  @objc public var capturePreviewTitleColor: UIKit.UIColor
+  @objc public var capturePreviewDoneButtonBackgroundColor: UIKit.UIColor
+  @objc public var capturePreviewDoneButtonTextColor: UIKit.UIColor
+  @objc public var capturePreviewPageControlTintColor: UIKit.UIColor
+  @objc public var capturePreviewCurrentPageControlColor: UIKit.UIColor
+  @objc public var cropCancelButtonBackgroundColor: UIKit.UIColor
+  @objc public var cropCancelButtonTextColor: UIKit.UIColor
+  @objc public var cropDoneButtonBackgroundColor: UIKit.UIColor
+  @objc public var cropDoneButtonTextColor: UIKit.UIColor
+  @objc public var cropLoaderColor: UIKit.UIColor
+  @objc public var capturePermissionTitleColor: UIKit.UIColor
+  @objc public var capturePermissionMessageColor: UIKit.UIColor
+  @objc public var capturePermissionButtonBackgroundColor: UIKit.UIColor
+  @objc public var capturePermissionButtonTextColor: UIKit.UIColor
+  @objc public var toastBackgroundColor: UIKit.UIColor
+  @objc public var toastTitleColor: UIKit.UIColor
+  @objc public var autoCaptureButtonCornerRadius: Swift.Float
+  @objc public var detectionLineWidth: Swift.Float
+  @objc public var captureCircleLineWidth: Swift.Float
+  @objc public var capturePreviewDoneButtonCornerRadius: Swift.Float
+  @objc public var capturePreviewDoneButtonHeight: Swift.Float
+  @objc public var capturePreviewDoneButtonWidth: Swift.Float
+  @objc public var capturePreviewLoaderColor: UIKit.UIColor
+  @objc public var cropCancelButtonCornerRadius: Swift.Float
+  @objc public var cropDoneButtonCornerRadius: Swift.Float
+  @objc public var cropDoneButtonHeight: Swift.Float
+  @objc public var cropDoneButtonWidth: Swift.Float
+  @objc public var cropCornerPointDiameter: Swift.Float
+  @objc public var cropEdgeTouchThreshold: Swift.Float
+  @objc public var capturePermissionButtonCornerRadius: Swift.Float
+  @objc public var capturePermissionButtonHeight: Swift.Float
+  @objc public var capturePermissionButtonWidth: Swift.Float
+  @objc public var toastCornerRadius: Swift.Float
+  @objc public init(defaults: Sensibill.DefaultTheme)
+  @objc deinit
+}
+extension Sensibill.SensibillAPIModel {
+  public enum DocumentType : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case invoice
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Sensibill.SensibillAPIModel.DocumentType]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Sensibill.SensibillAPIModel.DocumentType] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+@_hasMissingDesignatedInitializers @objc(SBLCaptureNavigationController) @_Concurrency.MainActor(unsafe) public class CaptureNavigationController : UIKit.UINavigationController {
+  @objc @_Concurrency.MainActor(unsafe) public var captureConfiguration: Sensibill.CaptureConfiguration {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) weak public var captureDelegate: Sensibill.CaptureNavigationControllerDelegate?
+  @_Concurrency.MainActor(unsafe) @objc convenience dynamic public init()
+  @objc @_Concurrency.MainActor(unsafe) public init(configuration: Sensibill.CaptureConfiguration)
+  @objc deinit
+}
+@objc(SBLCaptureNavigationControllerDelegate) public protocol CaptureNavigationControllerDelegate {
+  @objc @available(*, unavailable, message: "Removed in 2021.5.0. Please use captureNavigationController(_:didFinishCapture:) instead.")
+  func captureNavigationController(_ controller: Sensibill.CaptureNavigationController, didCapture images: [UIKit.UIImage])
+  @objc func captureNavigationController(_ controller: Sensibill.CaptureNavigationController, didFinishCapture result: Sensibill.CaptureResult)
+}
+@_hasMissingDesignatedInitializers @objc(SBLDefaultTheme) @objcMembers public class DefaultTheme : ObjectiveC.NSObject, Swift.Decodable {
+  @objc public var bundle: Foundation.Bundle? {
+    get
+  }
+  @objc public var plistData: Foundation.Data? {
+    get
+  }
+  @objc public var primary: UIKit.UIColor
+  @objc public var primaryVariant: UIKit.UIColor
+  @objc public var onPrimary: UIKit.UIColor
+  @objc public var secondary: UIKit.UIColor
+  @objc public var onSecondary: UIKit.UIColor
+  @objc public var background: UIKit.UIColor
+  @objc public var onBackground: UIKit.UIColor
+  @objc public var surface: UIKit.UIColor
+  @objc public var surfaceVariant: UIKit.UIColor
+  @objc public var onSurface: UIKit.UIColor
+  @objc public var onSurfaceFocus: UIKit.UIColor
+  @objc public var error: UIKit.UIColor
+  @objc public var onError: UIKit.UIColor
+  @objc public var primaryButtonCornerRadius: Swift.Float {
+    get
+  }
+  @objc public var primaryButtonHeight: Swift.Float {
+    get
+  }
+  @objc public var primaryButtonWidth: Swift.Float {
+    get
+  }
+  @objc public var secondaryButtonCornerRadius: Swift.Float {
+    get
+  }
+  @objc public var secondaryButtonHeight: Swift.Float {
+    get
+  }
+  @objc public var secondaryButtonWidth: Swift.Float {
+    get
+  }
+  public var fonts: Sensibill.FontManager! {
+    get
+  }
+  @objc required public init(overrideBundle: Foundation.Bundle?)
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class FontManager : Swift.Decodable {
+  public var defaultFontSet: Sensibill.SDKConfiguration.FontSet
+  required public init(from decoder: Swift.Decoder) throws
+  public var body: UIKit.UIFont {
+    get
+    set
+  }
+  public var headline: UIKit.UIFont {
+    get
+    set
+  }
+  public var subhead: UIKit.UIFont {
+    get
+    set
+  }
+  public var footnote: UIKit.UIFont {
+    get
+    set
+  }
+  public var largeTitle: UIKit.UIFont {
+    get
+    set
+  }
+  public var title: UIKit.UIFont {
+    get
+    set
+  }
+  public var titleTwo: UIKit.UIFont {
+    get
+    set
+  }
+  public var titleThree: UIKit.UIFont {
+    get
+    set
+  }
+  public var callout: UIKit.UIFont {
+    get
+    set
+  }
+  public var captionOne: UIKit.UIFont {
+    get
+    set
+  }
+  public var captionTwo: UIKit.UIFont {
+    get
+    set
+  }
+  @objc deinit
+}
+extension Sensibill.SensibillAPIModel.DocumentDto {
+  public enum ExpenseTypes : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case personal
+    case business
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Sensibill.SensibillAPIModel.DocumentDto.ExpenseTypes]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Sensibill.SensibillAPIModel.DocumentDto.ExpenseTypes] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public enum SourceFileError : Swift.Error {
+    case dataExceedMaxFileSize
+    public static func == (a: Sensibill.SensibillAPIModel.SourceFileError, b: Sensibill.SensibillAPIModel.SourceFileError) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public struct SourceFile {
+    public init(data: Foundation.Data, filename: Swift.String, mimeType: Sensibill.SensibillAPIModel.MIMEType) throws
+    public static func == (a: Sensibill.SensibillAPIModel.SourceFile, b: Sensibill.SensibillAPIModel.SourceFile) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLPendingUnauthorizedTasks) public class PendingUnauthorizedTasks : ObjectiveC.NSObject {
+  @objc public func add(_ request: Sensibill.APIRequest)
+  @objc public func performForAll(_ executionBlock: @escaping (Sensibill.APIRequest) -> Swift.Void)
+  @objc public func sendErrorToAll(_ error: Swift.Error)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SBLPrivateMetaData) public class PrivateMetaData : ObjectiveC.NSObject, Foundation.NSSecureCoding {
+  @objc public static var supportsSecureCoding: Swift.Bool {
+    @objc get
+  }
+  @objc public var accountTransactionID: Swift.String?
+  @objc override dynamic public init()
+  @objc public init(withDictionary dict: [Swift.String : Any])
+  @objc required public init?(coder: Foundation.NSCoder)
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension Sensibill.PrivateMetaData {
+  public var dictionary: [Swift.String : Swift.String] {
+    get
+  }
+}
+extension Sensibill.PrivateMetaData {
+  @objc dynamic public var sblDictionary: Foundation.NSDictionary {
+    @objc get
+  }
+}
+extension Sensibill.PrivateMetaData {
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentContentDto {
+    public var amountDue: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto?
+    public let barcodes: [Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentBarcodeDto]?
+    public let countryCode: Sensibill.SensibillAPIModel.DocumentContentDto.CountryCode?
+    public var currencyCode: Sensibill.SensibillAPIModel.CurrencyCode?
+    public let customer: Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentCustomerDto?
+    public let discounts: [Sensibill.SensibillAPIModel.DocumentDiscountDto]?
+    public var documentNumber: Swift.String?
+    public var dueDate: Swift.String?
+    public var documentDate: Swift.String?
+    public var documentTime: Swift.String?
+    public let fees: [Sensibill.SensibillAPIModel.DocumentFeeDto]?
+    public let items: [Sensibill.SensibillAPIModel.DocumentItemDto]?
+    public let languageCode: Swift.String?
+    public var merchant: Sensibill.SensibillAPIModel.DocumentMerchantDto?
+    public let savings: Swift.Double?
+    public let deliveries: [Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryDto]?
+    public let loyaltyRewards: Sensibill.SensibillAPIModel.DocumentLoyaltyRewardsDto?
+    public let payments: [Sensibill.SensibillAPIModel.DocumentPaymentDto]?
+    public var total: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto?
+    public let totalBeforeTips: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto?
+    public var totalBeforeDiscountsFeesTips: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto?
+    public init(amountDue: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, barcodes: [Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentBarcodeDto]? = nil, countryCode: Sensibill.SensibillAPIModel.DocumentContentDto.CountryCode? = nil, currencyCode: Sensibill.SensibillAPIModel.CurrencyCode? = nil, customer: Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentCustomerDto? = nil, discounts: [Sensibill.SensibillAPIModel.DocumentDiscountDto]? = nil, documentNumber: Swift.String? = nil, dueDate: Swift.String? = nil, documentDate: Swift.String? = nil, documentTime: Swift.String? = nil, fees: [Sensibill.SensibillAPIModel.DocumentFeeDto]? = nil, items: [Sensibill.SensibillAPIModel.DocumentItemDto]? = nil, languageCode: Swift.String? = nil, merchant: Sensibill.SensibillAPIModel.DocumentMerchantDto? = nil, savings: Swift.Double? = nil, deliveries: [Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryDto]? = nil, loyaltyRewards: Sensibill.SensibillAPIModel.DocumentLoyaltyRewardsDto? = nil, payments: [Sensibill.SensibillAPIModel.DocumentPaymentDto]? = nil, total: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, totalBeforeTips: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, totalBeforeDiscountsFeesTips: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentContentDto, b: Sensibill.SensibillAPIModel.DocumentContentDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.PasswordAuthenticator {
+  @objc dynamic public func changePassword(currentPassword: Swift.String, newPassword: Swift.String, completion: @escaping (_ error: Sensibill.SensibillError) -> Swift.Void)
+}
+extension Sensibill.SensibillUICoordinator : Sensibill.WebUILifecycleDelegate {
+  public func moduleWillRestartWebView()
+  public func moduleDidRequestTerminate()
+  public func moduleDidEncounterFatalError()
+}
+public protocol DocumentsEndpointsProvider : Sensibill.EndpointsProvider {
+  func document(id: Swift.String, accessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.GetDocumentResponseDto>
+  func documents(accessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.GetDocumentListResponseDto>
+  func documents(filter: Sensibill.SensibillAPIModel.GetDocumentListFilter, accessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.GetDocumentListResponseDto>
+  func document(create: Sensibill.SensibillAPIModel.DocumentCreationRequestDto, accessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.DocumentCreationResponseDto>
+  func document(update: Sensibill.SensibillAPIModel.EditDocumentRequestDto, id: Swift.String, accessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.EditDocumentResponseDto>
+  func document(delete: Sensibill.SensibillAPIModel.DocumentDeleteRequestDto, accessToken: Swift.String) throws -> Sensibill.SensibillAPITask<Sensibill.SensibillAPIModel.DocumentDeleteResponseDto>
+}
+@_inheritsConvenienceInitializers @objc(SBLReward) public class Reward : ObjectiveC.NSObject {
+  @objc public var accountNumber: Swift.String?
+  @objc public var programName: Swift.String?
+  @objc public var pointsAwarded: Swift.Double
+  @objc public var currentBalance: Swift.Double
+  @objc public var nextRewardLevel: Swift.Double
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Sensibill.SensibillAPIModel.DocumentContentDto {
+  public enum DeliveryTypes : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case pickup
+    case delivery
+    case shipping
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryTypes]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryTypes] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+public protocol WebUIReceiptEventHandler : AnyObject {
+  func notifyReceiptUpdateEvent(event: Sensibill.WebUIReceiptEvent, receiptId: Swift.String)
+}
+extension Sensibill.SensibillAPIModel.DocumentContentDto {
+  public enum CountryCode : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case ca
+    case us
+    case uk
+    case ie
+    case es
+    case nl
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Sensibill.SensibillAPIModel.DocumentContentDto.CountryCode]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Sensibill.SensibillAPIModel.DocumentContentDto.CountryCode] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentLoyaltyRewardsDto {
+    public let accountNumber: Swift.String?
+    public let currentBalance: Swift.Double?
+    public let nextRewardLevel: Swift.Double?
+    public let pointsAwarded: Swift.Double?
+    public let programName: Swift.String?
+    public init(accountNumber: Swift.String? = nil, currentBalance: Swift.Double? = nil, nextRewardLevel: Swift.Double? = nil, pointsAwarded: Swift.Double? = nil, programName: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentLoyaltyRewardsDto, b: Sensibill.SensibillAPIModel.DocumentLoyaltyRewardsDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+@objc(SBLReceiptType) public enum ReceiptType : Swift.Int {
+  case unknown
+  case itemized
+  case payment
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLReceiptCollection) public class ReceiptCollection : ObjectiveC.NSObject {
+  @objc public static let shared: Sensibill.ReceiptCollection
+  @objc public func find(filter: Sensibill.ReceiptSearchFilter? = nil, completion: @escaping (_ receipts: [Sensibill.ReceiptSummary], _ error: Swift.Error?) -> Swift.Void)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(SBLTransactionType) public enum TransactionType : Swift.Int {
+  case undefined
+  case image
+  case email
+  case nonReceiptEmail
+  case update
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Sensibill.TransactionType : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public protocol WebUIReceiptUploadStatusListener : AnyObject {
+  var receiptUploadStatusHandler: Sensibill.WebUIReceiptUploadStatusHandler? { get set }
+  func receiptUploadStatuses(_ statuses: [Self.ReceiptUploadStatus])
+}
+extension Sensibill.WebUIReceiptUploadStatusListener {
+  public typealias ReceiptUploadStatus = (status: Swift.String, localID: Swift.String, transactionID: Swift.String?, receiptID: Swift.String?)
+}
+extension Sensibill.SensibillAPIModel {
+  public enum CurrencyCode : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case USD
+    case CAD
+    case GBP
+    case EUR
+    case NZD
+    case AUD
+    case BRL
+    case CLP
+    case CNY
+    case CZK
+    case DKK
+    case HKD
+    case HUF
+    case INR
+    case IDR
+    case ILS
+    case JPY
+    case MYR
+    case MXN
+    case NOK
+    case PKR
+    case PHP
+    case PLN
+    case RUB
+    case SGD
+    case ZAR
+    case KRW
+    case SEK
+    case CHF
+    case TWD
+    case THB
+    case TRY
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Sensibill.SensibillAPIModel.CurrencyCode]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Sensibill.SensibillAPIModel.CurrencyCode] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+@_hasMissingDesignatedInitializers @objc(SBLPasswordEvaluation) public class PasswordEvaluation : ObjectiveC.NSObject {
+  @objc public var strength: Sensibill.PasswordStrength {
+    get
+  }
+  @objc public var acceptable: Swift.Bool {
+    get
+  }
+  @objc public var value: Swift.Float {
+    get
+  }
+  @objc public var minStrength: Swift.Float {
+    get
+  }
+  @objc public var maxStrength: Swift.Float {
+    get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SBLUserSubmittedData) public class UserSubmittedData : ObjectiveC.NSObject, Foundation.NSSecureCoding {
+  @objc public static var supportsSecureCoding: Swift.Bool {
+    @objc get
+  }
+  @objc public var grandTotal: Swift.Float
+  @objc public var receiptDate: Swift.String?
+  @objc public var merchantName: Swift.String?
+  @objc public var receiptCategory: Swift.String?
+  @objc public var currencyCode: Swift.String?
+  @objc override dynamic public init()
+  @objc required public init?(coder: Foundation.NSCoder)
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension Sensibill.UserSubmittedData {
+  public var dictionary: [Swift.String : Swift.String] {
+    get
+  }
+}
+extension Sensibill.UserSubmittedData {
+  @objc dynamic public var sblDictionary: Foundation.NSDictionary {
+    @objc get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SBLSDKConfiguration) public class SDKConfiguration : ObjectiveC.NSObject, Swift.Decodable {
+  @objc public static let shared: Sensibill.SDKConfiguration
+  @objc public var certificatePinningEnabled: Swift.Bool
+  @objc public var externalBundle: Foundation.Bundle?
+  @objc public var fonts: Sensibill.SDKConfiguration.FontSet
+  @objc public var colors: Sensibill.SDKConfiguration.ColorPalette
+  @objc public var capture: Sensibill.SDKConfiguration.CaptureSettings
+  public var sensibillUI: Sensibill.SDKConfiguration.SensibillUIConfiguration
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+extension Sensibill.SDKConfiguration {
+  public func resetToDefault()
+  public func copy(from configuration: Sensibill.SDKConfiguration)
+}
+@_hasMissingDesignatedInitializers @objc(SBLCache) public class Cache : ObjectiveC.NSObject {
+  @objc public static let sharedCache: Sensibill.Cache
+  @objc public static var userCache: Sensibill.Cache? {
+    @objc get
+  }
+  @objc public func set(data: Any, forKey key: Swift.String) throws
+  @objc public func data(forKey key: Swift.String, forClasses classes: [Swift.AnyClass]) throws -> Any
+  @objc public func removeData(forKey key: Swift.String) throws
+  @objc public func clearCache() throws
+  @objc deinit
+}
+@objc(SBLMerchantChannel) public enum MerchantChannel : Swift.Int {
+  case unknown
+  case physical
+  case online
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct UserRequestDto {
+    public let accessID: Swift.String
+    public let accessSecret: Swift.String
+    public let credentialType: Swift.String
+    public let firstName: Swift.String?
+    public let lastName: Swift.String?
+    public let receiptAccountEmail: Swift.String?
+    public let email: Swift.String?
+    public let defaultCurrency: Swift.String?
+    public init(accessID: Swift.String, accessSecret: Swift.String, credentialType: Swift.String, firstName: Swift.String?, lastName: Swift.String?, receiptAccountEmail: Swift.String?, email: Swift.String?, defaultCurrency: Swift.String?)
+    public static func == (a: Sensibill.SensibillAPIModel.UserRequestDto, b: Sensibill.SensibillAPIModel.UserRequestDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLNetworkRetryCounter) public class NetworkRetryCounter : ObjectiveC.NSObject {
+  @objc public func resetFailureCount()
+  @discardableResult
+  @objc public func addAndGetFailures(_ addedValue: Swift.Int) -> Swift.Int
+  @discardableResult
+  @objc public func addFailure() -> Swift.Int
+  @discardableResult
+  @objc public func addRetry() -> Swift.Int
+  @objc public func shouldRetry() -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Sensibill.SensibillUICoordinator : Sensibill.WebUIDownloadHandler {
+  public func downloadFile(downloadUrl: Foundation.URL, filename: Swift.String?)
+}
+@_inheritsConvenienceInitializers @objc(SBLFolderCollection) public class FolderCollection : ObjectiveC.NSObject {
+  @objc public static let shared: Sensibill.FolderCollection
+  @objc public func find(completion: @escaping ([Sensibill.Folder], Swift.Error?) -> Swift.Void)
+  @objc public func find(identifier: Swift.String, completion: @escaping (Sensibill.Folder?, Swift.Error?) -> Swift.Void)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(SBLDiscountType) public enum DiscountType : Swift.Int {
+  case unknown
+  case general
+  case coupon
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(SBLCredentials) public class Credentials : ObjectiveC.NSObject, Foundation.NSSecureCoding {
+  @objc public static var supportsSecureCoding: Swift.Bool {
+    @objc get
+  }
+  @objc public static var current: Sensibill.Credentials? {
+    @objc get
+  }
+  @objc public var accessToken: Swift.String?
+  @objc public var refreshToken: Swift.String?
+  @objc public init?(accessToken: Swift.String?, refreshToken: Swift.String? = nil)
+  @objc required convenience public init?(coder decoder: Foundation.NSCoder)
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc public static func register(newCredentials: Sensibill.Credentials?)
+  @objc deinit
+}
+extension Sensibill.SDKConfiguration {
+  @_inheritsConvenienceInitializers @objc(SBLCaptureStyle) public class CaptureStyle : ObjectiveC.NSObject, Swift.Decodable {
+    public var captureBackgroundColor: UIKit.UIColor?
+    public var onCaptureBackgroundColor: UIKit.UIColor?
+    public var detectionStrokeColor: UIKit.UIColor?
+    public var detectionFillColor: UIKit.UIColor?
+    public var captureCircleStrokeColor: UIKit.UIColor?
+    public var captureCircleFillColor: UIKit.UIColor?
+    public var capturePageCountBackgroundColor: UIKit.UIColor?
+    public var capturePageCountTextColor: UIKit.UIColor?
+    public var captureDocumentTypeButtonTextColor: UIKit.UIColor?
+    public var autoCaptureButtonTextColor: UIKit.UIColor?
+    public var capturePreviewTitleColor: UIKit.UIColor?
+    public var capturePreviewDoneButtonBackgroundColor: UIKit.UIColor?
+    public var capturePreviewDoneButtonTextColor: UIKit.UIColor?
+    public var capturePreviewPageControlTintColor: UIKit.UIColor?
+    public var capturePreviewCurrentPageControlColor: UIKit.UIColor?
+    public var capturePreviewLoaderColor: UIKit.UIColor?
+    public var cropCancelButtonBackgroundColor: UIKit.UIColor?
+    public var cropCancelButtonTextColor: UIKit.UIColor?
+    public var cropDoneButtonBackgroundColor: UIKit.UIColor?
+    public var cropDoneButtonTextColor: UIKit.UIColor?
+    public var cropLoaderColor: UIKit.UIColor?
+    public var capturePermissionTitleColor: UIKit.UIColor?
+    public var capturePermissionMessageColor: UIKit.UIColor?
+    public var capturePermissionButtonBackgroundColor: UIKit.UIColor?
+    public var capturePermissionButtonTextColor: UIKit.UIColor?
+    public var toastBackgroundColor: UIKit.UIColor?
+    public var toastTitleColor: UIKit.UIColor?
+    public var autoCaptureButtonCornerRadius: Swift.Float?
+    public var detectionLineWidth: Swift.Float?
+    public var captureCircleLineWidth: Swift.Float?
+    public var capturePreviewDoneButtonCornerRadius: Swift.Float?
+    public var capturePreviewDoneButtonHeight: Swift.Float?
+    public var capturePreviewDoneButtonWidth: Swift.Float?
+    public var cropCancelButtonCornerRadius: Swift.Float?
+    public var cropDoneButtonCornerRadius: Swift.Float?
+    public var cropDoneButtonHeight: Swift.Float?
+    public var cropDoneButtonWidth: Swift.Float?
+    public var cropCornerPointDiameter: Swift.Float?
+    public var cropEdgeTouchThreshold: Swift.Float?
+    public var capturePermissionButtonCornerRadius: Swift.Float?
+    public var capturePermissionButtonHeight: Swift.Float?
+    public var capturePermissionButtonWidth: Swift.Float?
+    public var toastCornerRadius: Swift.Float?
+    public var tipsStyle: Sensibill.SDKConfiguration.CaptureTipsStyle
+    @objc override dynamic public init()
+    required public init(from decoder: Swift.Decoder) throws
+    @objc deinit
+  }
+}
+extension Sensibill.SDKConfiguration.CaptureStyle {
+  @objc dynamic public func setCaptureBackground(color: UIKit.UIColor)
+  @objc dynamic public func setOnCaptureBackground(color: UIKit.UIColor)
+  @objc dynamic public func setDetectionStroke(color: UIKit.UIColor)
+  @objc dynamic public func setDetectionFill(color: UIKit.UIColor)
+  @objc dynamic public func setCaptureCircleStroke(color: UIKit.UIColor)
+  @objc dynamic public func setCaptureCircleFill(color: UIKit.UIColor)
+  @objc dynamic public func setCapturePageCountBackground(color: UIKit.UIColor)
+  @objc dynamic public func setCapturePageCountText(color: UIKit.UIColor)
+  @objc dynamic public func setCaptureDocumentTypeButtonText(color: UIKit.UIColor)
+  @objc dynamic public func setAutoCaptureButtonText(color: UIKit.UIColor)
+  @objc dynamic public func setCapturePreviewTitle(color: UIKit.UIColor)
+  @objc dynamic public func setCapturePreviewDoneButtonBackground(color: UIKit.UIColor)
+  @objc dynamic public func setCapturePreviewDoneButtonText(color: UIKit.UIColor)
+  @objc dynamic public func setCapturePreviewPageControlTint(color: UIKit.UIColor)
+  @objc dynamic public func setCapturePreviewCurrentPageControl(color: UIKit.UIColor)
+  @objc dynamic public func setCapturePreviewLoaderColor(color: UIKit.UIColor)
+  @objc dynamic public func setCropCancelButtonBackground(color: UIKit.UIColor)
+  @objc dynamic public func setCropCancelButtonText(color: UIKit.UIColor)
+  @objc dynamic public func setCropDoneButtonBackground(color: UIKit.UIColor)
+  @objc dynamic public func setCropDoneButtonText(color: UIKit.UIColor)
+  @objc dynamic public func setCropLoader(color: UIKit.UIColor)
+  @objc dynamic public func setCapturePermissionTitle(color: UIKit.UIColor)
+  @objc dynamic public func setCapturePermissionMessage(color: UIKit.UIColor)
+  @objc dynamic public func setCapturePermissionButtonBackground(color: UIKit.UIColor)
+  @objc dynamic public func setCapturePermissionButtonText(color: UIKit.UIColor)
+  @objc dynamic public func setToastBackground(color: UIKit.UIColor)
+  @objc dynamic public func setToastTitle(color: UIKit.UIColor)
+  @objc dynamic public func setAutoCaptureButton(cornerRadius: Swift.Float)
+  @objc dynamic public func setDetectionLine(width: Swift.Float)
+  @objc dynamic public func setCaptureCircleLine(width: Swift.Float)
+  @objc dynamic public func setCapturePreviewDoneButton(cornerRadius: Swift.Float)
+  @objc dynamic public func setCapturePreviewDoneButton(height: Swift.Float)
+  @objc dynamic public func setCapturePreviewDoneButton(width: Swift.Float)
+  @objc dynamic public func setCropCancelButton(cornerRadius: Swift.Float)
+  @objc dynamic public func setCropDoneButton(cornerRadius: Swift.Float)
+  @objc dynamic public func setCropDoneButton(height: Swift.Float)
+  @objc dynamic public func setCropDoneButton(width: Swift.Float)
+  @objc dynamic public func setCropCornerPoint(diameter: Swift.Float)
+  @objc dynamic public func setCropEdge(touchThreshold: Swift.Float)
+  @objc dynamic public func setCapturePermissionButton(cornerRadius: Swift.Float)
+  @objc dynamic public func setCapturePermissionButton(height: Swift.Float)
+  @objc dynamic public func setCapturePermissionButton(width: Swift.Float)
+  @objc dynamic public func setToast(cornerRadius: Swift.Float)
+}
+@_inheritsConvenienceInitializers @objc(SBLContactInformation) public class ContactInformation : ObjectiveC.NSObject {
+  @objc public var address: [Swift.String]
+  @objc public var email: Swift.String?
+  @objc public var name: Swift.String?
+  @objc public var telephone: Swift.String?
+  @objc public var geoLocation: CoreLocation.CLLocation?
+  @objc public var url: Foundation.URL?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(SBLRequestAuthenticationType) public enum RequestAuthenticationType : ObjectiveC.NSInteger {
+  case token
+  case client
+  case basic
+  public init?(rawValue: ObjectiveC.NSInteger)
+  public typealias RawValue = ObjectiveC.NSInteger
+  public var rawValue: ObjectiveC.NSInteger {
+    get
+  }
+}
+extension Sensibill.SDKConfiguration {
+  @_inheritsConvenienceInitializers @objc(SBLSensibillUIFonts) public class SensibillUIFonts : ObjectiveC.NSObject, Swift.Decodable {
+    public var regular: Sensibill.SDKConfiguration.SensibillUIFont?
+    @objc override dynamic public init()
+    @objc deinit
+    required public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SDKConfiguration.SensibillUIFonts {
+  @objc dynamic public func setRegular(family: Swift.String, url: Swift.String)
+}
+@objc(SBLMatchingError) public enum MatchingError : Swift.Int, Swift.Error {
+  case success
+  case networkError
+  case unknownError
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public static var _nsErrorDomain: Swift.String {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLLogger) final public class Logger : ObjectiveC.NSObject {
+  @objc public static let shared: Sensibill.Logger
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SBLTrustManager) public class TrustManager : ObjectiveC.NSObject {
+  @objc public class func policyFromBundle(withPinningMode pinningMode: Sensibill.SBSSLPinningMode) -> Sensibill.SBSecurityPolicy
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(SBLUser) public class User : ObjectiveC.NSObject, Foundation.NSSecureCoding, Swift.Codable {
+  @objc public static var supportsSecureCoding: Swift.Bool {
+    @objc get
+  }
+  @objc public var identifier: Swift.String {
+    get
+  }
+  @objc public var accessId: Swift.String?
+  @objc public var email: Swift.String?
+  @objc public var firstName: Swift.String?
+  @objc public var lastName: Swift.String?
+  @objc public var receiptEmail: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public static var current: Sensibill.User? {
+    @objc get
+  }
+  @objc required public init?(coder: Foundation.NSCoder)
+  @objc public func encode(with coder: Foundation.NSCoder)
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+extension Sensibill.User {
+  @objc dynamic public func saveToCache()
+}
+public enum ConnectionState {
+  case cannotConnect
+  case canConnectWithUserInteraction
+  case canConnectAutomatically
+  case connected
+  public static func == (a: Sensibill.ConnectionState, b: Sensibill.ConnectionState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum ConnectionType {
+  case ethernetOrWiFi
+  case cellular
+  public static func == (a: Sensibill.ConnectionType, b: Sensibill.ConnectionType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc extension Foundation.NSLocale {
+  @objc dynamic public var remoteIdentifier: Swift.String {
+    @objc get
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLDiscount) public class Discount : ObjectiveC.NSObject {
+  @objc public var amount: Sensibill.Amount?
+  @objc public var summary: Swift.String?
+  @objc public var type: Sensibill.DiscountType
+  @objc public var percent: Swift.Double
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Sensibill.SensibillUICoordinator : Sensibill.WebUICaptureFlowHandler {
+  public func launchCapture()
+}
+extension Sensibill.SensibillUICoordinator : Sensibill.CaptureFlowCoordinatorDelegate {
+  @objc dynamic public func coordinatorWillBeginCapture(_ coordinator: Sensibill.CaptureFlowCoordinator)
+  @objc dynamic public func coordinatorDidCancelCapture(_ coordinator: Sensibill.CaptureFlowCoordinator)
+  @objc dynamic public func coordinatorDidFinishCapture(_ coordinator: Sensibill.CaptureFlowCoordinator, transactions: [Sensibill.SBLTransaction])
+}
+extension Sensibill.SensibillAPIModel.DocumentItemDto {
+  public struct DocumentItemDtoProperties {
+    public let name: Swift.String?
+    public let value: Swift.String?
+    public init(name: Swift.String? = nil, value: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentItemDto.DocumentItemDtoProperties, b: Sensibill.SensibillAPIModel.DocumentItemDto.DocumentItemDtoProperties) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel.DocumentContentDto {
+  public struct DocumentContentBarcodeDto {
+    public let text: Swift.String?
+    public let type: Swift.String?
+    public init(text: Swift.String? = nil, type: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentBarcodeDto, b: Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentBarcodeDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentCreationResponseDto {
+    public let id: Swift.String
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentCreationResponseDto, b: Sensibill.SensibillAPIModel.DocumentCreationResponseDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SDKConfiguration {
+  @_inheritsConvenienceInitializers @objc(SBLColorPalette) public class ColorPalette : ObjectiveC.NSObject, Swift.Decodable {
+    @objc public var primary: UIKit.UIColor
+    @objc public var primaryVariant: UIKit.UIColor
+    @objc public var onPrimary: UIKit.UIColor
+    @objc public var secondary: UIKit.UIColor
+    @objc public var onSecondary: UIKit.UIColor
+    @objc public var background: UIKit.UIColor
+    @objc public var onBackground: UIKit.UIColor
+    @objc public var surface: UIKit.UIColor
+    @objc public var surfaceVariant: UIKit.UIColor
+    @objc public var onSurface: UIKit.UIColor
+    @objc public var onSurfaceFocus: UIKit.UIColor
+    @objc public var error: UIKit.UIColor
+    @objc public var onError: UIKit.UIColor
+    @objc override dynamic public init()
+    required public init(from decoder: Swift.Decoder) throws
+    @objc deinit
+  }
+}
+extension UIKit.UIColor {
+  @objc public static func sblColor(hexString: Swift.String) -> UIKit.UIColor
+  @objc dynamic public var hexValue: Swift.String {
+    @objc get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SBLNetworkReachabilityService) public class NetworkReachabilityService : ObjectiveC.NSObject {
+  @objc public static let instance: Sensibill.NetworkReachabilityService
+  @objc public static let reachabilityDidChangeNotification: Foundation.Notification.Name
+  @objc public var isRunning: Swift.Bool {
+    @objc get
+  }
+  @objc public var status: Sensibill.NetworkReachabilityStatus {
+    @objc get
+  }
+  @objc public var isReachable: Swift.Bool {
+    @objc get
+  }
+  @objc public var isAlwaysReachable: Swift.Bool
+  @objc deinit
+  @objc public func restart(host: Swift.String?)
+}
+extension Sensibill.NetworkReachabilityService {
+  @objc public static func isAPIReachable(completion: @escaping (Swift.Bool, Swift.Error?) -> Swift.Void)
+}
+@_inheritsConvenienceInitializers @objc(SBLLocaleCollection) public class LocaleCollection : ObjectiveC.NSObject {
+  @objc public static let shared: Sensibill.LocaleCollection
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SBLOriginal) public class Original : ObjectiveC.NSObject {
+  @objc public var format: Sensibill.OriginalFormat
+  @objc public var url: Foundation.URL?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Sensibill.SensibillAPIModel {
+  public struct ReceiptEmailAvailabilityResponseDto {
+    public let available: Swift.Bool
+    public let alternatives: [Swift.String]?
+    public static func == (a: Sensibill.SensibillAPIModel.ReceiptEmailAvailabilityResponseDto, b: Sensibill.SensibillAPIModel.ReceiptEmailAvailabilityResponseDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SBLAPIRequest) public class APIRequest : ObjectiveC.NSObject {
+  @objc public static func requestWith(url: Swift.String, requestType: Sensibill.RequestType, parameters: [Swift.AnyHashable : Any]?, success: Sensibill.SBOperationSuccessBlock?, error: Sensibill.SBOperationErrorBlock?) -> Sensibill.APIRequest
+  @objc final public var urlString: Swift.String
+  @objc final public var type: Sensibill.RequestType
+  @objc final public var params: [Swift.AnyHashable : Any]?
+  @objc final public var error: Sensibill.SBOperationErrorBlock?
+  @objc final public var success: Sensibill.SBOperationSuccessBlock?
+  @objc deinit
+}
+public typealias Transaction = Sensibill.SBLTransaction
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class SBLTransaction : ObjectiveC.NSObject, Foundation.NSSecureCoding {
+  @objc public static var supportsSecureCoding: Swift.Bool {
+    @objc get
+  }
+  @objc public var localID: Swift.String {
+    get
+  }
+  @objc public var userID: Swift.String? {
+    get
+  }
+  @objc public var remoteID: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var date: Foundation.Date {
+    get
+  }
+  @objc public var expectedProcessingTime: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var isSlowProcessing: Swift.Bool {
+    @objc get
+  }
+  @objc public var type: Sensibill.TransactionType
+  @objc public var receiptID: Swift.String?
+  @objc public var emailID: Swift.String?
+  @objc public var imageData: Foundation.Data?
+  @objc public var userSubmittedData: Sensibill.UserSubmittedData? {
+    @objc get
+    @objc set
+  }
+  @objc public var sharedMetaData: Sensibill.SharedMetaData? {
+    @objc get
+    @objc set
+  }
+  @objc public var privateMetaData: Sensibill.PrivateMetaData?
+  @objc public var hasExternalAccountTransaction: Swift.Bool {
+    @objc get
+  }
+  @objc public var status: Sensibill.TransactionStatus {
+    @objc get
+    @objc set
+  }
+  @objc public var error: Sensibill.TransactionError
+  @objc public var mustReplaceImage: Swift.Bool {
+    @objc get
+  }
+  @objc weak public var observer: Sensibill.TransactionObserver?
+  @objc convenience public init(imageData: Foundation.Data)
+  @objc convenience public init(externalAccountTransactionID: Swift.String)
+  @objc convenience public init(emailID: Swift.String)
+  @objc convenience public init(forNonReceiptEmail email: Sensibill.SBNonReceiptEmail)
+  @objc convenience public init(receiptId: Swift.String, userSubmittedData: Sensibill.UserSubmittedData?, sharedMetaData: Sensibill.SharedMetaData?, privateMetaData: Sensibill.PrivateMetaData? = nil)
+  @objc required public init?(coder: Foundation.NSCoder)
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+extension Sensibill.PasswordAuthenticator {
+  @objc dynamic public func checkStrength(password: Swift.String, checkType: Swift.String? = nil, completion: @escaping (_ passwordEvaluation: Sensibill.PasswordEvaluation?, _ error: Sensibill.SensibillError) -> Swift.Void)
+}
+@_inheritsConvenienceInitializers @objc(SBLReceiptSearchFilter) public class ReceiptSearchFilter : ObjectiveC.NSObject {
+  @objc public var currencyCodes: [Swift.String]
+  @objc public var categories: Swift.Set<Sensibill.ReceiptCategory>
+  @objc public var from: Foundation.Date?
+  @objc public var to: Foundation.Date?
+  @objc public var expenseTypes: Sensibill.ExpenseTypeFilter
+  @objc public var pendingValidation: Swift.Bool
+  @objc public var folder: Sensibill.Folder?
+  @objc public var excludingFolder: Sensibill.Folder?
+  @objc convenience public init(searchFilter: Sensibill.SBSearchFilter)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(SensibillUICoordinator) public class SensibillUICoordinator : ObjectiveC.NSObject {
+  @objc weak public var delegate: Sensibill.SensibillUICoordinatorDelegate?
+  weak public var captureFlowListener: Sensibill.WebUICaptureFlowListener?
+  weak public var downloadListener: Sensibill.WebUIDownloadListener?
+  weak public var receiptUploadStatusListener: Sensibill.WebUIReceiptUploadStatusListener?
+  @objc convenience public init(host: UIKit.UIViewController)
+  @objc public init(host: UIKit.UIViewController, presentationMethod: Sensibill.SensibillUICoordinator.PresentationMethod)
+  @objc public func start()
+  @objc public func start(options: Sensibill.SensibillUICoordinator.StartOptions)
+  @objc public func stop()
+  @objc deinit
+}
+extension Sensibill.SBReceipt {
+  @objc dynamic public var displayAmount: Swift.String {
+    @objc get
+  }
+  @objc dynamic public var displayMerchant: Swift.String {
+    @objc get
+  }
+  @objc dynamic public var displayDate: Swift.String {
+    @objc get
+  }
+  @objc dynamic public var displaySubtotal: Swift.String {
+    @objc get
+  }
+  @objc dynamic public var displayDefaultTaxType: Swift.String {
+    @objc get
+  }
+  @objc dynamic public var shouldDisplaySingleTax: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var isNetTotalType: Swift.Bool {
+    @objc get
+  }
+  @objc public static func getExpenseTypeDisplay(for expenseType: Sensibill.ReceiptExpenseType) -> Swift.String?
+}
+@objc(SBLCaptureFlowCoordinatorDelegate) public protocol CaptureFlowCoordinatorDelegate : ObjectiveC.NSObjectProtocol {
+  @objc optional func coordinatorWillBeginCapture(_ coordinator: Sensibill.CaptureFlowCoordinator)
+  @objc @available(*, unavailable, message: "Removed in 2021.5.0. Please use coordinatorDidFinishCapture(_:transactions:)")
+  func coordinatorDidFinishCapture(_ coordinator: Sensibill.CaptureFlowCoordinator, transaction: Sensibill.SBLTransaction)
+  @objc func coordinatorDidFinishCapture(_ coordinator: Sensibill.CaptureFlowCoordinator, transactions: [Sensibill.SBLTransaction])
+  @objc func coordinatorDidCancelCapture(_ coordinator: Sensibill.CaptureFlowCoordinator)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SBLDatePeriod) public class DatePeriod : ObjectiveC.NSObject, Foundation.NSSecureCoding {
+  @objc public static var supportsSecureCoding: Swift.Bool {
+    @objc get
+  }
+  @objc public var baseDate: Foundation.Date? {
+    @objc get
+    @objc set
+  }
+  public var unit: Sensibill.TimeUnit {
+    get
+    set
+  }
+  @objc public var duration: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc public var calculatedDate: Foundation.Date? {
+    @objc get
+  }
+  public var timeDirection: Sensibill.TimeDirection {
+    get
+    set
+  }
+  @objc override dynamic public init()
+  @objc required public init?(coder: Foundation.NSCoder)
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension Sensibill.DatePeriod {
+  public var dictionary: [Swift.String : Any?] {
+    get
+  }
+  public var requestDictionary: [Swift.String : Any?] {
+    get
+  }
+}
+extension Sensibill.DatePeriod {
+  @objc dynamic public var sblUnit: Sensibill.SBLTimeUnit {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var sblTimeDirection: Sensibill.SBLTimeDirection {
+    @objc get
+    @objc set
+  }
+  @objc convenience dynamic public init(withDictionary dict: Foundation.NSDictionary)
+  @objc dynamic public var sblDictionary: Foundation.NSDictionary {
+    @objc get
+  }
+  @objc dynamic public var sblRequestDictionary: Foundation.NSDictionary {
+    @objc get
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct ReceiptUpdateDto {
+    public let accountTransactionData: Sensibill.SensibillAPIModel.ReceiptUpdateDto.AccountTransactionData?
+    public init(accountTransactionData: Sensibill.SensibillAPIModel.ReceiptUpdateDto.AccountTransactionData? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.ReceiptUpdateDto, b: Sensibill.SensibillAPIModel.ReceiptUpdateDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentDeleteResponseDto {
+    public let ids: [Swift.String]
+    public init(ids: [Swift.String])
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentDeleteResponseDto, b: Sensibill.SensibillAPIModel.DocumentDeleteResponseDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+public func preconditionIsMainThread()
+extension Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto {
+  public enum SourceDocumentFormats : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case html
+    case image
+    case pdf
+    case text
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto.SourceDocumentFormats]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto.SourceDocumentFormats] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLItemProperty) public class ItemProperty : ObjectiveC.NSObject {
+  @objc public var name: Swift.String?
+  @objc public var value: Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Sensibill.SensibillUICoordinator : Sensibill.WebUIReceiptUploadStatusHandler {
+  public func notifyGetReceiptUploadStatus(localIds: [Swift.String])
+}
+extension Sensibill.SensibillAPIModel.DocumentContentDto {
+  public struct DeliveryDto {
+    public let addressLines: [Swift.String]?
+    public let courier: Sensibill.SensibillAPIModel.DocumentContentDto.CourierDto?
+    public let deliveryType: Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryTypes?
+    public let expectedShipmentDate: Swift.String?
+    public let name: Swift.String?
+    public let telephoneNumber: Swift.String?
+    public let trackingNumber: Swift.String?
+    public init(addressLines: [Swift.String]? = nil, courier: Sensibill.SensibillAPIModel.DocumentContentDto.CourierDto? = nil, deliveryType: Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryTypes? = nil, expectedShipmentDate: Swift.String? = nil, name: Swift.String? = nil, telephoneNumber: Swift.String? = nil, trackingNumber: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryDto, b: Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLTax) public class Tax : ObjectiveC.NSObject, Foundation.NSSecureCoding {
+  @objc public var value: Swift.Double
+  @objc public var rate: Swift.Double
+  @objc public var type: Swift.String?
+  @objc public static var supportsSecureCoding: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc required public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension Sensibill.SensibillAPIModel {
+  public enum MIMEType : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case JPEG
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Sensibill.SensibillAPIModel.MIMEType]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Sensibill.SensibillAPIModel.MIMEType] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension Sensibill.SDKConfiguration {
+  @_inheritsConvenienceInitializers @objc(SBLCaptureFeatureFlags) public class CaptureFeatureFlags : ObjectiveC.NSObject, Swift.Decodable {
+    public var attachLocationData: Swift.Bool
+    public var compressForSensibillApi: Swift.Bool
+    public var defaultToAutoCapture: Swift.Bool
+    public var enableAutoCapture: Swift.Bool
+    public var enableBlurDetection: Swift.Bool
+    public var enableCaptureProgressFeedback: Swift.Bool
+    public var enableCrop: Swift.Bool
+    public var enableFlash: Swift.Bool
+    public var enableImageGallery: Swift.Bool
+    public var enableLongReceiptPageToast: Swift.Bool
+    public var enableLongCapture: Swift.Bool
+    public var enableCaptureTips: Swift.Bool
+    public var maxImages: Swift.Int {
+      get
+      set
+    }
+    public var receiptDetectorType: Sensibill.ReceiptDetectorType
+    @available(*, unavailable, message: "Removed in 2021.5.0. Please use `maxImages` property instead and provide value more than 1 to enable the feature.")
+    public var enableAddPage: Swift.Bool
+    @objc override dynamic public init()
+    required public init(from decoder: Swift.Decoder) throws
+    @objc deinit
+  }
+}
+extension Sensibill.SDKConfiguration.CaptureFeatureFlags {
+  @objc dynamic public func setAutoCapture(enabled: Swift.Bool)
+  @objc dynamic public func setAutoCapture(isDefault: Swift.Bool)
+  @objc dynamic public func setBlurDetection(enabled: Swift.Bool)
+  @objc dynamic public func setCaptureProgressFeedback(enabled: Swift.Bool)
+  @objc dynamic public func setCrop(enabled: Swift.Bool)
+  @objc dynamic public func setFlash(enabled: Swift.Bool)
+  @objc dynamic public func setImageGallery(enabled: Swift.Bool)
+  @objc dynamic public func setLocationData(isAttached: Swift.Bool)
+  @objc dynamic public func setLongCapture(enabled: Swift.Bool)
+  @objc dynamic public func setLongReceiptPageToast(enabled: Swift.Bool)
+  @objc dynamic public func setMaxImages(limit: Swift.Int)
+  @objc dynamic public func setCaptureTips(enabled: Swift.Bool)
+  @objc dynamic public func setCompressForSensibillAPI(enabled: Swift.Bool)
+}
+public enum ReceiptDetectorType : Swift.Int, Swift.Codable, Swift.CaseIterable, Swift.CustomStringConvertible {
+  case rectangle
+  case classify
+  case classifyAndRectangle
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [Sensibill.ReceiptDetectorType]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [Sensibill.ReceiptDetectorType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Sensibill.SensibillUICoordinator {
+  @objc public enum PresentationMethod : Swift.Int {
+    case modal
+    case embed
+    case push
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLFee) public class Fee : ObjectiveC.NSObject {
+  @objc public var amount: Sensibill.Amount?
+  @objc public var summary: Swift.String?
+  @objc public var type: Sensibill.FeeType
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Sensibill.PasswordAuthenticator {
+  @objc dynamic public func register(accessId: Swift.String, password: Swift.String, firstName: Swift.String? = nil, lastName: Swift.String? = nil, email: Swift.String? = nil, receiptEmail: Swift.String? = nil, completion: @escaping (_ error: Sensibill.SensibillError) -> Swift.Void)
+}
+extension Sensibill.SensibillAPIModel {
+  public struct EditDocumentResponseDto {
+    public let id: Swift.String
+    public init(id: Swift.String)
+    public static func == (a: Sensibill.SensibillAPIModel.EditDocumentResponseDto, b: Sensibill.SensibillAPIModel.EditDocumentResponseDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct UserResponseDto {
+    public let id: Swift.String
+    public var accessID: Swift.String?
+    public let email: Swift.String?
+    public let receiptAccountEmail: Swift.String?
+    public var firstName: Swift.String?
+    public var lastName: Swift.String?
+    public static func == (a: Sensibill.SensibillAPIModel.UserResponseDto, b: Sensibill.SensibillAPIModel.UserResponseDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+public class AtomicInt {
+  public var value: Swift.Int {
+    get
+    set
+  }
+  public init(initialValue: Swift.Int)
+  @discardableResult
+  public func incrementAndGet() -> Swift.Int
+  @discardableResult
+  public func addAndGet(_ addedValue: Swift.Int) -> Swift.Int
+  @discardableResult
+  public func decrementAndGet() -> Swift.Int
+  @discardableResult
+  public func getAndIncrement() -> Swift.Int
+  @discardableResult
+  public func getAndDecrement() -> Swift.Int
+  @discardableResult
+  public func getAndSet(newValue: Swift.Int) -> Swift.Int
+  public func isLessThanOrEqual(_ otherValue: Swift.Int) -> Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class SensibillSDK : ObjectiveC.NSObject {
+  @objc public static let shared: Sensibill.SensibillSDK
+  @objc public var userMode: Sensibill.UserMode
+  @objc public var userDefinedLocale: Foundation.Locale?
+  @objc public var tokenProvider: Sensibill.TokenProvider?
+  @objc public var locale: Foundation.Locale {
+    @objc get
+  }
+  @objc public var clientToken: Swift.String?
+  @objc public var cacheIdentifier: Swift.String? {
+    @objc get
+  }
+  @objc public var isStopping: Swift.Bool {
+    @objc get
+  }
+  @objc public class func start(tokenProvider: Sensibill.TokenProvider, cacheIdentifier: Swift.String?, completion: @escaping (Sensibill.SensibillError) -> Swift.Void)
+  @objc public func start(tokenProvider: Sensibill.TokenProvider, cacheIdentifier: Swift.String?, completion: @escaping (Sensibill.SensibillError) -> Swift.Void)
+  @objc public class func stop(completion: @escaping (_ error: Sensibill.SensibillError) -> Swift.Void)
+  @objc public class func stop(invalidateToken: Swift.Bool, completion: @escaping (_ error: Sensibill.SensibillError) -> Swift.Void)
+  @objc public func stop(completion: @escaping (_ error: Sensibill.SensibillError) -> Swift.Void)
+  @objc public func stop(invalidateToken: Swift.Bool, completion: @escaping (_ error: Sensibill.SensibillError) -> Swift.Void)
+  @objc public func updateToken(completion: @escaping (_ error: Swift.Error?) -> Swift.Void)
+  @objc deinit
+}
+extension Sensibill.SensibillSDK {
+  @objc dynamic public var environment: Foundation.URL? {
+    @objc get
+  }
+  @objc dynamic public var pinningFiles: [Swift.String] {
+    @objc get
+  }
+  @objc dynamic public var apiKey: Swift.String? {
+    @objc get
+  }
+  @objc dynamic public var apiSecret: Swift.String? {
+    @objc get
+  }
+  @objc dynamic public var redirectUrl: Foundation.URL? {
+    @objc get
+  }
+  @objc dynamic public var credentialType: Swift.String? {
+    @objc get
+  }
+  @objc dynamic public func configure(environment: Foundation.URL?, key: Swift.String? = nil, secret: Swift.String? = nil, redirect: Foundation.URL? = nil, credentialType: Swift.String? = nil, pinningFiles: [Swift.String] = []) throws
+  @objc dynamic public func configure(path: Swift.String) throws
+  @objc dynamic public func configure() throws
+}
+extension Sensibill.SDKConfiguration {
+  @objc public class SensibillUIFont : ObjectiveC.NSObject, Swift.Decodable {
+    final public let family: Swift.String
+    final public let url: Swift.String
+    public init(family: Swift.String, url: Swift.String)
+    @objc deinit
+    required public init(from decoder: Swift.Decoder) throws
+  }
+}
+@_hasMissingDesignatedInitializers @objc(SBLFolder) public class Folder : ObjectiveC.NSObject, Foundation.NSCopying {
+  @objc final public let identifier: Swift.String
+  @objc public var name: Swift.String?
+  @objc public var color: UIKit.UIColor?
+  @objc public var updatedAt: Foundation.Date?
+  @objc public var createdAt: Foundation.Date?
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc public func numberOfReceipts(currencyCode: Swift.String? = nil) -> Swift.Int
+  @objc public var totalAmounts: [Sensibill.Amount] {
+    @objc get
+  }
+  @objc public func addReceipt(_ receipt: Sensibill.SBReceipt)
+  @objc public func removeReceipt(_ receipt: Sensibill.SBReceipt)
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc public func delete(content: Swift.Bool, completion: ((_ error: Swift.Error?) -> Swift.Void)?)
+  @objc deinit
+}
+@objc public enum SensibillError : Swift.Int, Swift.Error {
+  case none = 0
+  case apiInternalServerError = -500
+  case unknownError = 1
+  case apiUnknownStatusCode
+  case fdnNSURLUnknownError
+  case apiNoAccess = 1000
+  case apiNoAuthorization
+  case apiNoAuthCannotAuthenticate
+  case apiNoAuthPasswordTemporary
+  case sdkAuthorizationGrantFailure
+  case apiNoAuthTooManyLoginFailures = 1010
+  case apiInvalidCredential
+  case apiMissingCredentials
+  case fdnNSURLAuthenticationError
+  case sdkLogoutFailed
+  case sdkMissingUserDetails
+  case sdkMissingCredentials
+  case sdkAccessTokenRetrievalFailure = 1020
+  case sdkClientTokenRetrievalFailure
+  case sdkParseTokenFailure
+  case sdkMissingRefreshToken
+  case sdkAuthenticationFailureAfterTokenRefresh
+  case apiBadRequest = 1030
+  case apiInvalidParameters
+  case apiMissingParameters
+  case apiParameterNotAllowed
+  case apiMissingRequestBody
+  case apiValidationFailed
+  case apiObjectNotFound
+  case apiRequestConflict
+  case apiLogoutFailed
+  case fdnNSURLResponseError = 1040
+  case sdkParseUserModelFailure
+  case sdkParsePwdStrengthFailure
+  case sdkParseCheckExistenceModelFailure
+  case sdkParseCurrenciesModelFailure
+  case sdkParseReceiptModelFailure
+  case sdkParseTagsModelFailure
+  case sdkNoDataInResponse
+  case sdkSensibillAPITaskExecutionError
+  case sdkParseDataModelFailed
+  case sdkInvalidConfiguration = 1050
+  case sdkMissingConfigurationFile
+  case sdkConfigurationFileParsingFailed
+  case sdkMissingConfigurationValues
+  case sdkMissingCertificateFilesForPinning
+  case sdkMissingCredentialType
+  case sdkMissingCacheIdentifier
+  case sdkFolderRefreshFailure
+  case sdkMissingUserInContext
+  case sdkMissingTokenProvider
+  case fdnNSURLCancelled = 1060
+  case fdnNSURLRequestTimeout
+  case fdnNSURLCannotConnectToServer
+  case fdnNSURLNetworkConnectionError
+  case fdnNSURLSSLError
+  case fdnNSURLWrongUrl
+  case certificatePinningError
+  case sdkCannotStart = 1080
+  case sdkStartWasInterrupted
+  case sdkIsAlreadyStopping
+  case sdkNotStarted
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public static var _nsErrorDomain: Swift.String {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLTagCollection) public class TagCollection : ObjectiveC.NSObject {
+  @objc public static let shared: Sensibill.TagCollection
+  @objc public func find(completion: @escaping (_ tags: Swift.Set<Swift.String>?, _ error: Swift.Error?) -> Swift.Void)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Sensibill.SDKConfiguration {
+  @_inheritsConvenienceInitializers @objc(SBLFontSet) public class FontSet : ObjectiveC.NSObject, Swift.Decodable {
+    @objc public var regular: UIKit.UIFont
+    @objc public var semibold: UIKit.UIFont
+    @objc public var bold: UIKit.UIFont
+    @objc required public init(regular: UIKit.UIFont, semibold: UIKit.UIFont, bold: UIKit.UIFont)
+    @objc convenience public init(regular: UIKit.UIFont, bold: UIKit.UIFont)
+    @objc convenience override dynamic public init()
+    required public init(from decoder: Swift.Decoder) throws
+    @objc deinit
+  }
+}
+extension Sensibill.SDKConfiguration.FontSet {
+  @objc dynamic public var title2Bold: UIKit.UIFont {
+    @objc get
+  }
+  @objc dynamic public var title3: UIKit.UIFont {
+    @objc get
+  }
+  @objc dynamic public var callout: UIKit.UIFont {
+    @objc get
+  }
+  @objc dynamic public var subhead: UIKit.UIFont {
+    @objc get
+  }
+  @objc dynamic public var headline: UIKit.UIFont {
+    @objc get
+  }
+  @objc dynamic public func title2Bold(size: CoreFoundation.CGFloat) -> UIKit.UIFont
+  @objc dynamic public func title3(size: CoreFoundation.CGFloat) -> UIKit.UIFont
+  @objc dynamic public func callout(size: CoreFoundation.CGFloat) -> UIKit.UIFont
+  @objc dynamic public func subhead(size: CoreFoundation.CGFloat) -> UIKit.UIFont
+  @objc dynamic public func headline(size: CoreFoundation.CGFloat) -> UIKit.UIFont
+}
+@objc(SBLReceiptStatus) public enum ReceiptStatus : Swift.Int {
+  case unknown
+  case active
+  case pendingValidation
+  case deleted
+  case archived
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(SBLPasswordStrength) public enum PasswordStrength : Swift.Int {
+  case veryWeak
+  case weak
+  case medium
+  case strong
+  case veryStrong
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Sensibill.SensibillAPIModel.DocumentContentDto {
+  public struct CourierDto {
+    public let name: Swift.String?
+    public let serviceLevel: Swift.String?
+    public init(name: Swift.String? = nil, serviceLevel: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentContentDto.CourierDto, b: Sensibill.SensibillAPIModel.DocumentContentDto.CourierDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel.DocumentContentDto {
+  public struct DocumentContentCustomerDto {
+    public let customerId: Swift.String?
+    public let billingAddressLines: [Swift.String]?
+    public let email: Swift.String?
+    public let name: Swift.String?
+    public let telephoneNumber: Swift.String?
+    public init(customerId: Swift.String? = nil, billingAddressLines: [Swift.String]? = nil, email: Swift.String? = nil, name: Swift.String? = nil, telephoneNumber: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentCustomerDto, b: Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentCustomerDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+@objc(SBLOriginalFormat) public enum OriginalFormat : Swift.Int {
+  case unknown
+  case image
+  case html
+  case pdf
+  case text
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Sensibill.SensibillAPIModel.ReceiptUpdateDto {
+  public struct AccountTransactionData {
+    public let id: Swift.String?
+    public init(id: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.ReceiptUpdateDto.AccountTransactionData, b: Sensibill.SensibillAPIModel.ReceiptUpdateDto.AccountTransactionData) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentTaxableAmountDto {
+    public var taxes: [Sensibill.SensibillAPIModel.DocumentTaxDto]?
+    public var beforeTax: Swift.Double?
+    public var afterTax: Swift.Double?
+    public init(taxes: [Sensibill.SensibillAPIModel.DocumentTaxDto]? = nil, beforeTax: Swift.Double? = nil, afterTax: Swift.Double? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto, b: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+@objc(SBLTransactionError) public enum TransactionError : Swift.Int {
+  case noError = 0
+  case transactionTypeIsMissing
+  case transactionHasNoValidProcessor
+  case uploadCancelledNoImage
+  case pollMissingRemoteId
+  case conversionMissingEmailId
+  case uploadFailedTooManyTimes
+  case pollFailedTooManyTimes
+  case updateFailedTooManyTimes
+  case conversionFailedTooManyTimes
+  case uploadCancelledImageTooBig
+  case uploadInvalidResponse
+  case pollInvalidResponse
+  case wasStoppedOnServer
+  case failedOnServer
+  case badRequest
+  case unauthorized
+  case forbidden
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Sensibill.TransactionError : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+@objc(SBLCaptureFlowCoordinator) public class CaptureFlowCoordinator : ObjectiveC.NSObject {
+  @objc weak public var delegate: Sensibill.CaptureFlowCoordinatorDelegate?
+  @objc public init(host: UIKit.UIViewController)
+  @objc public func start()
+  @objc public func start(transaction: Sensibill.SBLTransaction)
+  @objc public func start(expenseType: Sensibill.ReceiptExpenseType)
+  @objc deinit
+}
+extension Sensibill.CaptureFlowCoordinator : Sensibill.CaptureNavigationControllerDelegate {
+  @objc dynamic public func captureNavigationController(_ controller: Sensibill.CaptureNavigationController, didFinishCapture result: Sensibill.CaptureResult)
+}
+public enum WebUIReceiptEvent {
+  case created
+  case updated
+  case deleted
+  public static func == (a: Sensibill.WebUIReceiptEvent, b: Sensibill.WebUIReceiptEvent) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Sensibill.WebUIReceiptEvent : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct EditDocumentRequestDto {
+    public let content: Sensibill.SensibillAPIModel.DocumentContentDto
+    public init(content: Sensibill.SensibillAPIModel.DocumentContentDto)
+    public static func == (a: Sensibill.SensibillAPIModel.EditDocumentRequestDto, b: Sensibill.SensibillAPIModel.EditDocumentRequestDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.WebUIIntent {
+  public struct ParameterValue {
+    public init<T>(_ value: T)
+  }
+}
+extension Sensibill.WebUIIntent.ParameterValue : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension Sensibill.WebUIIntent.ParameterValue : Swift.Equatable {
+  public static func == (lhs: Sensibill.WebUIIntent.ParameterValue, rhs: Sensibill.WebUIIntent.ParameterValue) -> Swift.Bool
+}
+extension Sensibill.WebUIIntent.ParameterValue : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLPasswordAuthenticator) public class PasswordAuthenticator : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public class func getDefaultTokenProvider() -> Sensibill.TokenProvider
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SBLMerchant) public class Merchant : ObjectiveC.NSObject {
+  @objc public var id: Swift.String?
+  @objc public var channel: Sensibill.MerchantChannel
+  @objc public var categoryCode: Swift.String?
+  @objc public var contact: Sensibill.ContactInformation?
+  @objc public var storeId: Swift.String?
+  @objc public var taxNumber: Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(SBLURLConstant) public class URLConstant : ObjectiveC.NSObject {
+  @objc public static let home: Swift.String
+  @objc public static let authorizationGrant: Swift.String
+  @objc public static let accessToken: Swift.String
+  @objc public static let jwtAuthentication: Swift.String
+  @objc public static let logout: Swift.String
+  @objc public static let clientInfo: Swift.String
+  @objc public static let users: Swift.String
+  @objc public static let me: Swift.String
+  @objc public static let counts: Swift.String
+  @objc public static let tags: Swift.String
+  @objc public static let checkPasswordStrength: Swift.String
+  @objc public static let checkExistenceAccessId: Swift.String
+  @objc public static let checkExistenceEmail: Swift.String
+  @objc public static let checkExistenceReceiptEmail: Swift.String
+  @objc public static let forgotPassword: Swift.String
+  @objc public static let resetTemporaryPassword: Swift.String
+  @objc public static let setPassword: Swift.String
+  @objc public static let folders: Swift.String
+  @objc public static let receipts: Swift.String
+  @objc public static let receiptTransaction: Swift.String
+  @objc public static let receipt: Swift.String
+  @objc public static let wait: Swift.String
+  @objc public static let reminders: Swift.String
+  @objc public static let export: Swift.String
+  @objc public static let exports: Swift.String
+  @objc public static let lookups: Swift.String
+  @objc public static let receiptCategories: Swift.String
+  @objc public static let locales: Swift.String
+  @objc public static let currencies: Swift.String
+  @objc public static let emails: Swift.String
+  @objc public static let email: Swift.String
+  @objc public static let merchants: Swift.String
+  @objc public static let accountsEmail: Swift.String
+  @objc public static let intercepts: Swift.String
+  @objc public class func canRetry(url: Swift.String) -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SBLTransactionHandler) public class TransactionHandler : ObjectiveC.NSObject {
+  @objc public static let shared: Sensibill.TransactionHandler
+  @objc public var hasTransactions: Swift.Bool {
+    @objc get
+  }
+  @objc deinit
+}
+extension Sensibill.TransactionHandler {
+  @objc dynamic public func add(_ transaction: Sensibill.Transaction?)
+  @objc dynamic public func remove(_ transaction: Sensibill.Transaction)
+  @objc dynamic public func removeAll(in transactions: [Sensibill.Transaction])
+  @objc dynamic public func convert(nonReceiptEmail email: Sensibill.SBNonReceiptEmail, didSucceed: @escaping (Swift.Bool) -> Swift.Void)
+  @objc dynamic public func retry(_ transaction: Sensibill.Transaction)
+}
+extension Sensibill.TransactionHandler {
+  @objc dynamic public var failedImageTransactions: [Sensibill.Transaction] {
+    @objc get
+  }
+  @objc dynamic public var failedEmailTransactions: [Sensibill.Transaction] {
+    @objc get
+  }
+  @objc dynamic public var completedEmailTransactions: [Sensibill.Transaction] {
+    @objc get
+  }
+  @objc dynamic public var inFlightTransactions: [Sensibill.Transaction] {
+    @objc get
+  }
+  @objc dynamic public var processingTransactions: [Sensibill.Transaction] {
+    @objc get
+  }
+  @objc dynamic public var offlineTransactions: [Sensibill.Transaction] {
+    @objc get
+  }
+}
+extension Sensibill.TransactionHandler {
+  @objc dynamic public func transaction(forReceiptID receiptID: Swift.String?) -> Sensibill.Transaction?
+  @objc dynamic public func transaction(forRemoteID remoteID: Swift.String?) -> Sensibill.Transaction?
+  @objc dynamic public func transaction(forLocalID localID: Swift.String?) -> Sensibill.Transaction?
+  @objc dynamic public func transaction(forEmailID emailID: Swift.String?) -> Sensibill.Transaction?
+}
+@objc(SensibillUICoordinatorDelegate) public protocol SensibillUICoordinatorDelegate : ObjectiveC.NSObjectProtocol {
+  @objc optional func coordinator(_ coordinator: Sensibill.SensibillUICoordinator, willPresent webUINavigationController: UIKit.UINavigationController)
+  @objc optional func coordinator(_ coordinator: Sensibill.SensibillUICoordinator, didPresent webUINavigationController: UIKit.UINavigationController)
+  @objc optional func coordinatorWillPresentCapture(_ coordinator: Sensibill.SensibillUICoordinator)
+  @objc optional func coordinatorShouldShowFatalErrorView(_ coordinator: Sensibill.SensibillUICoordinator) -> Swift.Bool
+  @objc optional func coordinator(_ coordinator: Sensibill.SensibillUICoordinator, encountered error: Swift.Error)
+  @objc optional func coordinatorWillRestartWebUI(_ coordinator: Sensibill.SensibillUICoordinator)
+  @objc func coordinatorWillTerminateWebUI(_ coordinator: Sensibill.SensibillUICoordinator)
+}
+@objc(SBLReceiptSummary) public class ReceiptSummary : ObjectiveC.NSObject {
+  @objc public var countryCode: Swift.String?
+  @objc public var currencyCode: Swift.String?
+  @objc public var arrivedAt: Foundation.Date?
+  @objc public var purchasedAt: Foundation.Date?
+  @objc public var purchaseDateString: Swift.String?
+  @objc public var purchaseTimeString: Swift.String?
+  @objc public var type: Sensibill.ReceiptType
+  @objc public var status: Sensibill.ReceiptStatus
+  @objc final public let id: Swift.String
+  @objc public var merchant: Sensibill.Merchant?
+  @objc public var total: Sensibill.Amount?
+  @objc public var folders: [Sensibill.Folder]
+  @objc public var expenseType: Sensibill.ReceiptExpenseType
+  @objc public var notes: Swift.String?
+  @objc public var transactionIdentifier: Swift.String?
+  public init(id: Swift.String)
+  @objc deinit
+}
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentMerchantDto {
+    public let addressLines: [Swift.String]?
+    public let merchantId: Swift.String?
+    public let email: Swift.String?
+    public let geoLocation: Swift.String?
+    public let storeName: Swift.String?
+    public let storeId: Swift.String?
+    public let telephone: Swift.String?
+    public let channel: Sensibill.SensibillAPIModel.DocumentMerchantDto.OrderChannelTypes?
+    public let url: Swift.String?
+    public var merchantName: Swift.String?
+    public var taxIdNumber: Swift.String?
+    public var categoryCode: Swift.String?
+    public init(addressLines: [Swift.String]? = nil, merchantId: Swift.String? = nil, email: Swift.String? = nil, geoLocation: Swift.String? = nil, storeName: Swift.String? = nil, storeId: Swift.String? = nil, telephone: Swift.String? = nil, channel: Sensibill.SensibillAPIModel.DocumentMerchantDto.OrderChannelTypes? = nil, url: Swift.String? = nil, merchantName: Swift.String? = nil, taxIdNumber: Swift.String? = nil, categoryCode: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentMerchantDto, b: Sensibill.SensibillAPIModel.DocumentMerchantDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillUICoordinator : Sensibill.WebUIReceiptEventHandler {
+  public func notifyReceiptUpdateEvent(event: Sensibill.WebUIReceiptEvent, receiptId: Swift.String)
+}
+extension Sensibill.PasswordAuthenticator {
+  @objc dynamic public func resetPassword(accessId: Swift.String, temporaryPassword: Swift.String, newPassword: Swift.String, completion: @escaping (Sensibill.SensibillError) -> Swift.Void)
+}
+extension Sensibill.SensibillAPIModel {
+  public struct SetPasswordRequestDto {
+    public let oldPassword: Swift.String
+    public let newPassword: Swift.String
+    public let credentialType: Swift.String?
+    public init(oldPassword: Swift.String, newPassword: Swift.String, credentialType: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.SetPasswordRequestDto, b: Sensibill.SensibillAPIModel.SetPasswordRequestDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel {
+  public struct RegisterUserResponseDto {
+    public let id: Swift.String
+    public static func == (a: Sensibill.SensibillAPIModel.RegisterUserResponseDto, b: Sensibill.SensibillAPIModel.RegisterUserResponseDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SDKConfiguration {
+  @objc dynamic public func prettyPrint()
+}
+extension Sensibill.SensibillAPIModel {
+  public enum Status : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case completedSuccess
+    case completedFailed
+    case inProcessing
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Sensibill.SensibillAPIModel.Status]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Sensibill.SensibillAPIModel.Status] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+@_hasMissingDesignatedInitializers @objc(SBLCaptureResult) public class CaptureResult : ObjectiveC.NSObject {
+  @objc final public let images: [Foundation.Data]
+  @objc public var isEmpty: Swift.Bool {
+    @objc get
+  }
+  @objc deinit
+}
+@objc(SBLTransactionObserver) public protocol TransactionObserver : ObjectiveC.NSObjectProtocol {
+  @objc func statusDidChangeForTransaction(_ transaction: Sensibill.Transaction)
+  @objc optional func expectedProcessingTimeDidChangeForTransaction(_ transaction: Sensibill.Transaction)
+}
+extension Sensibill.SDKConfiguration {
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SBLSensibillUIConfiguration) public class SensibillUIConfiguration : ObjectiveC.NSObject, Swift.Decodable {
+    @objc public var webFonts: Sensibill.SDKConfiguration.SensibillUIFonts
+    public var enableWebErrorLogs: Swift.Bool
+    required public init(from decoder: Swift.Decoder) throws
+    @objc deinit
+  }
+}
+public protocol WebUIReceiptUploadStatusHandler : AnyObject {
+  var receiptUploadStatusListener: Sensibill.WebUIReceiptUploadStatusListener? { get set }
+  func notifyGetReceiptUploadStatus(localIds: [Swift.String])
+}
+@_inheritsConvenienceInitializers @objc(SBLCustomer) public class Customer : ObjectiveC.NSObject {
+  @objc public var id: Swift.String?
+  @objc public var contact: Sensibill.ContactInformation?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentErrorDto {
+    public let errorDescription: Swift.String?
+    public let code: Swift.String?
+    public init(errorDescription: Swift.String? = nil, code: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentErrorDto, b: Sensibill.SensibillAPIModel.DocumentErrorDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLReceiptCaptureManager) public class ReceiptCaptureManager : ObjectiveC.NSObject {
+  @objc public static let shared: Sensibill.ReceiptCaptureManager
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Sensibill.ReceiptCaptureManager {
+  @objc dynamic public func presentCapture(host viewController: UIKit.UIViewController, expenseType: Sensibill.ReceiptExpenseType)
+  @objc dynamic public func presentCapture(host viewController: UIKit.UIViewController, transaction: Sensibill.SBLTransaction, expenseType: Sensibill.ReceiptExpenseType)
+}
+extension Sensibill.ReceiptCaptureManager : Sensibill.CaptureFlowCoordinatorDelegate {
+  @objc dynamic public func coordinatorDidFinishCapture(_ coordinator: Sensibill.CaptureFlowCoordinator, transactions: [Sensibill.SBLTransaction])
+  @objc dynamic public func coordinatorDidCancelCapture(_ coordinator: Sensibill.CaptureFlowCoordinator)
+}
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentCreationRequestDto {
+    public let sourceFile: Sensibill.SensibillAPIModel.SourceFile
+    public let documentType: Sensibill.SensibillAPIModel.DocumentType
+    public let foreignId: Swift.String?
+    public init(sourceFile: Sensibill.SensibillAPIModel.SourceFile, documentType: Sensibill.SensibillAPIModel.DocumentType, foreignId: Swift.String? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentCreationRequestDto, b: Sensibill.SensibillAPIModel.DocumentCreationRequestDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLHTTPStatusCode) public class HTTPStatusCode : ObjectiveC.NSObject {
+  @objc public static let unauthorized: Swift.Int
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(SBLTokenProvider) public protocol TokenProvider {
+  @objc func provideTokenReplacement(completion: @escaping (_ credentials: Sensibill.Credentials?, _ error: Swift.Error?) -> Swift.Void)
+}
+extension Sensibill.SensibillAPIModel.DocumentMerchantDto {
+  public enum OrderChannelTypes : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case online
+    case physical
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Sensibill.SensibillAPIModel.DocumentMerchantDto.OrderChannelTypes]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Sensibill.SensibillAPIModel.DocumentMerchantDto.OrderChannelTypes] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+@_hasMissingDesignatedInitializers @objc(SBLReceiptCategory) public class ReceiptCategory : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let code: Swift.String
+  @objc public static func allCategories() -> Swift.Set<Sensibill.ReceiptCategory>
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@objc extension Sensibill.SBCategory {
+  @objc dynamic public var name: Swift.String {
+    @objc get
+  }
+  @objc dynamic public var image: UIKit.UIImage? {
+    @objc get
+  }
+}
+extension Swift.Int {
+  public func pow(exp: Swift.UInt, max: Swift.Int) -> Swift.Int
+}
+public protocol WebUIReceiptMetadataHandler : AnyObject {
+  func notifySaveMetadata(localIds: [Swift.String], sharedMetaData: Sensibill.SharedMetaData)
+}
+@_inheritsConvenienceInitializers @objc(SBLTrackingEvent) public class TrackingEvent : ObjectiveC.NSObject {
+  @objc public var asDictionary: [Swift.String : Any] {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Sensibill.TrackingEvent {
+  @objc dynamic public subscript(name: Swift.String) -> Any? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var feature: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var name: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var category: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var action: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var screenName: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var value: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var userId: Swift.String? {
+    @objc get
+    @objc set
+  }
+}
+extension Sensibill.TrackingEvent {
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+}
+extension Sensibill.TrackingEvent {
+  @objc public static func event(name: Swift.String) -> Sensibill.TrackingEvent
+}
+extension Sensibill.TrackingEvent {
+  public enum Name : Swift.String {
+    case deletion
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension Sensibill.TrackingEvent {
+  public enum Feature : Swift.String {
+    case receipt
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension Sensibill.TrackingEvent {
+  public enum AdditionalFields : Swift.String {
+    case receiptId
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+@_inheritsConvenienceInitializers @objc(SBLSupportedCurrencyCollection) public class SupportedCurrencyCollection : ObjectiveC.NSObject {
+  @objc public static let shared: Sensibill.SupportedCurrencyCollection
+  @objc public var currencies: Swift.Set<Swift.String>? {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Sensibill.SensibillUICoordinator : Sensibill.WebUIReceiptMetadataHandler {
+  public func notifySaveMetadata(localIds: [Swift.String], sharedMetaData: Sensibill.SharedMetaData)
+}
+@_inheritsConvenienceInitializers @objc(SBLAmount) public class Amount : ObjectiveC.NSObject {
+  @objc public var beforeTax: Swift.Double
+  @objc public var taxes: [Sensibill.Tax]
+  @objc public var afterTax: Swift.Double
+  @objc public var currencyCode: Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Sensibill.SensibillAPIModel {
+  public struct EditReceiptResponseDto {
+    public let id: Swift.String
+    public static func == (a: Sensibill.SensibillAPIModel.EditReceiptResponseDto, b: Sensibill.SensibillAPIModel.EditReceiptResponseDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension UIKit.UIImage {
+  @objc public static func sblImage(named name: Swift.String) -> UIKit.UIImage?
+}
+extension Sensibill.SDKConfiguration {
+  @objc public static func localizedString(forKey key: Swift.String) -> Swift.String
+}
+extension Sensibill.SensibillAPIModel {
+  public struct DocumentPaymentDto {
+    public let afterTax: Swift.Double?
+    public let cashBack: Swift.Double?
+    public let changeAdjustment: Swift.Double?
+    public let changeDue: Swift.Double?
+    public let changeIssued: Swift.Double?
+    public let currencyCode: Sensibill.SensibillAPIModel.CurrencyCode?
+    public let maskedCardNumber: Swift.String?
+    public let type: Sensibill.SensibillAPIModel.TenderTypes?
+    public init(afterTax: Swift.Double? = nil, cashBack: Swift.Double? = nil, changeAdjustment: Swift.Double? = nil, changeDue: Swift.Double? = nil, changeIssued: Swift.Double? = nil, currencyCode: Sensibill.SensibillAPIModel.CurrencyCode? = nil, maskedCardNumber: Swift.String? = nil, type: Sensibill.SensibillAPIModel.TenderTypes? = nil)
+    public static func == (a: Sensibill.SensibillAPIModel.DocumentPaymentDto, b: Sensibill.SensibillAPIModel.DocumentPaymentDto) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Foundation.NSString {
+  @objc dynamic public var isEmail: Swift.Bool {
+    @objc get
+  }
+}
+extension UIKit.UINavigationController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+    @objc get
+  }
+}
+@objc(SBLUserMode) public enum UserMode : Swift.Int {
+  case multiple
+  case single
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(SBLFeeType) public enum FeeType : Swift.Int {
+  case unknown
+  case donation
+  case duties
+  case general
+  case shipping
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(SBLTransactionStatus) public enum TransactionStatus : Swift.Int {
+  case unknown
+  case uploading
+  case processing
+  case completed
+  case failed
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Sensibill.TransactionStatus : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension Sensibill.TransactionStatus {
+  public var isFinal: Swift.Bool {
+    get
+  }
+}
+extension Sensibill.SDKConfiguration {
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SBLCaptureSettings) public class CaptureSettings : ObjectiveC.NSObject, Swift.Decodable {
+    @objc public var features: Sensibill.SDKConfiguration.CaptureFeatureFlags
+    @objc public var theme: Sensibill.SDKConfiguration.CaptureStyle
+    required public init(from decoder: Swift.Decoder) throws
+    @objc deinit
+  }
+}
+@objc(SBLNetworkReachabilityStatus) public enum NetworkReachabilityStatus : Swift.Int, Swift.CustomStringConvertible {
+  case unknown = -1
+  case notReachable
+  case reachable
+  public var description: Swift.String {
+    get
+  }
+  public var reachabilityDescription: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(SBLNavigationIntent) public enum SBLNavigationIntent : Swift.Int {
+  case dashboard
+  case receiptList
+  case receiptDetails
+  case folderList
+  case folderDetails
+  case exportList
+  case tips
+  case achievements
+  case metadataEdit
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(SBLRequest) public class Request : ObjectiveC.NSObject {
+  public var endPoint: Swift.String {
+    get
+  }
+  public var method: Swift.String {
+    get
+  }
+  public var parameters: [Swift.String : Any] {
+    get
+  }
+  public var data: Foundation.Data? {
+    get
+  }
+  public var sessionConfig: Foundation.URLSessionConfiguration? {
+    get
+  }
+  @objc public init(authenticationType: Sensibill.RequestAuthenticationType = .token, method: Swift.String = "GET", endPoint: Swift.String, parameters: [Swift.String : Any]? = nil, data: Foundation.Data? = nil)
+  @objc public init(sessionConfig: Foundation.URLSessionConfiguration, method: Swift.String = "GET", endPoint: Swift.String, parameters: [Swift.String : Any]? = nil, data: Foundation.Data? = nil)
+  @objc public func addParameter(key: Swift.String, value: Any)
+  @objc public func start(completion: @escaping (_ response: [Swift.AnyHashable : Any]?, _ error: Swift.Error?, _ statusCode: Swift.Int) -> Swift.Void)
+  public func start(completion: @escaping (_ response: [Swift.AnyHashable : Any]?, _ error: Sensibill.SensibillError) -> Swift.Void)
+  @objc deinit
+}
+@objc(SBLReceiptExpenseType) public enum ReceiptExpenseType : Swift.Int, Swift.Codable {
+  case unknown
+  case business
+  case personal
+  public var code: Swift.String? {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Sensibill.SensibillAPIError : Swift.Equatable {}
+extension Sensibill.SensibillAPIError : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.Empty : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.Empty : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.Empty : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.GeneralInfo : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.GeneralInfo : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.GeneralInfo : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.ClientCredentials : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.ClientCredentials : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.ClientCredentials : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.AccessToken : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.AccessToken : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.AccessToken : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.AuthorizationGrant : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.AuthorizationGrant : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.AuthorizationGrant : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.UserCredentials : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.UserCredentials : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.UserCredentials : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.ClientInfo : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.ClientInfo : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.ClientInfo : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.LookupLocalesDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.LookupLocalesDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.LookupLocalesDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.ClientInfo.Policies : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.ClientInfo.Policies : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.ClientInfo.Policies : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.ClientInfo.AuthenticationSettings : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.ClientInfo.AuthenticationSettings : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.ClientInfo.AuthenticationSettings : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.ClientInfo.Policies.WebSDKOptions : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.ClientInfo.Policies.WebSDKOptions : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.ClientInfo.Policies.WebSDKOptions : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.ClientInfo.Policies.ReceiptEmailDomainAndAliases : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.ClientInfo.Policies.ReceiptEmailDomainAndAliases : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.ClientInfo.Policies.ReceiptEmailDomainAndAliases : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.SourceFormat : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.SourceFormat : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.SourceFormat : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.DocumentDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentDto.DocumentUserMetadataDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentDto.DocumentUserMetadataDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentDto.DocumentUserMetadataDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentFeeDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentFeeDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentFeeDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentFeeDto.FeeTypes : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentFeeDto.FeeTypes : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.DocumentFeeDto.FeeTypes : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.GetDocumentListResponseDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.GetDocumentListResponseDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.GetDocumentListResponseDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentTaxDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentTaxDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentTaxDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.GetDocumentListFilter : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.GetDocumentListFilter : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.GetDocumentListFilter : Swift.Equatable {}
+extension Sensibill.TimeDirection : Swift.Equatable {}
+extension Sensibill.TimeDirection : Swift.Hashable {}
+extension Sensibill.TimeDirection : Swift.RawRepresentable {}
+extension Sensibill.SBLTimeDirection : Swift.Equatable {}
+extension Sensibill.SBLTimeDirection : Swift.Hashable {}
+extension Sensibill.SBLTimeDirection : Swift.RawRepresentable {}
+extension Sensibill.EndpointVersion : Swift.Equatable {}
+extension Sensibill.EndpointVersion : Swift.Hashable {}
+extension Sensibill.EndpointVersion : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.PasswordStrength : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.PasswordStrength : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.PasswordStrength : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.EmailOrUsernameAvailabilityResponseDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.EmailOrUsernameAvailabilityResponseDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.EmailOrUsernameAvailabilityResponseDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.GetDocumentResponseDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.GetDocumentResponseDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.GetDocumentResponseDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.LookupLocalesResponse : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.LookupLocalesResponse : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.LookupLocalesResponse : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.ResetTempPasswordRequestDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.ResetTempPasswordRequestDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.ResetTempPasswordRequestDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentDiscountDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentDiscountDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentDiscountDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentDiscountDto.DiscountTypes : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentDiscountDto.DiscountTypes : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.DocumentDiscountDto.DiscountTypes : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.TenderTypes : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.TenderTypes : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.TenderTypes : Swift.RawRepresentable {}
+extension Sensibill.TimeUnit : Swift.Equatable {}
+extension Sensibill.TimeUnit : Swift.Hashable {}
+extension Sensibill.TimeUnit : Swift.RawRepresentable {}
+extension Sensibill.SBLTimeUnit : Swift.Equatable {}
+extension Sensibill.SBLTimeUnit : Swift.Hashable {}
+extension Sensibill.SBLTimeUnit : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.DocumentItemDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentItemDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentItemDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentDeleteRequestDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentDeleteRequestDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentDeleteRequestDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentType : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentType : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.DocumentType : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.DocumentDto.ExpenseTypes : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentDto.ExpenseTypes : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.DocumentDto.ExpenseTypes : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.SourceFileError : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.SourceFileError : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.SourceFile : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.SourceFile : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.SourceFile : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryTypes : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryTypes : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryTypes : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.CountryCode : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.CountryCode : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.CountryCode : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.DocumentLoyaltyRewardsDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentLoyaltyRewardsDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentLoyaltyRewardsDto : Swift.Equatable {}
+extension Sensibill.ReceiptType : Swift.Equatable {}
+extension Sensibill.ReceiptType : Swift.Hashable {}
+extension Sensibill.ReceiptType : Swift.RawRepresentable {}
+extension Sensibill.TransactionType : Swift.Equatable {}
+extension Sensibill.TransactionType : Swift.Hashable {}
+extension Sensibill.TransactionType : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.CurrencyCode : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.CurrencyCode : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.CurrencyCode : Swift.RawRepresentable {}
+extension Sensibill.MerchantChannel : Swift.Equatable {}
+extension Sensibill.MerchantChannel : Swift.Hashable {}
+extension Sensibill.MerchantChannel : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.UserRequestDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.UserRequestDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.UserRequestDto : Swift.Equatable {}
+extension Sensibill.DiscountType : Swift.Equatable {}
+extension Sensibill.DiscountType : Swift.Hashable {}
+extension Sensibill.DiscountType : Swift.RawRepresentable {}
+extension Sensibill.RequestAuthenticationType : Swift.Equatable {}
+extension Sensibill.RequestAuthenticationType : Swift.Hashable {}
+extension Sensibill.RequestAuthenticationType : Swift.RawRepresentable {}
+extension Sensibill.MatchingError : Swift.Equatable {}
+extension Sensibill.MatchingError : Swift.Hashable {}
+extension Sensibill.MatchingError : Swift.RawRepresentable {}
+extension Sensibill.ConnectionState : Swift.Equatable {}
+extension Sensibill.ConnectionState : Swift.Hashable {}
+extension Sensibill.ConnectionType : Swift.Equatable {}
+extension Sensibill.ConnectionType : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.DocumentItemDto.DocumentItemDtoProperties : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentItemDto.DocumentItemDtoProperties : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentItemDto.DocumentItemDtoProperties : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentBarcodeDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentBarcodeDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentBarcodeDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentCreationResponseDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentCreationResponseDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentCreationResponseDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.ReceiptEmailAvailabilityResponseDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.ReceiptEmailAvailabilityResponseDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.ReceiptEmailAvailabilityResponseDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.ReceiptUpdateDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.ReceiptUpdateDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.ReceiptUpdateDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentDeleteResponseDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentDeleteResponseDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentDeleteResponseDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto.SourceDocumentFormats : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto.SourceDocumentFormats : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto.SourceDocumentFormats : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.MIMEType : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.MIMEType : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.MIMEType : Swift.RawRepresentable {}
+extension Sensibill.ReceiptDetectorType : Swift.Equatable {}
+extension Sensibill.ReceiptDetectorType : Swift.Hashable {}
+extension Sensibill.ReceiptDetectorType : Swift.RawRepresentable {}
+extension Sensibill.SensibillUICoordinator.PresentationMethod : Swift.Equatable {}
+extension Sensibill.SensibillUICoordinator.PresentationMethod : Swift.Hashable {}
+extension Sensibill.SensibillUICoordinator.PresentationMethod : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.EditDocumentResponseDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.EditDocumentResponseDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.EditDocumentResponseDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.UserResponseDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.UserResponseDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.UserResponseDto : Swift.Equatable {}
+extension Sensibill.SensibillError : Swift.Equatable {}
+extension Sensibill.SensibillError : Swift.Hashable {}
+extension Sensibill.SensibillError : Swift.RawRepresentable {}
+extension Sensibill.ReceiptStatus : Swift.Equatable {}
+extension Sensibill.ReceiptStatus : Swift.Hashable {}
+extension Sensibill.ReceiptStatus : Swift.RawRepresentable {}
+extension Sensibill.PasswordStrength : Swift.Equatable {}
+extension Sensibill.PasswordStrength : Swift.Hashable {}
+extension Sensibill.PasswordStrength : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.CourierDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.CourierDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.CourierDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentCustomerDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentCustomerDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentCustomerDto : Swift.Equatable {}
+extension Sensibill.OriginalFormat : Swift.Equatable {}
+extension Sensibill.OriginalFormat : Swift.Hashable {}
+extension Sensibill.OriginalFormat : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.ReceiptUpdateDto.AccountTransactionData : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.ReceiptUpdateDto.AccountTransactionData : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.ReceiptUpdateDto.AccountTransactionData : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentTaxableAmountDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentTaxableAmountDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentTaxableAmountDto : Swift.Equatable {}
+extension Sensibill.TransactionError : Swift.Equatable {}
+extension Sensibill.TransactionError : Swift.Hashable {}
+extension Sensibill.TransactionError : Swift.RawRepresentable {}
+extension Sensibill.WebUIReceiptEvent : Swift.Equatable {}
+extension Sensibill.WebUIReceiptEvent : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.EditDocumentRequestDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.EditDocumentRequestDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.EditDocumentRequestDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentMerchantDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentMerchantDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentMerchantDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.SetPasswordRequestDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.SetPasswordRequestDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.SetPasswordRequestDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.RegisterUserResponseDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.RegisterUserResponseDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.RegisterUserResponseDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.Status : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.Status : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.Status : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.DocumentErrorDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentErrorDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentErrorDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentCreationRequestDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentCreationRequestDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentCreationRequestDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentMerchantDto.OrderChannelTypes : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentMerchantDto.OrderChannelTypes : Swift.Hashable {}
+extension Sensibill.SensibillAPIModel.DocumentMerchantDto.OrderChannelTypes : Swift.RawRepresentable {}
+extension Sensibill.TrackingEvent.Name : Swift.Equatable {}
+extension Sensibill.TrackingEvent.Name : Swift.Hashable {}
+extension Sensibill.TrackingEvent.Name : Swift.RawRepresentable {}
+extension Sensibill.TrackingEvent.Feature : Swift.Equatable {}
+extension Sensibill.TrackingEvent.Feature : Swift.Hashable {}
+extension Sensibill.TrackingEvent.Feature : Swift.RawRepresentable {}
+extension Sensibill.TrackingEvent.AdditionalFields : Swift.Equatable {}
+extension Sensibill.TrackingEvent.AdditionalFields : Swift.Hashable {}
+extension Sensibill.TrackingEvent.AdditionalFields : Swift.RawRepresentable {}
+extension Sensibill.SensibillAPIModel.EditReceiptResponseDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.EditReceiptResponseDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.EditReceiptResponseDto : Swift.Equatable {}
+extension Sensibill.SensibillAPIModel.DocumentPaymentDto : Swift.Decodable {}
+extension Sensibill.SensibillAPIModel.DocumentPaymentDto : Swift.Encodable {}
+extension Sensibill.SensibillAPIModel.DocumentPaymentDto : Swift.Equatable {}
+extension Sensibill.UserMode : Swift.Equatable {}
+extension Sensibill.UserMode : Swift.Hashable {}
+extension Sensibill.UserMode : Swift.RawRepresentable {}
+extension Sensibill.FeeType : Swift.Equatable {}
+extension Sensibill.FeeType : Swift.Hashable {}
+extension Sensibill.FeeType : Swift.RawRepresentable {}
+extension Sensibill.TransactionStatus : Swift.Equatable {}
+extension Sensibill.TransactionStatus : Swift.Hashable {}
+extension Sensibill.TransactionStatus : Swift.RawRepresentable {}
+extension Sensibill.NetworkReachabilityStatus : Swift.Equatable {}
+extension Sensibill.NetworkReachabilityStatus : Swift.Hashable {}
+extension Sensibill.NetworkReachabilityStatus : Swift.RawRepresentable {}
+extension Sensibill.SBLNavigationIntent : Swift.Equatable {}
+extension Sensibill.SBLNavigationIntent : Swift.Hashable {}
+extension Sensibill.SBLNavigationIntent : Swift.RawRepresentable {}
+extension Sensibill.ReceiptExpenseType : Swift.Equatable {}
+extension Sensibill.ReceiptExpenseType : Swift.Hashable {}
+extension Sensibill.ReceiptExpenseType : Swift.RawRepresentable {}

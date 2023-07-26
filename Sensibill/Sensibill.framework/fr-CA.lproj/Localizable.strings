@@ -1,0 +1,154 @@
+/* SBCategory */
+"category-accommodations" = "Hébergement";
+"category-apparel" = "Vêtements";
+"category-auto-gas-parking" = "Auto, essence et stationnement";
+"category-business" = "Services aux entreprises";
+"category-donations" = "Cadeaux et dons";
+"category-education" = "Éducation";
+"category-electronics-software" = "Électronique et logiciels";
+"category-entertain" = "Divertissement";
+"category-fees-taxes-dues" = "Frais, taxes et cotisations";
+"category-financial" = "Services financiers";
+"category-fitness-recreation" = "Activité physique et loisirs";
+"category-groceries-liquor" = "Épiceries et alcool";
+"category-health" = "Santé";
+"category-home-garden" = "Maison et jardin";
+"category-industrial-wholesale" = "Industriel et en gros";
+"category-kids" = "Enfants";
+"category-personal-care" = "Soins personnels";
+"category-pets" = "Animaux domestiques";
+"category-restaurants-cafes" = "Restaurants et cafés";
+"category-shipping-storage" = "Expédition et stockage";
+"category-shopping" = "Vente au détail";
+"category-telecommunications" = "Télécommunication";
+"category-travel" = "Transport et voyage";
+"category-unknown" = "Catégorie inconnue";
+"category-utilities" = "Services publics";
+
+/* SBReceipt+UI */
+"business-expense-type" = "Professionnelle";
+"es-tax" = "TVA";
+"missing-amount" = "Inconnu";
+"missing-merchant" = "Marchand";
+"nettotal" = "NET Total";
+"personal-expense-type" = "Personnelle";
+"receipt-added-on-at" = "Ajouté le %@ à %@";
+"subtotal" = "Sous-Total";
+"tax" = "Taxe";
+"uk-tax" = "TVA";
+
+/* Error Messages (SDK) */
+"ok" = "Ok";
+"retry" = "Réessayer";
+"ui-web-fatal-error-message" = "L'application s'est arrêtée en raison d'une erreur interne. Veuillez réessayer plus tard.";
+"ui-web-offline-message" = "Il semble que votre appareil soit hors ligne. Veuillez réessayer lorsque vous aurez accès au réseau.";
+
+/* Capture */
+"auto-capture-button-hint" = "Basculer l'état de capture automatique";
+"auto-capture-off" = "Capture automatique désactivée";
+"auto-capture-on" = "Capture automatique activée";
+"back" = "Précédent";
+"close" = "Fermer";
+"blur-error-keep" = "Conserver";
+"blur-error-message" = "Cette photo a l'air un peu floue. Souhaitez-vous la reprendre ?";
+"blur-error-retake" = "Reprendre";
+"blur-error-title" = "Flou détecté";
+"button-add-page" = "Ajouter";
+"camera-permission-button-title" = "Autoriser l’accès";
+"camera-permission-title" = "L'accès à la caméra est requis";
+"camera-permission-message" = "Nous avons besoin d'accéder à la caméra pour capturer un reçu.";
+"camera-preview-label" = "Aperçu de la caméra";
+"capture-button-hint" = "Pour prendre une photo manuellement";
+"capture-button-label" = "Capturer";
+"capture-capturing-announcement" = "Capture du reçu";
+"capture-detection-announcement" = "Détection du reçu";
+"capture-error-failed-to-capture-image" = "Échec de la capture de l'image. Réessayez.";
+"capture-preview-current-selected-page" = "Page %d sur %d";
+"capture-preview-discard-button-label" = "Jeter";
+"capture-feedback-capturing-receipt" = "Capturer, ne bougez pas";
+"capture-feedback-looking-receipt" = "En recherche de ticket de caisse...";
+"capture-feedback-looking-receipt-announcement" = "En recherche de ticket de caisse";
+"capture-feedback-processing-receipt" = "Presque terminé !";
+"capture-feedback-processing-receipt-announcement" = "Ticket de caisse capturé";
+"capture-preview-next-page-button-disabled-label" = "Image suivante. Désactivée";
+"capture-preview-next-page-button-hint" = "Fait défiler jusqu'à l'image capturée suivante";
+"capture-preview-next-page-button-label" = "Image suivante";
+"capture-preview-next-previous-button-hint" = "Fait défiler jusqu'à l'image capturée précédente";
+"capture-preview-previous-page-button-disabled-label" = "Image précédente. Désactivée";
+"capture-preview-previous-page-button-label" = "Image précédente";
+"capture-permissions-dialog-title" = "Autoriser l’accès";
+"capture-permissions-dialog-message-photo-library" = "Nous avons besoin d'accéder à l'appareil photo pour capturer un reçu.";
+"capture-permissions-dialog-action-open-settings" = "Réglages";
+"capture-permissions-dialog-action-cancel" = "Plus tard";
+"capture-screen-title" = "capturer";
+
+"capture-top-of-receipt-indicator-title" = "Haut du reçu";
+"change-camera-flash-mode" = "Basculer l'état du flash";
+"crop" = "Rogner";
+"crop-button-cancel" = "Annuler";
+"crop-button-done" = "Terminé";
+"crop-screen-title" = "rogner";
+"flash-off" = "Flash éteint";
+"flash-on" = "Flash allumé";
+"goes-back" = "Retourne à l'écran précédent";
+"image-preview-next-button-hint" = "Acceptez cette image pour la première section et commencez à capturer la suivante";
+"image-preview-done-button-hint" = "Accepter l'image et quitter la capture";
+"image-preview-done-button-title" = "Terminé";
+"image-preview-headline" = "Examiner l'image (%d/%d)";
+"image-preview-next-button-title" = "Section suivante";
+"long-capture-button" = "Longue capture";
+"long-capture-button-hint" = "Capturez un long reçu qui nécessite plus d'une photo";
+"long-capture-button-selected" = "Sélectionné. Longue capture";
+"long-capture-button-short-title" = "Longue";
+"long-capture-button-title" = "Long reçu";
+"long-capture-toast-top" = "Capturez la section supérieure";
+"long-capture-toast-bottom" = "Capturez la section inférieure";
+"normal-capture-button" = "Capture normale";
+"normal-capture-button-hint" = "Capturez un reçu en une seule photo";
+"normal-capture-button-selected" = "Sélectionné. Capture normale";
+"normal-capture-button-title" = "Normale";
+"photo-gallery" = "Galerie photos";
+"photo-picker-hint" = "Ouvrez votre photothèque pour choisir une image existante.";
+"preview-header" = "Examiner l'image (%@/%@)";
+"previous-page-button-hint" = "Revenez à l'écran d'aperçu de l'image pour afficher et modifier vos images actuellement capturées";
+"previous-page-button-title" = "Images capturées. %@";
+"retake" = "Reprendre";
+
+/* Capture Screen */
+
+"capture-discard-image-alert-cancel" = "Non, conserver cette image";
+"capture-discard-images-alert-cancel" = "Non, conserver ces images";
+"capture-discard-image-alert-confirm" = "Oui, jeter et continuer";
+"capture-discard-image-alert-title" = "Rejeter l'image";
+"capture-discard-images-alert-title" = "Rejeter les images";
+"capture-discard-image-alert-message" = "Vos images seront supprimées. Es-tu sur de vouloir continuer?";
+"capture-discard-images-alert-message" = "Votre image sera supprimée. Es-tu sur de vouloir continuer?";
+
+/* Capture Preview Screen */
+
+"discard-image-alert-cancel" = "Non, conserver cette image";
+"discard-images-alert-cancel" = "Non, conserver ces images";
+"discard-image-alert-confirm" = "Oui, jeter et continuer";
+"discard-image-alert-title" = "Rejeter l'image";
+"discard-images-alert-title" = "Rejeter les images";
+"discard-image-alert-message" = "Vos images seront supprimées. Es-tu sur de vouloir continuer?";
+"discard-images-alert-message" = "Votre image sera supprimée. Es-tu sur de vouloir continuer?";
+
+/* Capture Tips Screen */
+
+"capture-tips-button-tips-accessibility-label" = "Des astuces";
+
+"capture-tips-button-close-label" = "Proche";
+"capture-tips-button-next-label" = "Prochain";
+
+"capture-tips-page-flattenreceipt-title" = "Aplatissez votre reçu";
+"capture-tips-page-flattenreceipt-description" = "Aplatissez les plis et les courbes de votre reçu et placez-le sur une surface foncée et sans motif.";
+
+"capture-tips-page-holdsteady-title" = "Tenez-le bien!";
+"capture-tips-page-holdsteady-description" = "Tenez votre appareil stable au-dessus du reçu pendant que nous prenons la photo.";
+
+"capture-tips-page-makeitbright-title" = "Faites-le clair!";
+"capture-tips-page-makeitbright-description" = "Activez le flash dans les endroits sombres pour adoucir les ombres; ou bien approchez-vous d’une source lumineuse.";
+
+"capture-tips-page-longreceipt-title" = "Vous avez un long reçu?";
+"capture-tips-page-longreceipt-description" = "Prenez une photo de la partie supérieure, puis passez à la partie suivante et prenez une photo !";
