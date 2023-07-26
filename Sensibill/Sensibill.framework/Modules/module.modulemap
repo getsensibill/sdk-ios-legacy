@@ -1,0 +1,11 @@
+framework module Sensibill {
+  umbrella header "Sensibill.h"
+
+  export *
+  module * { export * }
+}
+
+module Sensibill.Swift {
+  header "Sensibill-Swift.h"
+  requires objc
+}
