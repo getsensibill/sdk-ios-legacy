@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>sblCaptureCameraScreenAlertDiscardImageCancel</key>
+    <dict>
+      <key>NSStringLocalizedFormatKey</key>
+      <string>%#@format@</string>
+      <key>format</key>
+      <dict>
+        <key>NSStringFormatSpecTypeKey</key>
+        <string>NSStringPluralRuleType</string>
+        <key>NSStringFormatValueTypeKey</key>
+        <string>li</string>
+        <key>one</key>
+        <string>Non, conserver cette image</string>
+        <key>other</key>
+        <string>Non, conserver ces images.</string>
+      </dict>
+    </dict>
+    <key>sblCaptureCameraScreenAlertDiscardImageMessage</key>
+    <dict>
+      <key>NSStringLocalizedFormatKey</key>
+      <string>%#@format@</string>
+      <key>format</key>
+      <dict>
+        <key>NSStringFormatSpecTypeKey</key>
+        <string>NSStringPluralRuleType</string>
+        <key>NSStringFormatValueTypeKey</key>
+        <string>li</string>
+        <key>one</key>
+        <string>Vos images seront supprimées. Es-tu sur de vouloir continuer?</string>
+        <key>other</key>
+        <string>Votre image sera supprimée. Es-tu sur de vouloir continuer?</string>
+      </dict>
+    </dict>
+    <key>sblCaptureCameraScreenAlertDiscardImageTitle</key>
+    <dict>
+      <key>NSStringLocalizedFormatKey</key>
+      <string>%#@format@</string>
+      <key>format</key>
+      <dict>
+        <key>NSStringFormatSpecTypeKey</key>
+        <string>NSStringPluralRuleType</string>
+        <key>NSStringFormatValueTypeKey</key>
+        <string>li</string>
+        <key>one</key>
+        <string>Supprimer l'image</string>
+        <key>other</key>
+        <string>Supprimer les images</string>
+      </dict>
+    </dict>
+    <key>sblDocumentExportsNumberDocumentsLabel</key>
+    <dict>
+      <key>NSStringLocalizedFormatKey</key>
+      <string>%#@format@</string>
+      <key>format</key>
+      <dict>
+        <key>NSStringFormatSpecTypeKey</key>
+        <string>NSStringPluralRuleType</string>
+        <key>NSStringFormatValueTypeKey</key>
+        <string>li</string>
+        <key>one</key>
+        <string>%li Document</string>
+        <key>other</key>
+        <string>%li Documents</string>
+      </dict>
+    </dict>
+    <key>sblDocumentListDocumentCountLabelFormat</key>
+    <dict>
+      <key>NSStringLocalizedFormatKey</key>
+      <string>%#@format@</string>
+      <key>format</key>
+      <dict>
+        <key>NSStringFormatSpecTypeKey</key>
+        <string>NSStringPluralRuleType</string>
+        <key>NSStringFormatValueTypeKey</key>
+        <string>li</string>
+        <key>one</key>
+        <string>%@ document</string>
+        <key>other</key>
+        <string>%@ documents</string>
+      </dict>
+    </dict>
+  </dict>
+</plist>
