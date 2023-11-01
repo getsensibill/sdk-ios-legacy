@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
 // swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name Sensibill
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
@@ -8,7 +8,6 @@ import Combine
 import CommonCrypto
 import CoreGraphics
 import CoreLocation
-import CryptoKit
 import Foundation
 import Metal
 import MetalKit
@@ -73,7 +72,7 @@ extension Sensibill.SensibillAPIClient {
     case executionFailure(Swift.Error)
     case missingUserAccessToken
     case serverCertificatePublicKeyUnknown
-    case apiFailure(Sensibill.SensibillAPIClient.APIError)
+    case apiFailure(Sensibill.SensibillAPIClient.APIError, Sensibill.SensibillAPIModel.ErrorDetails?)
     case noResponse
     case unusableResponse(Swift.String)
   }
@@ -139,6 +138,19 @@ extension Sensibill.SensibillAPIModel {
     public init(from decoder: Swift.Decoder) throws
   }
 }
+extension Sensibill.UIParts.TipsFeature {
+  public class TipsScreenStyle {
+    public var backgroundColor: SwiftUI.Color
+    public var foregroundColor: SwiftUI.Color
+    public var closeIconButton: Sensibill.UIParts.IconActionButton
+    public var tipViewStyle: Sensibill.UIParts.TipsFeature.TipViewStyle
+    public var pageControl: Sensibill.UIParts.PageControlStyle
+    public var nextButton: Sensibill.UIParts.MainActionButtonDefinition
+    public var closeButton: Sensibill.UIParts.MainActionButtonDefinition
+    public init(branding: Sensibill.Branding = Branding())
+    @objc deinit
+  }
+}
 extension Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings {
   public struct Options {
     public let email: Swift.Bool?
@@ -155,154 +167,6 @@ extension Sensibill.SensibillAPIModel {
     public static func == (a: Sensibill.SensibillAPIModel.ClientCredentials, b: Sensibill.SensibillAPIModel.ClientCredentials) -> Swift.Bool
     public func encode(to encoder: Swift.Encoder) throws
     public init(from decoder: Swift.Decoder) throws
-  }
-}
-extension Sensibill.Branding.L10NKey {
-  public enum Document : Swift.String {
-    case sblDocumentFieldMerchantNameUnavailable
-    case sblDocumentFieldUnavailable
-    case sblDocumentFieldUnavailableA11yLabel
-    case sblDocumentNeedsReviewLabel
-    case sblCommonErrorViewMessageFatal
-    case sblCommonErrorViewMessageOffline
-    case sblCommonErrorViewOkButtonLabel
-    case sblCommonErrorViewRetryButtonLabel
-    case sblCommonPopOverDoneButtonLabel
-    case sblCommonPopOverCancelButtonLabel
-    case sblDocumentDeleteAlertTitleSingle
-    case sblDocumentDeleteAlertTitleMultiple
-    case sblDocumentDeleteAlertDescriptionSingle
-    case sblDocumentDeleteAlertDescriptionMultiple
-    case sblDocumentDeleteAlertButtonCancel
-    case sblDocumentDeleteAlertButtonConfirm
-    case sblDocumentDeleteFailedToast
-    case sblDocumentDownloadCreateFailedToast
-    case sblDocumentDownloadCreateNoDocumentsFoundToast
-    case sblDashboardScreenTitle
-    case sblDashboardShowAllButton
-    case sblDashboardSectionTitleDocuments
-    case sblDashboardSectionTitleDownloads
-    case sblDashboardLoadErrorTitle
-    case sblDashboardLoadErrorDescription
-    case sblDocumentListScreenTitle
-    case sblDocumentAddDocumentDropdownA11yLabel
-    case sblDocumentAddDocumentDropdownOptionReceipt
-    case sblDocumentAddDocumentDropdownOptionInvoice
-    case sblDocumentButtonFilterLabel
-    case sblDocumentListSearchPlaceholderText
-    case sblDocumentListSearchClearButtonLabel
-    case sblDocumentListDocumentCountLabelFormat
-    case sblDocumentListDocumentSelectedLabelFormat
-    case sblDocumentListDeleteSelectedButton
-    case sblDocumentListNoDocumentsTitle
-    case sblDocumentListNoDocumentsMessage
-    case sblDocumentListLoadErrorTitle
-    case sblDocumentListLoadErrorDescription
-    case sblDocumentListNoDocumentsFilteredTitle
-    case sblDocumentListItemDateUnavailable
-    case sblDocumentListLoadMoreButtonLabel
-    case sblDocumentListNoMoreItemsLabel
-    case sblDocumentFilterScreenTitle
-    case sblDocumentFilterResetButtonLabel
-    case sblDocumentFilterApplyButtonLabel
-    case sblDocumentFilterSortByLabel
-    case sblDocumentFilterSortByOptionRecentlyAdded
-    case sblDocumentFilterSortByOptionPurchaseDate
-    case sblDocumentFilterExpenseTypeLabel
-    case sblDocumentFilterExpenseTypeOptionAll
-    case sblDocumentFilterExpenseTypeOptionPersonal
-    case sblDocumentFilterExpenseTypeOptionBusiness
-    case sblDocumentFilterCategoryLabel
-    case sblDocumentFilterCategoryOptionAll
-    case sblDocumentFilterDocumentTypeLabel
-    case sblDocumentFilterDocumentTypeOptionAll
-    case sblDocumentFilterDocumentTypeOptionReceipt
-    case sblDocumentFilterDocumentTypeOptionInvoice
-    case sblDocumentDetailScreenTitleReceipt
-    case sblDocumentDetailScreenTitleInvoice
-    case sblDocumentEditRequiredFieldHint
-    case sblDocumentDetailLoadErrorTitle
-    case sblDocumentDetailLoadErrorDescription
-    case sblDocumentDetailEditButtonLabel
-    case sblDocumentEditCancelButtonLabel
-    case sblDocumentEditSaveButtonLabel
-    case sblDocumentDetailViewOriginalButtonLabel
-    case sblDocumentDetailDeleteButtonLabel
-    case sblDocumentEditCancelAlertTitle
-    case sblDocumentEditCancelAlertDescription
-    case sblDocumentEditCancelAlertButtonCancel
-    case sblDocumentEditCancelAlertButtonConfirm
-    case sblDocumentEditMissingRequiredFieldsAlertTitle
-    case sblDocumentEditMissingRequiredFieldsAlertMessage
-    case sblDocumentEditMissingRequiredFieldsAlertButton
-    case sblDocumentEditSaveChangesFailedToast
-    case sblDocumentEditChangesSavedToast
-    case sblDocumentDetailNeedsReviewTitle
-    case sblDocumentDetailNeedsReviewMessage
-    case sblDocumentEditMerchantNameLabel
-    case sblDocumentDetailSummaryTotal
-    case sblDocumentDetailSummaryCurrency
-    case sblDocumentDetailSummaryDocumentDateReceipt
-    case sblDocumentDetailSummaryDocumentDateInvoice
-    case sblDocumentDetailSummaryUploadDate
-    case sblDocumentDetailSummaryExpenseType
-    case sblDocumentDetailSummaryExpenseTypePersonal
-    case sblDocumentDetailSummaryExpenseTypeBusiness
-    case sblDocumentDetailSummaryCategory
-    case sblDocumentDetailSummaryAmountDue
-    case sblDocumentDetailSummaryInvoiceNumber
-    case sblDocumentDetailSummaryTaxRegistrationNumber
-    case sblDocumentDetailSummaryDueDate
-    case sblDocumentDetailLineItemsTitleFormat
-    case sblDocumentDetailLineItemsNoItemsLabel
-    case sblDocumentDetailLineItemsItemDefaultLabel
-    case sblDocumentDetailTotalsTitle
-    case sblDocumentDetailTotalsNoTotalLabel
-    case sblDocumentDetailTotalsTotal
-    case sblDocumentDetailTotalsSubTotal
-    case sblDocumentDetailTotalsTip
-    case sblDocumentDetailTotalsFeeNameLabelFormat
-    case sblDocumentDetailTaxesTitle
-    case sblDocumentDetailTaxesNoTaxesLabel
-    case sblDocumentDetailTaxesTaxLineNumberFormat
-    case sblDocumentDetailDiscountsTitle
-    case sblDocumentDetailDiscountsLineNumberFormat
-    case sblDocumentDetailPaymentsTitle
-    case sblDocumentDetailNotesTitle
-    case sblDocumentOriginalScreenTitle
-    case sblDocumentOriginalDownloadButtonLabel
-    case sblDocumentOriginalLoadErrorTitle
-    case sblDocumentOriginalImagePreviewA11yLabel
-    case sblDocumentExportsScreenTitle
-    case sblDocumentExportsListHeader
-    case sblDocumentExportsNoItemsTitle
-    case sblDocumentExportsNoItemsMessage
-    case sblDocumentExportsExportButtonLabel
-    case sblDocumentExportsNumberDocumentsLabel
-    case sblDocumentExportsDateLabel
-    case sblDocumentExportsLoadErrorTitle
-    case sblDocumentExportsLoadErrorDescription
-    case sblDocumentExportsFailedStatusTitle
-    case sblDocumentExportsFailedStatusDescription
-    case sblDocumentExportsFailedDownloadMessage
-    case sblDocumentExportsFilterScreenTitle
-    case sblDocumentExportsFilterCancelButtonLabel
-    case sblDocumentExportsFilterCreateButtonLabel
-    case sblDocumentExportsFilterDropdownDownloadFormatLabel
-    case sblDocumentExportsFilterDropdownDownloadFormatOptionCSV
-    case sblDocumentExportsFilterDropdownDownloadFormatOptionXLSX
-    case sblDocumentExportsFilterDropdownDownloadFormatOptionPDF
-    case sblDocumentExportsFilterDropdownDownloadFormatOptionZIP
-    case sblDocumentExportsFilterDropdownDownloadByLabel
-    case sblDocumentExportsFilterDropdownDownloadByOptionDate
-    case sblDocumentExportsFilterDropdownDownloadByDateYearLabel
-    case sblDocumentExportsFilterDropdownDownloadByDateMonthLabel
-    case sblDocumentExportsFilterDropdownDownloadByDateMonthOptionAll
-    public init?(rawValue: Swift.String)
-    public typealias RawValue = Swift.String
-    public var rawValue: Swift.String {
-      get
-    }
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -445,6 +309,7 @@ public protocol UsersEndpointsProvider : Sensibill.EndpointsProvider {
   func me(excludeAlerts: Swift.Bool) throws -> Sensibill.SensibillAPIClient.Task<Sensibill.SensibillAPIModel.UserResponseDto>
   func me(_ userUpdateRequest: Sensibill.SensibillAPIModel.UserUpdateRequest) throws -> Sensibill.SensibillAPIClient.Task<Sensibill.SensibillAPIModel.Empty>
   func receiptEmailAvailability(email: Swift.String, clientAccessToken: Swift.String) throws -> Sensibill.SensibillAPIClient.Task<Sensibill.SensibillAPIModel.ReceiptEmailAvailabilityResponseDto>
+  func receiptEmailAvailability(email: Swift.String) throws -> Sensibill.SensibillAPIClient.Task<Sensibill.SensibillAPIModel.ReceiptEmailAvailabilityResponseDto>
   func emailAvailability(email: Swift.String, clientAccessToken: Swift.String) throws -> Sensibill.SensibillAPIClient.Task<Sensibill.SensibillAPIModel.EmailOrUsernameAvailabilityResponseDto>
   func usernameAvailability(username: Swift.String, clientAccessToken: Swift.String) throws -> Sensibill.SensibillAPIClient.Task<Sensibill.SensibillAPIModel.EmailOrUsernameAvailabilityResponseDto>
   func passwordStrength(password: Swift.String, checkType: Swift.String?, userType: Swift.String?, clientCredentials: Sensibill.SensibillAPIModel.ClientCredentials) throws -> Sensibill.SensibillAPIClient.Task<Sensibill.SensibillAPIModel.PasswordStrength>
@@ -530,6 +395,14 @@ extension Sensibill.SensibillAPIModel {
     public init(from decoder: Swift.Decoder) throws
   }
 }
+extension Sensibill.UIParts {
+  public struct MainActionButtonContents {
+    public let label: Swift.String
+    public let accessibilityLabel: Swift.String
+    public let accessibilityHint: Swift.String?
+    public init(label: Swift.String, accessibilityLabel: Swift.String, accessibilityHint: Swift.String? = nil)
+  }
+}
 extension Sensibill.SensibillSDK {
   @_inheritsConvenienceInitializers @objc public class StateProvider : ObjectiveC.NSObject {
     @objc override dynamic public init()
@@ -541,7 +414,7 @@ extension Sensibill.SensibillSDK.StateProvider {
     @objc get
   }
 }
-extension Sensibill.Capture.Interface {
+extension Sensibill.Capture.RuntimeSettings {
   public struct Toast {
     public let backgroundColor: SwiftUI.Color
     public let textColor: SwiftUI.Color
@@ -563,9 +436,10 @@ extension Sensibill.SensibillAPIModel {
   public struct DocumentUserMetadataDto {
     public var expenseType: Swift.String?
     public var notes: Swift.String?
+    public var folders: [Swift.String]?
     public var warrantyPeriod: Sensibill.SensibillAPIModel.DocumentUserMetadataDto.DocumentUserMetadataPeriodDto?
     public var returnPeriod: Sensibill.SensibillAPIModel.DocumentUserMetadataDto.DocumentUserMetadataPeriodDto?
-    public init(expenseType: Swift.String? = nil, notes: Swift.String? = nil, warrantyPeriod: Sensibill.SensibillAPIModel.DocumentUserMetadataDto.DocumentUserMetadataPeriodDto? = nil, returnPeriod: Sensibill.SensibillAPIModel.DocumentUserMetadataDto.DocumentUserMetadataPeriodDto? = nil)
+    public init(expenseType: Swift.String? = nil, notes: Swift.String? = nil, folders: [Swift.String]? = nil, warrantyPeriod: Sensibill.SensibillAPIModel.DocumentUserMetadataDto.DocumentUserMetadataPeriodDto? = nil, returnPeriod: Sensibill.SensibillAPIModel.DocumentUserMetadataDto.DocumentUserMetadataPeriodDto? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentUserMetadataDto, b: Sensibill.SensibillAPIModel.DocumentUserMetadataDto) -> Swift.Bool
     public func encode(to encoder: Swift.Encoder) throws
     public init(from decoder: Swift.Decoder) throws
@@ -585,10 +459,20 @@ public protocol LookupsEndpointsProvider : Sensibill.EndpointsProvider {
   func currencies() throws -> Sensibill.SensibillAPIClient.Task<Sensibill.SensibillAPIModel.GetLookupCurrencyListResponseDto>
   func currencies(locale: Foundation.Locale) throws -> Sensibill.SensibillAPIClient.Task<Sensibill.SensibillAPIModel.GetLookupCurrencyListResponseDto>
 }
+extension Sensibill.UIParts.TipsFeature {
+  public class TipViewStyle {
+    public var backgroundColor: SwiftUI.Color
+    public var tipImageForegroundColor: SwiftUI.Color
+    public var tipTitle: Sensibill.UIParts.TextStyle
+    public var tipDescription: Sensibill.UIParts.TextStyle
+    public init(branding: Sensibill.Branding = Branding())
+    @objc deinit
+  }
+}
 public protocol HomeEndpointsProvider : Sensibill.EndpointsProvider {
   func home() throws -> Sensibill.SensibillAPIClient.Task<Sensibill.SensibillAPIModel.GeneralInfo>
 }
-extension Sensibill.Capture.Interface {
+extension Sensibill.Capture.RuntimeSettings {
   public struct PickerOption {
     public let label: Swift.String
     public let accessibilityLabel: Swift.String
@@ -661,6 +545,27 @@ extension Sensibill.SensibillAPIModel {
     public init(from decoder: Swift.Decoder) throws
   }
 }
+extension Sensibill.Branding {
+  public class FolderColorDefinition {
+    public init(nameKey: Swift.String, value: SwiftUI.Color)
+    @objc deinit
+  }
+}
+extension Sensibill.Branding.FolderColorDefinition : Swift.Identifiable {
+  public var id: Swift.String {
+    get
+  }
+  public typealias ID = Swift.String
+}
+extension Sensibill.Branding.FolderColorDefinition : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Sensibill.Branding.FolderColorDefinition : Swift.Equatable {
+  public static func == (lhs: Sensibill.Branding.FolderColorDefinition, rhs: Sensibill.Branding.FolderColorDefinition) -> Swift.Bool
+}
 extension Sensibill.SensibillAPIModel {
   public struct DocumentTaxDto {
     public var amount: Swift.Double?
@@ -672,117 +577,8 @@ extension Sensibill.SensibillAPIModel {
     public init(from decoder: Swift.Decoder) throws
   }
 }
-extension Sensibill.SensibillAPIClient {
-  public enum CertificatePinning {
-    public static let sensibillPins: [Sensibill.SensibillAPIClient.DomainCerificatePins]
-  }
-}
 @objc @_hasMissingDesignatedInitializers public class IdentityBasedService : ObjectiveC.NSObject {
   @objc deinit
-}
-extension Sensibill.Branding.L10NKey {
-  public enum Capture : Swift.String {
-    case sblCaptureBackA11yLabel
-    case sblCapturePermissionsCameraTitle
-    case sblCapturePermissionsCameraMessageReceipt
-    case sblCapturePermissionsCameraMessageInvoice
-    case sblCapturePermissionsCameraAllowAccess
-    case sblCapturePermissionsPhotoLibraryTitle
-    case sblCapturePermissionsPhotoLibraryMessageReceipt
-    case sblCapturePermissionsPhotoLibraryMessageInvoice
-    case sblCapturePermissionsPhotoLibraryCancel
-    case sblCapturePermissionsPhotoLibraryOpenSettings
-    case sblCaptureCameraScreenTitle
-    case sblCaptureCameraScreenCloseA11yLabel
-    case sblCaptureCameraScreenAutoCaptureOnA11yLabel
-    case sblCaptureCameraScreenAutoCaptureOffA11yLabel
-    case sblCaptureCameraScreenAutoCaptureA11yHint
-    case sblCaptureCameraScreenFlashModeOnA11yLabel
-    case sblCaptureCameraScreenFlashModeOffA11yLabel
-    case sblCaptureCameraScreenFlashModeA11yHint
-    case sblCaptureCameraScreenTipsA11yLabel
-    case sblCaptureCameraScreenTopOfReceiptIndicator
-    case sblCaptureCameraScreenTopOfInvoiceIndicator
-    case sblCaptureCameraScreenPhotoGalleryA11yLabel
-    case sblCaptureCameraScreenPhotoGalleryA11yHint
-    case sblCaptureCameraScreenCaptureButtonA11yLabel
-    case sblCaptureCameraScreenCaptureButtonA11yHint
-    case sblCaptureCameraScreenPreviousPageA11yLabel
-    case sblCaptureCameraScreenPreviousPageA11yHint
-    case sblCaptureCameraScreenToPreviewScreenA11yLabel
-    case sblCaptureCameraScreenLongCaptureIndicatorTop
-    case sblCaptureCameraScreenLongCaptureIndicatorBottom
-    case sblCaptureCameraScreenModeNormal
-    case sblCaptureCameraScreenModeNormalA11yLabel
-    case sblCaptureCameraScreenModeNormalSelectedA11yLabel
-    case sblCaptureCameraScreenModeNormalA11yHint
-    case sblCaptureCameraScreenModeLong
-    case sblCaptureCameraScreenModeLongA11yLabel
-    case sblCaptureCameraScreenModeLongSelectedA11yLabel
-    case sblCaptureCameraScreenModeLongA11yHint
-    case sblCaptureCameraScreenDetectingReceiptA11yAnn
-    case sblCaptureCameraScreenDetectingInvoiceA11yAnn
-    case sblCaptureCameraScreenLookingReceipt
-    case sblCaptureCameraScreenLookingReceiptA11yAnn
-    case sblCaptureCameraScreenLookingInvoice
-    case sblCaptureCameraScreenLookingInvoiceA11yAnn
-    case sblCaptureCameraScreenCapturingReceipt
-    case sblCaptureCameraScreenCapturingReceiptA11yAnn
-    case sblCaptureCameraScreenCapturingInvoice
-    case sblCaptureCameraScreenCapturingInvoiceA11yAnn
-    case sblCaptureCameraScreenProcessingReceipt
-    case sblCaptureCameraScreenProcessingReceiptA11yAnn
-    case sblCaptureCameraScreenProcessingInvoice
-    case sblCaptureCameraScreenProcessingInvoiceA11yAnn
-    case sblCaptureCameraScreenFailedToCaptureImage
-    case sblCaptureCameraScreenAlertDiscardImageTitle
-    case sblCaptureCameraScreenAlertDiscardImageMessage
-    case sblCaptureCameraScreenAlertDiscardImageCancel
-    case sblCaptureCameraScreenAlertDiscardImageConfirm
-    case sblCaptureTipsScreenNext
-    case sblCaptureTipsScreenClose
-    case sblCaptureTipsScreenFlattenReceiptTitle
-    case sblCaptureTipsScreenFlattenReceiptDescription
-    case sblCaptureTipsScreenFlattenInvoiceTitle
-    case sblCaptureTipsScreenFlattenInvoiceDescription
-    case sblCaptureTipsScreenHoldSteadyReceiptTitle
-    case sblCaptureTipsScreenHoldSteadyReceiptDescription
-    case sblCaptureTipsScreenHoldSteadyInvoiceTitle
-    case sblCaptureTipsScreenHoldSteadyInvoiceDescription
-    case sblCaptureTipsScreenMakeItBrightTitle
-    case sblCaptureTipsScreenMakeItBrightDescription
-    case sblCaptureTipsScreenLongReceiptTitle
-    case sblCaptureTipsScreenLongReceiptDescription
-    case sblCapturePreviewScreenTitle
-    case sblCapturePreviewScreenBackA11yHint
-    case sblCapturePreviewScreenCurrentPageA11yAnn
-    case sblCapturePreviewScreenNextPageA11yLabel
-    case sblCapturePreviewScreenNextPageA11yHint
-    case sblCapturePreviewScreenNextPageDisabledA11yLabel
-    case sblCapturePreviewScreenPreviousPageA11yLabel
-    case sblCapturePreviewScreenPreviousPageA11yHint
-    case sblCapturePreviewScreenPreviousPageDisabledA11yLabel
-    case sblCapturePreviewScreenAddPage
-    case sblCapturePreviewScreenRetake
-    case sblCapturePreviewScreenCrop
-    case sblCapturePreviewScreenDiscard
-    case sblCapturePreviewScreenDone
-    case sblCapturePreviewScreenDoneA11yHint
-    case sblCapturePreviewScreenLongReceiptNext
-    case sblCapturePreviewScreenLongReceiptNextA11yHint
-    case sblCapturePreviewScreenAlertBlurTitle
-    case sblCapturePreviewScreenAlertBlurMessage
-    case sblCapturePreviewScreenAlertBlurRetake
-    case sblCapturePreviewScreenAlertBlurKeep
-    case sblCaptureCropScreenTitle
-    case sblCaptureCropScreenCancel
-    case sblCaptureCropScreenDone
-    public init?(rawValue: Swift.String)
-    public typealias RawValue = Swift.String
-    public var rawValue: Swift.String {
-      get
-    }
-  }
 }
 public protocol TaskContextProvider : AnyObject {
   var urlSession: Foundation.URLSession { get }
@@ -851,6 +647,14 @@ public enum EndpointVersion : Swift.String {
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol BrandingMetadataProvider {
+  var folderColors: Sensibill.Branding.FolderColors { get }
+}
+extension Sensibill.BrandingMetadataProvider {
+  public var folderColors: Sensibill.Branding.FolderColors {
     get
   }
 }
@@ -939,14 +743,14 @@ extension Sensibill.SensibillAPIModel.DocumentDto {
     public init(from decoder: Swift.Decoder) throws
   }
 }
-extension Sensibill.Capture.Interface {
+extension Sensibill.UIParts {
   public struct TextStyle {
     public let staticText: Swift.String
     public let backgroundColor: SwiftUI.Color
     public let textColor: SwiftUI.Color
     public let fontDefinition: Sensibill.Branding.FontDefinition
     public let lineSpacing: CoreFoundation.CGFloat
-    public init(fontDefinition: Sensibill.Branding.FontDefinition, backgroundColor: SwiftUI.Color, textColor: SwiftUI.Color, staticText: Swift.String? = nil)
+    public init(fontDefinition: Sensibill.Branding.FontDefinition, textColor: SwiftUI.Color, backgroundColor: SwiftUI.Color? = nil, staticText: Swift.String? = nil)
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -1016,8 +820,8 @@ extension Sensibill.DocumentUploadStatusInfo : Swift.CustomStringConvertible {
     get
   }
 }
-extension Sensibill.Capture.Interface {
-  public struct CaptureCycleStyle {
+extension Sensibill.Capture.RuntimeSettings {
+  public struct AutoCaptureProcessingCycle {
     public let strokeColor: SwiftUI.Color
     public let fillColor: SwiftUI.Color
     public let lineWidth: CoreFoundation.CGFloat
@@ -1026,11 +830,11 @@ extension Sensibill.Capture.Interface {
 }
 extension Sensibill.Capture.RuntimeSettings {
   @_inheritsConvenienceInitializers public class CropScreen : Sensibill.Capture.RuntimeSettings.CameraScreen {
-    public var title: Sensibill.Capture.Interface.TextStyle
+    public var title: Sensibill.UIParts.TextStyle
     public var loaderColor: SwiftUI.Color
-    public var doneButton: Sensibill.Capture.Interface.PrimaryActionButton
-    public var cancelButton: Sensibill.Capture.Interface.PrimaryActionButton
-    public var cropShape: Sensibill.Capture.Interface.CropShape
+    public var doneButton: Sensibill.UIParts.MainActionButtonDefinition
+    public var cancelButton: Sensibill.UIParts.MainActionButtonDefinition
+    public var cropShape: Sensibill.Capture.RuntimeSettings.CropShape
     required public init(branding: Sensibill.Branding = Branding(), localizationKeySet: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet = .receipt, features: Sensibill.Capture.FeatureFlags = .default)
     @objc deinit
   }
@@ -1170,10 +974,11 @@ public protocol BrandingColorsProvider {
   var background: SwiftUI.Color { get }
   var onBackground: SwiftUI.Color { get }
   var primary: SwiftUI.Color { get }
-  var primaryVariant: SwiftUI.Color { get }
   var onPrimary: SwiftUI.Color { get }
   var secondary: SwiftUI.Color { get }
   var onSecondary: SwiftUI.Color { get }
+  var tertiary: SwiftUI.Color { get }
+  var onTertiary: SwiftUI.Color { get }
   var surface: SwiftUI.Color { get }
   var surfaceVariant: SwiftUI.Color { get }
   var onSurface: SwiftUI.Color { get }
@@ -1192,9 +997,6 @@ extension Sensibill.BrandingColorsProvider {
   public var primary: SwiftUI.Color {
     get
   }
-  public var primaryVariant: SwiftUI.Color {
-    get
-  }
   public var onPrimary: SwiftUI.Color {
     get
   }
@@ -1202,6 +1004,12 @@ extension Sensibill.BrandingColorsProvider {
     get
   }
   public var onSecondary: SwiftUI.Color {
+    get
+  }
+  public var tertiary: SwiftUI.Color {
+    get
+  }
+  public var onTertiary: SwiftUI.Color {
     get
   }
   public var surface: SwiftUI.Color {
@@ -1228,22 +1036,22 @@ extension Sensibill.BrandingColorsProvider {
 }
 extension Sensibill.Capture.RuntimeSettings {
   @_inheritsConvenienceInitializers public class CaptureScreen : Sensibill.Capture.RuntimeSettings.CameraScreen {
-    public var title: Sensibill.Capture.Interface.TextStyle
-    public var closeButton: Sensibill.Capture.Interface.IconActionButtonForUIKit
-    public var backButton: Sensibill.Capture.Interface.IconActionButtonForUIKit
-    public var tipsButton: Sensibill.Capture.Interface.IconActionButtonForUIKit
-    public var autoCaptureSwitch: Sensibill.Capture.Interface.IconSwitchButton
-    public var flashSwitch: Sensibill.Capture.Interface.IconSwitchButton
-    public var topOfDocumentIndicator: Sensibill.Capture.Interface.TextStyle
-    public var toast: Sensibill.Capture.Interface.Toast
-    public var detectionCycle: Sensibill.Capture.Interface.CaptureCycleStyle
-    public var progressFeedback: Sensibill.Capture.Interface.TextStyle
-    public var processingCycle: Sensibill.Capture.Interface.CaptureCycleStyle
-    public var galleryButton: Sensibill.Capture.Interface.IconActionButtonForUIKit
-    public var captureButton: Sensibill.Capture.Interface.IconActionButtonForUIKit
-    public var modeNormal: Sensibill.Capture.Interface.PickerOption
-    public var modeLong: Sensibill.Capture.Interface.PickerOption
-    public var pageCount: Sensibill.Capture.Interface.TextStyle
+    public var title: Sensibill.UIParts.TextStyle
+    public var closeButton: Sensibill.Capture.RuntimeSettings.IconActionButtonForUIKit
+    public var backButton: Sensibill.Capture.RuntimeSettings.IconActionButtonForUIKit
+    public var tipsButton: Sensibill.Capture.RuntimeSettings.IconActionButtonForUIKit
+    public var autoCaptureSwitch: Sensibill.Capture.RuntimeSettings.IconSwitchButton
+    public var flashSwitch: Sensibill.Capture.RuntimeSettings.IconSwitchButton
+    public var topOfDocumentIndicator: Sensibill.UIParts.TextStyle
+    public var toast: Sensibill.Capture.RuntimeSettings.Toast
+    public var detectionCycle: Sensibill.Capture.RuntimeSettings.AutoCaptureProcessingCycle
+    public var progressFeedback: Sensibill.UIParts.TextStyle
+    public var processingCycle: Sensibill.Capture.RuntimeSettings.AutoCaptureProcessingCycle
+    public var galleryButton: Sensibill.Capture.RuntimeSettings.IconActionButtonForUIKit
+    public var captureButton: Sensibill.Capture.RuntimeSettings.IconActionButtonForUIKit
+    public var modeNormal: Sensibill.Capture.RuntimeSettings.PickerOption
+    public var modeLong: Sensibill.Capture.RuntimeSettings.PickerOption
+    public var pageCount: Sensibill.UIParts.TextStyle
     required public init(branding: Sensibill.Branding = Branding(), localizationKeySet: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet = .receipt, features: Sensibill.Capture.FeatureFlags = .default)
     @objc deinit
   }
@@ -1276,6 +1084,7 @@ extension Sensibill.SensibillAPIModel {
     case customerAccount
     case debit
     case dinersClub
+    case discover
     case fleet
     case giftCard
     case giftCertificate
@@ -1339,10 +1148,6 @@ extension Sensibill.SensibillAPIModel {
 }
 extension Sensibill.SensibillAPIClient {
   public static func get(configuration: Sensibill.SensibillAPIClient.Configuration) -> Sensibill.SensibillAPIProvider
-}
-extension Sensibill.Branding {
-  public enum L10NKey {
-  }
 }
 extension Sensibill.SensibillAPIModel {
   public struct DocumentItemDto {
@@ -1439,6 +1244,7 @@ extension Sensibill.SensibillAPIModel {
     public var documentNumber: [Swift.String]?
     public var documentTime: Sensibill.SensibillAPIModel.ExportCriteria.ValueAndRangeCriterion<Swift.String>?
     public var documentType: [Sensibill.SensibillAPIModel.DocumentType]?
+    public var folder: [Swift.String]?
     public var foreignId: [Swift.String]?
     public var id: [Swift.String]?
     public var lastUpdateDateTime: Sensibill.SensibillAPIModel.ExportCriteria.RangeCriterion<Swift.String>?
@@ -1452,6 +1258,22 @@ extension Sensibill.SensibillAPIModel {
     public init(from decoder: Swift.Decoder) throws
     public func encode(to encoder: Swift.Encoder) throws
     public static func == (a: Sensibill.SensibillAPIModel.ExportCriteria, b: Sensibill.SensibillAPIModel.ExportCriteria) -> Swift.Bool
+  }
+}
+extension Sensibill.SMUI.ViewProvider {
+  final public var dashboardNC: UIKit.UINavigationController {
+    get
+  }
+  final public var documentsListNC: UIKit.UINavigationController {
+    get
+  }
+  final public var foldersListNC: UIKit.UINavigationController {
+    get
+  }
+  final public func documentDetailsNC(documentId: Swift.String) -> UIKit.UINavigationController
+  final public func documentOriginalNC(documentId: Swift.String) -> UIKit.UINavigationController
+  final public var exportsListNC: UIKit.UINavigationController {
+    get
   }
 }
 extension Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings {
@@ -1523,20 +1345,8 @@ extension Sensibill.SMUI {
     @objc deinit
   }
 }
-extension Sensibill.SMUI.ViewProvider {
-  final public var dashboardView: some SwiftUI.View {
-    get
-  }
-  final public var documentsView: some SwiftUI.View {
-    get
-  }
-  final public func documentDetailsView(documentId: Swift.String) -> some SwiftUI.View
-  
-  final public func documentOriginalView(documentId: Swift.String) -> some SwiftUI.View
-  
-  final public var documentExportsView: some SwiftUI.View {
-    get
-  }
+extension Sensibill.IdentityService {
+  @objc dynamic public func register(newCredentials: Sensibill.Credentials?, userIdentifier: Swift.String?)
 }
 extension Sensibill.SensibillAPIModel.DocumentDto {
   public enum ExpenseTypes : Swift.String, Swift.Codable, Swift.CaseIterable {
@@ -1587,7 +1397,7 @@ extension Sensibill.SensibillAPIModel {
     }
   }
 }
-extension Sensibill.Capture.Interface {
+extension Sensibill.Capture.RuntimeSettings {
   public struct IconActionButtonForUIKit {
     public let image: UIKit.UIImage
     public let accessibilityLabel: Swift.String
@@ -1596,11 +1406,6 @@ extension Sensibill.Capture.Interface {
     public let backgroundColor: SwiftUI.Color
     public let foregroundColor: SwiftUI.Color
     public init(accessibilityLabel: Swift.String, backgroundColor: SwiftUI.Color, foregroundColor: SwiftUI.Color, image: UIKit.UIImage, accessibilityLabelForDisabledState: Swift.String? = nil, accessibilityHint: Swift.String? = nil)
-  }
-}
-extension Sensibill.SensibillAPIClient {
-  public struct PinnedCertificate {
-    public init(name: Swift.String, publicKeyHash: Swift.String)
   }
 }
 extension Sensibill.SensibillAPIModel.ExportCriteria.AccountMetadata {
@@ -1652,7 +1457,7 @@ extension Sensibill.SensibillAPIModel {
     public init(offset: Swift.UInt = 0, limit: Swift.UInt? = nil)
   }
 }
-extension Sensibill.Capture.Interface {
+extension Sensibill.Capture.RuntimeSettings {
   public struct CropShape {
     public let backgroundColor: SwiftUI.Color
     public let borderColor: SwiftUI.Color
@@ -1720,10 +1525,6 @@ extension Sensibill.Capture.RuntimeSettings {
   @objc public static func receipt(branding: Sensibill.Branding? = nil, featureFlags: Sensibill.Capture.FeatureFlags = .default) -> Sensibill.Capture.RuntimeSettings
   @objc public static func invoice(branding: Sensibill.Branding? = nil, featureFlags: Sensibill.Capture.FeatureFlags = .default) -> Sensibill.Capture.RuntimeSettings
 }
-extension Sensibill.Capture {
-  public enum Interface {
-  }
-}
 extension Sensibill.SensibillAPIModel.UserResponseDto.PilotAccess {
   public struct Diagnostics {
     public let enabled: Swift.Bool?
@@ -1747,23 +1548,28 @@ public protocol DocumentsEndpointsProvider : Sensibill.EndpointsProvider {
   func documents(filter: Sensibill.SensibillAPIModel.GetDocumentListFilter, offset: Swift.UInt) throws -> Sensibill.SensibillAPIClient.Task<Sensibill.SensibillAPIModel.GetDocumentListResponseDto>
   func documents(filter: Sensibill.SensibillAPIModel.GetDocumentListFilter, page: Sensibill.SensibillAPIModel.Page, sorting: Sensibill.SensibillAPIModel.Sorting) throws -> Sensibill.SensibillAPIClient.Task<Sensibill.SensibillAPIModel.GetDocumentListResponseDto>
 }
+extension Sensibill.SensibillAPIModel {
+  public struct ErrorDetails : Swift.Codable {
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+extension Sensibill.SensibillAPIModel.ErrorDetails : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
 public protocol BrandingL10NProvider {
   var selectedLocale: Foundation.Locale { get }
-  func localizedString(forKey key: Sensibill.Branding.L10NKey.Capture) -> Swift.String
-  func localizedString(forKey key: Sensibill.Branding.L10NKey.Capture, tokens: [Swift.CVarArg]) -> Swift.String
-  func localizedString(forKey key: Sensibill.Branding.L10NKey.Document) -> Swift.String
-  func localizedString(forKey key: Sensibill.Branding.L10NKey.Document, tokens: [Swift.CVarArg]) -> Swift.String
-  func localizedString(forValue value: Swift.String?, withPlaceholder placeholder: Sensibill.Branding.L10NKey.Document) -> Swift.String
+  func localizedString(forKey key: Swift.String) -> Swift.String
+  func localizedString(forKey key: Swift.String, tokens: [Swift.CVarArg]) -> Swift.String
 }
 extension Sensibill.BrandingL10NProvider {
   public var selectedLocale: Foundation.Locale {
     get
   }
-  public func localizedString(forKey key: Sensibill.Branding.L10NKey.Capture) -> Swift.String
-  public func localizedString(forKey key: Sensibill.Branding.L10NKey.Capture, tokens: [Swift.CVarArg]) -> Swift.String
-  public func localizedString(forKey key: Sensibill.Branding.L10NKey.Document) -> Swift.String
-  public func localizedString(forKey key: Sensibill.Branding.L10NKey.Document, tokens: [Swift.CVarArg]) -> Swift.String
-  public func localizedString(forValue value: Swift.String?, withPlaceholder placeholder: Sensibill.Branding.L10NKey.Document) -> Swift.String
+  public func localizedString(forKey key: Swift.String) -> Swift.String
+  public func localizedString(forKey key: Swift.String, tokens: [Swift.CVarArg]) -> Swift.String
 }
 extension Sensibill.SensibillAPIModel.DocumentContentDto {
   public enum DeliveryTypes : Swift.String, Swift.Codable, Swift.CaseIterable {
@@ -1786,13 +1592,13 @@ extension Sensibill.SensibillAPIModel {
     public let outputFormats: [Sensibill.SensibillAPIModel.ExportOutputFormat]
     public let criteria: Sensibill.SensibillAPIModel.ExportCriteria
     public let locale: Swift.String?
-    public init(outputFormats: [Sensibill.SensibillAPIModel.ExportOutputFormat], criteria: Sensibill.SensibillAPIModel.ExportCriteria, locale: Swift.String? = nil)
+    public init(outputFormats: [Sensibill.SensibillAPIModel.ExportOutputFormat], criteria: Sensibill.SensibillAPIModel.ExportCriteria, locale: Foundation.Locale? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.ExportCreateDto, b: Sensibill.SensibillAPIModel.ExportCreateDto) -> Swift.Bool
     public func encode(to encoder: Swift.Encoder) throws
     public init(from decoder: Swift.Decoder) throws
   }
 }
-extension Sensibill.Capture.Interface {
+extension Sensibill.Capture.RuntimeSettings {
   public struct IconWithLabelActionButtonForUIKit {
     public let image: UIKit.UIImage
     public let label: Swift.String
@@ -1887,9 +1693,6 @@ extension Sensibill.SensibillAPIModel {
     get
   }
   @objc deinit
-}
-extension Sensibill.IdentityService {
-  @objc dynamic public func register(newCredentials: Sensibill.Credentials?, userIdentifier: Swift.String?)
 }
 extension Sensibill.Capture.FeatureFlags {
   @_inheritsConvenienceInitializers @objc(SBLCaptureFeatureFlagsBridge) @objcMembers public class ObjCBridge : ObjectiveC.NSObject {
@@ -2019,6 +1822,12 @@ extension Sensibill.BrandingFontsProvider {
   @objc public func encode(with coder: Foundation.NSCoder)
   @objc deinit
 }
+extension Sensibill.Branding {
+  public class FolderColors {
+    public init(defaultColor: Sensibill.Branding.FolderColorDefinition, additionalColors: [Sensibill.Branding.FolderColorDefinition])
+    @objc deinit
+  }
+}
 extension Sensibill.SensibillAPIModel.DocumentUserMetadataDto {
   public struct DocumentUserMetadataPeriodDto {
     public let unit: Sensibill.SensibillAPIModel.PeriodUnit
@@ -2055,11 +1864,8 @@ extension Sensibill.Branding {
     @objc deinit
   }
 }
-extension Sensibill.Capture.Interface {
-  public struct PrimaryActionButton {
-    public let label: Swift.String
-    public let accessibilityLabel: Swift.String
-    public let accessibilityHint: Swift.String?
+extension Sensibill.UIParts {
+  public struct MainActionButtonStyle {
     public let fontDefinition: Sensibill.Branding.FontDefinition
     public let backgroundColor: SwiftUI.Color
     public let foregroundColor: SwiftUI.Color
@@ -2067,19 +1873,21 @@ extension Sensibill.Capture.Interface {
     public let cornerRadius: CoreFoundation.CGFloat
     public let width: CoreFoundation.CGFloat
     public let height: CoreFoundation.CGFloat
-    public init(label: Swift.String, accessibilityLabel: Swift.String, fontDefinition: Sensibill.Branding.FontDefinition, backgroundColor: SwiftUI.Color, foregroundColor: SwiftUI.Color, accessibilityHint: Swift.String? = nil, shadowRadius: CoreFoundation.CGFloat? = nil, cornerRadius: CoreFoundation.CGFloat? = nil, width: CoreFoundation.CGFloat? = nil, height: CoreFoundation.CGFloat? = nil)
+    public init(fontDefinition: Sensibill.Branding.FontDefinition, backgroundColor: SwiftUI.Color, foregroundColor: SwiftUI.Color, shadowRadius: CoreFoundation.CGFloat, cornerRadius: CoreFoundation.CGFloat, width: CoreFoundation.CGFloat, height: CoreFoundation.CGFloat)
+    public init(fontDefinition: Sensibill.Branding.FontDefinition, backgroundColor: SwiftUI.Color, foregroundColor: SwiftUI.Color)
+    public init(branding: Sensibill.Branding = Branding())
   }
 }
-extension Sensibill.Capture.Interface.PrimaryActionButton : SwiftUI.ButtonStyle {
-  public func makeBody(configuration: Sensibill.Capture.Interface.PrimaryActionButton.Configuration) -> some SwiftUI.View
+extension Sensibill.UIParts.MainActionButtonStyle : SwiftUI.ButtonStyle {
+  public func makeBody(configuration: Sensibill.UIParts.MainActionButtonStyle.Configuration) -> some SwiftUI.View
   
-  public typealias Body = @_opaqueReturnTypeOf("$s9Sensibill7CaptureC9InterfaceO19PrimaryActionButtonV8makeBody13configurationQr7SwiftUI0F18StyleConfigurationV_tF", 0) __
+  public typealias Body = @_opaqueReturnTypeOf("$s9Sensibill7UIPartsO21MainActionButtonStyleV8makeBody13configurationQr7SwiftUI0eF13ConfigurationV_tF", 0) __
 }
 extension Sensibill.SensibillAPIModel {
   public enum ExportStatus : Swift.String, Swift.Codable, Swift.CaseIterable {
     case queued
     case noDocumentsFound
-    case processing
+    case running
     case completed
     case failed
     public init?(rawValue: Swift.String)
@@ -2092,6 +1900,8 @@ extension Sensibill.SensibillAPIModel {
       get
     }
   }
+}
+public enum UIParts {
 }
 extension Sensibill.SensibillAPIModel.DocumentItemDto {
   public struct DocumentItemDtoProperties {
@@ -2121,7 +1931,19 @@ extension Sensibill.SensibillAPIModel {
     public init(from decoder: Swift.Decoder) throws
   }
 }
-extension Sensibill.Capture.Interface {
+extension Sensibill.SMUI.ViewProvider {
+  public enum NavigationOption {
+    case back
+    case close
+    case none
+    public static func == (a: Sensibill.SMUI.ViewProvider.NavigationOption, b: Sensibill.SMUI.ViewProvider.NavigationOption) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+}
+extension Sensibill.Capture.RuntimeSettings {
   public struct IconSwitchButton {
     public let imageOn: UIKit.UIImage
     public let imageOff: UIKit.UIImage
@@ -2150,16 +1972,8 @@ extension Swift.Int : Swift.Identifiable {
 }
 extension Sensibill.Capture.RuntimeSettings {
   public class TipsScreen {
-    final public let tips: [Sensibill.Capture.Interface.CaptureTip]
-    public var backgroundColor: SwiftUI.Color
-    public var foregroundColor: SwiftUI.Color
-    public var closeIconButton: Sensibill.Capture.Interface.IconActionButton
-    public var nextButton: Sensibill.Capture.Interface.PrimaryActionButton
-    public var closeButton: Sensibill.Capture.Interface.PrimaryActionButton
-    public var tipImageForegroundColor: SwiftUI.Color
-    public var tipTitle: Sensibill.Capture.Interface.TextStyle
-    public var tipDescription: Sensibill.Capture.Interface.TextStyle
-    public var pageControl: Sensibill.Capture.Interface.PageControlStyle
+    final public let tips: [Sensibill.UIParts.TipsFeature.Tip]
+    public var tipsScreenStyle: Sensibill.UIParts.TipsFeature.TipsScreenStyle
     required public init(branding: Sensibill.Branding = Branding(), localizationKeySet: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet = .receipt, features: Sensibill.Capture.FeatureFlags = .default)
     @objc deinit
   }
@@ -2202,6 +2016,10 @@ extension Sensibill.SensibillAPIModel {
     }
   }
 }
+extension Sensibill.UIParts {
+  public enum TipsFeature {
+  }
+}
 extension Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings {
   public struct ReceiptOptions {
     public let email: Swift.Bool?
@@ -2211,6 +2029,20 @@ extension Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings {
     public func encode(to encoder: Swift.Encoder) throws
     public init(from decoder: Swift.Decoder) throws
   }
+}
+extension Sensibill.SMUI.ViewProvider {
+  final public func dashboard(navigationOption: Sensibill.SMUI.ViewProvider.NavigationOption = .close) -> some SwiftUI.View
+  
+  final public func documentsList(navigationOption: Sensibill.SMUI.ViewProvider.NavigationOption = .close) -> some SwiftUI.View
+  
+  final public func foldersList(navigationOption: Sensibill.SMUI.ViewProvider.NavigationOption = .close) -> some SwiftUI.View
+  
+  final public func documentDetails(documentId: Swift.String, navigationOption: Sensibill.SMUI.ViewProvider.NavigationOption = .close) -> some SwiftUI.View
+  
+  final public func documentOriginal(documentId: Swift.String, navigationOption: Sensibill.SMUI.ViewProvider.NavigationOption = .close) -> some SwiftUI.View
+  
+  final public func exportsList(navigationOption: Sensibill.SMUI.ViewProvider.NavigationOption = .close) -> some SwiftUI.View
+  
 }
 extension Sensibill.SensibillAPIModel {
   public enum SourceDocumentFormat : Swift.String, Swift.Codable, Swift.CaseIterable {
@@ -2270,6 +2102,7 @@ extension Sensibill.SensibillAPIModel.DocumentContentDto {
   public var colors: Sensibill.BrandingColorsProvider
   public var images: Sensibill.BrandingImagesProvider
   public var localization: Sensibill.BrandingL10NProvider
+  public var metadata: Sensibill.BrandingMetadataProvider
   @objc override dynamic public init()
   @objc deinit
 }
@@ -2329,6 +2162,16 @@ public protocol BrandingImagesProvider {
   var captureIntegrationAddDocumentButtonIcon: SwiftUI.Image { get }
   var commonButtonMenuExpandIcon: SwiftUI.Image { get }
   var commonPickerExpandIcon: SwiftUI.Image { get }
+  var commonCloseButtonIcon: SwiftUI.Image { get }
+  var commonKebabMenu: SwiftUI.Image { get }
+  var commonBackButton: SwiftUI.Image { get }
+  var commonExitButton: SwiftUI.Image { get }
+  var commonCheckboxUnselected: SwiftUI.Image { get }
+  var commonCheckboxPartialSelected: SwiftUI.Image { get }
+  var commonCheckboxSelected: SwiftUI.Image { get }
+  var commonExitButtonUIKit: UIKit.UIImage { get }
+  var dashboardDocumentEmailNotConfiguredImage: SwiftUI.Image { get }
+  var dashboardDocumentEmailCopyToClipboardIcon: SwiftUI.Image { get }
   var documentDetailsCancelButtonIcon: SwiftUI.Image { get }
   var documentDetailsDeleteButtonIcon: SwiftUI.Image { get }
   var documentDetailsEditButtonIcon: SwiftUI.Image { get }
@@ -2342,17 +2185,31 @@ public protocol BrandingImagesProvider {
   var documentDetailsSectionTotalsIcon: SwiftUI.Image { get }
   var documentListCancelSelectionButtonIcon: SwiftUI.Image { get }
   var documentListDeleteDocumentsButtonIcon: SwiftUI.Image { get }
+  var documentListDownloadDocumentsButtonIcon: SwiftUI.Image { get }
   var documentListFilterButtonIcon: SwiftUI.Image { get }
+  var documentListOrganizeFoldersButtonIcon: SwiftUI.Image { get }
   var documentListNoItemsImage: SwiftUI.Image { get }
   var documentListSelectedItemIcon: SwiftUI.Image { get }
   var documentNeedsReviewIcon: SwiftUI.Image { get }
   var documentTypeInvoiceIcon: SwiftUI.Image { get }
   var documentTypeReceiptIcon: SwiftUI.Image { get }
   var documentTypeUnknownIcon: SwiftUI.Image { get }
+  var documentIsInFoldersIcon: SwiftUI.Image { get }
   var downloadPropertiesDownloadButtonIcon: SwiftUI.Image { get }
   var downloadPropertiesFailedIcon: SwiftUI.Image { get }
   var downloadPropertiesTypeBackgroundIcon: SwiftUI.Image { get }
   var downloadsNoItemsImage: SwiftUI.Image { get }
+  var createEmailInfoIcon: SwiftUI.Image { get }
+  var createEmailTipEmailImage: SwiftUI.Image { get }
+  var createEmailTipInStoreImage: SwiftUI.Image { get }
+  var folderListFolderIcon: SwiftUI.Image { get }
+  var folderListNoItemsImage: SwiftUI.Image { get }
+  var folderListCreateIcon: SwiftUI.Image { get }
+  var folderListMenuEditFolderIcon: SwiftUI.Image { get }
+  var folderListMenuDownloadFolderIcon: SwiftUI.Image { get }
+  var folderListMenuDeleteFolderIcon: SwiftUI.Image { get }
+  var createFolderPreviewIcon: SwiftUI.Image { get }
+  var createFolderSelectedIcon: SwiftUI.Image { get }
   var searchIcon: SwiftUI.Image { get }
   var searchClearButtonIcon: SwiftUI.Image { get }
   var viewOriginalDownloadButtonIcon: SwiftUI.Image { get }
@@ -2383,10 +2240,55 @@ extension Sensibill.BrandingImagesProvider {
   public var captureIntegrationAddDocumentButtonIcon: SwiftUI.Image {
     get
   }
+  public var commonBackButton: SwiftUI.Image {
+    get
+  }
+  public var commonCheckboxUnselected: SwiftUI.Image {
+    get
+  }
+  public var commonCheckboxPartialSelected: SwiftUI.Image {
+    get
+  }
+  public var commonCheckboxSelected: SwiftUI.Image {
+    get
+  }
+  public var commonCloseButtonIcon: SwiftUI.Image {
+    get
+  }
   public var commonButtonMenuExpandIcon: SwiftUI.Image {
     get
   }
+  public var commonExitButton: SwiftUI.Image {
+    get
+  }
+  public var commonExitButtonUIKit: UIKit.UIImage {
+    get
+  }
+  public var commonKebabMenu: SwiftUI.Image {
+    get
+  }
   public var commonPickerExpandIcon: SwiftUI.Image {
+    get
+  }
+  public var createEmailInfoIcon: SwiftUI.Image {
+    get
+  }
+  public var createEmailTipEmailImage: SwiftUI.Image {
+    get
+  }
+  public var createEmailTipInStoreImage: SwiftUI.Image {
+    get
+  }
+  public var createFolderPreviewIcon: SwiftUI.Image {
+    get
+  }
+  public var createFolderSelectedIcon: SwiftUI.Image {
+    get
+  }
+  public var dashboardDocumentEmailNotConfiguredImage: SwiftUI.Image {
+    get
+  }
+  public var dashboardDocumentEmailCopyToClipboardIcon: SwiftUI.Image {
     get
   }
   public var documentDetailsCancelButtonIcon: SwiftUI.Image {
@@ -2422,13 +2324,22 @@ extension Sensibill.BrandingImagesProvider {
   public var documentDetailsSectionTotalsIcon: SwiftUI.Image {
     get
   }
+  public var documentIsInFoldersIcon: SwiftUI.Image {
+    get
+  }
   public var documentListCancelSelectionButtonIcon: SwiftUI.Image {
     get
   }
   public var documentListDeleteDocumentsButtonIcon: SwiftUI.Image {
     get
   }
+  public var documentListDownloadDocumentsButtonIcon: SwiftUI.Image {
+    get
+  }
   public var documentListFilterButtonIcon: SwiftUI.Image {
+    get
+  }
+  public var documentListOrganizeFoldersButtonIcon: SwiftUI.Image {
     get
   }
   public var documentListNoItemsImage: SwiftUI.Image {
@@ -2453,6 +2364,24 @@ extension Sensibill.BrandingImagesProvider {
     get
   }
   public var downloadsNoItemsImage: SwiftUI.Image {
+    get
+  }
+  public var folderListFolderIcon: SwiftUI.Image {
+    get
+  }
+  public var folderListNoItemsImage: SwiftUI.Image {
+    get
+  }
+  public var folderListCreateIcon: SwiftUI.Image {
+    get
+  }
+  public var folderListMenuEditFolderIcon: SwiftUI.Image {
+    get
+  }
+  public var folderListMenuDownloadFolderIcon: SwiftUI.Image {
+    get
+  }
+  public var folderListMenuDeleteFolderIcon: SwiftUI.Image {
     get
   }
   public var searchClearButtonIcon: SwiftUI.Image {
@@ -2577,8 +2506,8 @@ extension Sensibill.SensibillAPIModel {
 }
 extension Sensibill.SensibillAPIClient {
   public struct Environment {
-    public init(baseUrl: Foundation.URL, certificatePinningEnabled: Swift.Bool = true, pinnedCertificates: [Sensibill.SensibillAPIClient.DomainCerificatePins] = [])
-    public init(host: Sensibill.SensibillAPIClient.APIHost, certificatePinningEnabled: Swift.Bool = true)
+    public init(baseUrl: Foundation.URL)
+    public init(host: Sensibill.SensibillAPIClient.APIHost)
   }
 }
 extension Sensibill.SensibillAPIClient.Environment {
@@ -2598,6 +2527,9 @@ extension Sensibill.SensibillAPIClient.Environment : Swift.Equatable {
 }
 extension Sensibill.SensibillSDK {
   @objc dynamic public class var sdkVersion: Swift.String? {
+    @objc get
+  }
+  @objc dynamic public class var sdkBuild: Swift.String? {
     @objc get
   }
   #if compiler(>=5.3) && $AsyncAwait
@@ -2622,25 +2554,25 @@ extension Sensibill.SensibillSDK {
   @objc public func encode(with coder: Foundation.NSCoder)
   @objc deinit
 }
-extension Sensibill.Capture.Interface {
+extension Sensibill.UIParts {
   public struct IconActionButton {
     public let image: SwiftUI.Image
     public let accessibilityLabel: Swift.String
     public let backgroundColor: SwiftUI.Color
     public let foregroundColor: SwiftUI.Color
-    public init(accessibilityLabel: Swift.String, backgroundColor: SwiftUI.Color, foregroundColor: SwiftUI.Color, image: SwiftUI.Image)
+    public init(image: SwiftUI.Image, accessibilityLabel: Swift.String, foregroundColor: SwiftUI.Color, backgroundColor: SwiftUI.Color? = nil)
   }
 }
-extension Sensibill.Capture.Interface.IconActionButton : SwiftUI.ButtonStyle {
-  public func makeBody(configuration: Sensibill.Capture.Interface.IconActionButton.Configuration) -> some SwiftUI.View
+extension Sensibill.UIParts.IconActionButton : SwiftUI.ButtonStyle {
+  public func makeBody(configuration: Sensibill.UIParts.IconActionButton.Configuration) -> some SwiftUI.View
   
-  public typealias Body = @_opaqueReturnTypeOf("$s9Sensibill7CaptureC9InterfaceO16IconActionButtonV8makeBody13configurationQr7SwiftUI0F18StyleConfigurationV_tF", 0) __
+  public typealias Body = @_opaqueReturnTypeOf("$s9Sensibill7UIPartsO16IconActionButtonV8makeBody13configurationQr7SwiftUI0E18StyleConfigurationV_tF", 0) __
 }
 extension Sensibill.Capture.RuntimeSettings {
   @_inheritsConvenienceInitializers public class CameraPermissionScreen : Sensibill.Capture.RuntimeSettings.CameraScreen {
-    public var title: Sensibill.Capture.Interface.TextStyle
-    public var message: Sensibill.Capture.Interface.TextStyle
-    public var allowAccessButton: Sensibill.Capture.Interface.PrimaryActionButton
+    public var title: Sensibill.UIParts.TextStyle
+    public var message: Sensibill.UIParts.TextStyle
+    public var allowAccessButton: Sensibill.UIParts.MainActionButtonDefinition
     required public init(branding: Sensibill.Branding = Branding(), localizationKeySet: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet = .receipt, features: Sensibill.Capture.FeatureFlags = .default)
     @objc deinit
   }
@@ -2714,11 +2646,12 @@ extension Sensibill.SensibillAPIModel {
     public init(from decoder: Swift.Decoder) throws
   }
 }
-extension Sensibill.Capture.Interface {
+extension Sensibill.UIParts {
   public struct PageControlStyle {
     public let pageIndicatorTintColor: SwiftUI.Color
     public let currentPageIndicatorTintColor: SwiftUI.Color
     public init(pageIndicatorTintColor: SwiftUI.Color, currentPageIndicatorTintColor: SwiftUI.Color)
+    public init(branding: Sensibill.Branding = Branding())
   }
 }
 public protocol CredentialsDelegate : AnyObject {
@@ -2879,11 +2812,6 @@ extension Sensibill.SensibillAPIModel {
     public init(from decoder: Swift.Decoder) throws
   }
 }
-extension Sensibill.SensibillAPIClient {
-  public struct DomainCerificatePins {
-    public init(domain: Swift.String, pinnedCertificates: [Sensibill.SensibillAPIClient.PinnedCertificate])
-  }
-}
 extension Sensibill.SensibillAPIModel {
   public struct DocumentCreationRequestDto {
     public let sourceFile: Sensibill.SensibillAPIModel.SourceFile
@@ -2923,18 +2851,18 @@ extension Sensibill.IdentityService.Errors : Foundation.LocalizedError {
 }
 extension Sensibill.Capture.RuntimeSettings {
   @_inheritsConvenienceInitializers public class CapturePreviewScreen : Sensibill.Capture.RuntimeSettings.CameraScreen {
-    public var title: Sensibill.Capture.Interface.TextStyle
-    public var backButton: Sensibill.Capture.Interface.IconActionButtonForUIKit
+    public var title: Sensibill.UIParts.TextStyle
+    public var backButton: Sensibill.Capture.RuntimeSettings.IconActionButtonForUIKit
     public var loaderColor: SwiftUI.Color
-    public var pageControl: Sensibill.Capture.Interface.PageControlStyle
-    public var previousPageButton: Sensibill.Capture.Interface.IconActionButtonForUIKit
-    public var nextPageButton: Sensibill.Capture.Interface.IconActionButtonForUIKit
-    public var addPageButton: Sensibill.Capture.Interface.IconWithLabelActionButtonForUIKit
-    public var cropButton: Sensibill.Capture.Interface.IconWithLabelActionButtonForUIKit
-    public var retakeButton: Sensibill.Capture.Interface.IconWithLabelActionButtonForUIKit
-    public var discardButton: Sensibill.Capture.Interface.IconWithLabelActionButtonForUIKit
-    public var doneButton: Sensibill.Capture.Interface.PrimaryActionButton
-    public var nextButton: Sensibill.Capture.Interface.PrimaryActionButton
+    public var pageControl: Sensibill.UIParts.PageControlStyle
+    public var previousPageButton: Sensibill.Capture.RuntimeSettings.IconActionButtonForUIKit
+    public var nextPageButton: Sensibill.Capture.RuntimeSettings.IconActionButtonForUIKit
+    public var addPageButton: Sensibill.Capture.RuntimeSettings.IconWithLabelActionButtonForUIKit
+    public var cropButton: Sensibill.Capture.RuntimeSettings.IconWithLabelActionButtonForUIKit
+    public var retakeButton: Sensibill.Capture.RuntimeSettings.IconWithLabelActionButtonForUIKit
+    public var discardButton: Sensibill.Capture.RuntimeSettings.IconWithLabelActionButtonForUIKit
+    public var doneButton: Sensibill.UIParts.MainActionButtonDefinition
+    public var nextButton: Sensibill.UIParts.MainActionButtonDefinition
     required public init(branding: Sensibill.Branding = Branding(), localizationKeySet: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet = .receipt, features: Sensibill.Capture.FeatureFlags = .default)
     @objc deinit
   }
@@ -3033,8 +2961,8 @@ extension Sensibill.TrackingEvent {
     }
   }
 }
-extension Sensibill.Capture.Interface {
-  public struct CaptureTip : Swift.Identifiable {
+extension Sensibill.UIParts.TipsFeature {
+  public struct Tip : Swift.Identifiable {
     public let id: Foundation.UUID
     public let title: Swift.String
     public let description: Swift.String
@@ -3105,6 +3033,14 @@ extension Sensibill.SensibillAPIModel.DocumentType : Swift.Identifiable {
     get
   }
 }
+extension Sensibill.UIParts {
+  public struct MainActionButtonDefinition {
+    public let contents: Sensibill.UIParts.MainActionButtonContents
+    public let style: Sensibill.UIParts.MainActionButtonStyle
+    public init(contents: Sensibill.UIParts.MainActionButtonContents, style: Sensibill.UIParts.MainActionButtonStyle)
+    public init(contents: Sensibill.UIParts.MainActionButtonContents, branding: Sensibill.Branding = Branding())
+  }
+}
 extension Sensibill.SensibillAPIModel {
   public struct DocumentPaymentDto {
     public let afterTax: Swift.Double?
@@ -3152,9 +3088,6 @@ extension Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings.Optio
 extension Sensibill.SensibillAPIModel.ClientCredentials : Swift.Decodable {}
 extension Sensibill.SensibillAPIModel.ClientCredentials : Swift.Encodable {}
 extension Sensibill.SensibillAPIModel.ClientCredentials : Swift.Equatable {}
-extension Sensibill.Branding.L10NKey.Document : Swift.Equatable {}
-extension Sensibill.Branding.L10NKey.Document : Swift.Hashable {}
-extension Sensibill.Branding.L10NKey.Document : Swift.RawRepresentable {}
 extension Sensibill.SensibillAPIModel.AccessToken : Swift.Decodable {}
 extension Sensibill.SensibillAPIModel.AccessToken : Swift.Encodable {}
 extension Sensibill.SensibillAPIModel.AccessToken : Swift.Equatable {}
@@ -3224,9 +3157,6 @@ extension Sensibill.SensibillAPIModel.FolderCreationResponseDto : Swift.Equatabl
 extension Sensibill.SensibillAPIModel.DocumentTaxDto : Swift.Decodable {}
 extension Sensibill.SensibillAPIModel.DocumentTaxDto : Swift.Encodable {}
 extension Sensibill.SensibillAPIModel.DocumentTaxDto : Swift.Equatable {}
-extension Sensibill.Branding.L10NKey.Capture : Swift.Equatable {}
-extension Sensibill.Branding.L10NKey.Capture : Swift.Hashable {}
-extension Sensibill.Branding.L10NKey.Capture : Swift.RawRepresentable {}
 extension Sensibill.SensibillAPIModel.GetDocumentListFilter : Swift.Decodable {}
 extension Sensibill.SensibillAPIModel.GetDocumentListFilter : Swift.Encodable {}
 extension Sensibill.SensibillAPIModel.GetDocumentListFilter : Swift.Equatable {}
@@ -3402,6 +3332,8 @@ extension Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentBarcodeD
 extension Sensibill.SensibillAPIModel.DocumentCreationResponseDto : Swift.Decodable {}
 extension Sensibill.SensibillAPIModel.DocumentCreationResponseDto : Swift.Encodable {}
 extension Sensibill.SensibillAPIModel.DocumentCreationResponseDto : Swift.Equatable {}
+extension Sensibill.SMUI.ViewProvider.NavigationOption : Swift.Equatable {}
+extension Sensibill.SMUI.ViewProvider.NavigationOption : Swift.Hashable {}
 extension Sensibill.SensibillAPIModel.ReceiptEmailAvailabilityResponseDto : Swift.Decodable {}
 extension Sensibill.SensibillAPIModel.ReceiptEmailAvailabilityResponseDto : Swift.Encodable {}
 extension Sensibill.SensibillAPIModel.ReceiptEmailAvailabilityResponseDto : Swift.Equatable {}

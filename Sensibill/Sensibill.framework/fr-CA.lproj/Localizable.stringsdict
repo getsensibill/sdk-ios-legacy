@@ -15,7 +15,7 @@
         <key>one</key>
         <string>Non, conserver cette image</string>
         <key>other</key>
-        <string>Non, conserver ces images.</string>
+        <string>Non, conserver ces images</string>
       </dict>
     </dict>
     <key>sblCaptureCameraScreenAlertDiscardImageMessage</key>
@@ -45,9 +45,9 @@
         <key>NSStringFormatValueTypeKey</key>
         <string>li</string>
         <key>one</key>
-        <string>Supprimer l'image</string>
+        <string>Rejeter l'image</string>
         <key>other</key>
-        <string>Supprimer les images</string>
+        <string>Rejeter les images</string>
       </dict>
     </dict>
     <key>sblDocumentExportsNumberDocumentsLabel</key>

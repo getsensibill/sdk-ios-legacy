@@ -1,456 +1,628 @@
 /* Image preview screen - back button - accessibility hint */
-"sblCaptureBackA11yLabel" = "Back";
+"sblCaptureBackA11yLabel" = "Atrás";
 /* Image Preview Screen - Alert - Discard Image - Action Positive */
-"sblCaptureCameraScreenAlertDiscardImageConfirm" = "Yes, discard and continue";
+"sblCaptureCameraScreenAlertDiscardImageConfirm" = "Sí, descartar y continuar";
 /* Capture screen - Auto Capture Button - Accessibility Hint */
-"sblCaptureCameraScreenAutoCaptureA11yHint" = "Toggle auto capture state";
+"sblCaptureCameraScreenAutoCaptureA11yHint" = "Alternar el estado de captura automática";
 /* Capture screen - Auto Capture Button - State Off - Accessibility Label */
-"sblCaptureCameraScreenAutoCaptureOffA11yLabel" = "Auto-Capture is Off";
+"sblCaptureCameraScreenAutoCaptureOffA11yLabel" = "La captura automática está desactivada";
 /* Capture screen - Auto Capture Button - State On - Accessibility Label */
-"sblCaptureCameraScreenAutoCaptureOnA11yLabel" = "Auto-Capture is On";
+"sblCaptureCameraScreenAutoCaptureOnA11yLabel" = "La captura automática está activada";
 /* Capture Screen - Capture Button - Accessibility Hint */
-"sblCaptureCameraScreenCaptureButtonA11yHint" = "Take photo manually";
+"sblCaptureCameraScreenCaptureButtonA11yHint" = "Tomar una foto manualmente";
 /* Capture Screen - Capture Button - Accessibility Label */
-"sblCaptureCameraScreenCaptureButtonA11yLabel" = "Capture";
+"sblCaptureCameraScreenCaptureButtonA11yLabel" = "Capturar";
 /* Capture Screen - Capture Feedback Progress - Label - Capturing Invoice */
-"sblCaptureCameraScreenCapturingInvoice" = "Capturing, hold still!";
+"sblCaptureCameraScreenCapturingInvoice" = "Capturando, mantente firme";
 /* Capture Screen - Capture Feedback Progress - Capturing Invoice Announcement */
-"sblCaptureCameraScreenCapturingInvoiceA11yAnn" = "Capturing invoice";
+"sblCaptureCameraScreenCapturingInvoiceA11yAnn" = "Capturando la factura";
 /* Capture Screen - Capture Feedback Progress - Label - Capturing Receipt */
-"sblCaptureCameraScreenCapturingReceipt" = "Capturing, hold still!";
+"sblCaptureCameraScreenCapturingReceipt" = "Capturando, mantente firme";
 /* Capture Screen - Capture Feedback Progress - Capturing Receipt Announcement */
-"sblCaptureCameraScreenCapturingReceiptA11yAnn" = "Capturing receipt";
+"sblCaptureCameraScreenCapturingReceiptA11yAnn" = "Capturando el recibo";
 /* Capture Screen - Close Button - Accessibility Label */
-"sblCaptureCameraScreenCloseA11yLabel" = "Close";
+"sblCaptureCameraScreenCloseA11yLabel" = "Cerrar";
 /* Capture Screen - Camera Feed View - Detecting Invoice Announcement */
-"sblCaptureCameraScreenDetectingInvoiceA11yAnn" = "Detecting invoice";
+"sblCaptureCameraScreenDetectingInvoiceA11yAnn" = "Detectando el recibo";
 /* Capture Screen - Camera Feed View - Detecting Receipt Announcement */
-"sblCaptureCameraScreenDetectingReceiptA11yAnn" = "Detecting receipt";
+"sblCaptureCameraScreenDetectingReceiptA11yAnn" = "Detectando el recibo";
 /* Capture Screen - Toast - Failed To Capture Error Message */
-"sblCaptureCameraScreenFailedToCaptureImage" = "Failed to capture image. Try again.";
+"sblCaptureCameraScreenFailedToCaptureImage" = "No se pudo capturar la imagen. Intentar otra vez.";
 /* Capture Screen - Flash Button - Accessibility Hint */
-"sblCaptureCameraScreenFlashModeA11yHint" = "Toggle flash state";
+"sblCaptureCameraScreenFlashModeA11yHint" = "Alternar el estado del flash";
 /* Capture Screen - Flash Button - State Off - Accessibility Label */
-"sblCaptureCameraScreenFlashModeOffA11yLabel" = "Flash is off";
+"sblCaptureCameraScreenFlashModeOffA11yLabel" = "El flash está desactivado";
 /* Capture Screen - Flash Button - State On - Accessibility Label */
-"sblCaptureCameraScreenFlashModeOnA11yLabel" = "Flash is on";
+"sblCaptureCameraScreenFlashModeOnA11yLabel" = "El flash está activado";
 /* capture screen - toast message - long capture bottom section */
-"sblCaptureCameraScreenLongCaptureIndicatorBottom" = "Capture bottom section";
+"sblCaptureCameraScreenLongCaptureIndicatorBottom" = "Captura la sección inferior";
 /* capture screen - toast message - long capture top section */
-"sblCaptureCameraScreenLongCaptureIndicatorTop" = "Capture top section";
+"sblCaptureCameraScreenLongCaptureIndicatorTop" = "Captura la sección superior";
 /* Capture Screen - Capture Feedback Progress - Label - Looking Invoice */
-"sblCaptureCameraScreenLookingInvoice" = "Looking for an invoice…";
+"sblCaptureCameraScreenLookingInvoice" = "Busco factura...";
 /* Capture Screen - Capture Feedback Progress - Looking for Invoice Announcement */
-"sblCaptureCameraScreenLookingInvoiceA11yAnn" = "Looking for an invoice";
+"sblCaptureCameraScreenLookingInvoiceA11yAnn" = "Buscando una factura";
 /* Capture Screen - Capture Feedback Progress - Label - Looking Receipt */
-"sblCaptureCameraScreenLookingReceipt" = "Looking for a receipt…";
+"sblCaptureCameraScreenLookingReceipt" = "Buscando un recibo…";
 /* Capture Screen - Capture Feedback Progress - Looking for Receipt Announcement */
-"sblCaptureCameraScreenLookingReceiptA11yAnn" = "Looking for a receipt";
+"sblCaptureCameraScreenLookingReceiptA11yAnn" = "Buscando un recibo";
 /* capture screen - long capture button - title */
-"sblCaptureCameraScreenModeLong" = "Long Receipt";
+"sblCaptureCameraScreenModeLong" = "Recibo largo";
 /* capture screen - long capture button - accessibility hint */
-"sblCaptureCameraScreenModeLongA11yHint" = "Capture a long receipt that requires more than one photo";
+"sblCaptureCameraScreenModeLongA11yHint" = "Capturar un recibo largo que requiere más de una foto";
 /* capture screen - long capture button - state normal - accessibility label */
-"sblCaptureCameraScreenModeLongA11yLabel" = "Long Receipt";
+"sblCaptureCameraScreenModeLongA11yLabel" = "Recibo largo";
 /* capture screen - long capture button - state selected - accessibility label */
-"sblCaptureCameraScreenModeLongSelectedA11yLabel" = "Selected. Long receipt.";
+"sblCaptureCameraScreenModeLongSelectedA11yLabel" = "Seleccionado. Recibo largo.";
 /* capture screen - normal capture button - title */
 "sblCaptureCameraScreenModeNormal" = "Normal";
 /* capture screen - normal capture button - accessibility hint */
-"sblCaptureCameraScreenModeNormalA11yHint" = "Capture a receipt in one photo";
+"sblCaptureCameraScreenModeNormalA11yHint" = "Capturar un recibo en una foto";
 /* capture screen - normal capture button - state normal - accessibility label */
-"sblCaptureCameraScreenModeNormalA11yLabel" = "Normal capture";
+"sblCaptureCameraScreenModeNormalA11yLabel" = "Captura normal";
 /* capture screen - normal capture button - state selected - accessibility label */
-"sblCaptureCameraScreenModeNormalSelectedA11yLabel" = "Selected. Normal capture.";
+"sblCaptureCameraScreenModeNormalSelectedA11yLabel" = "Seleccionada. Captura normal.";
 /* capture screen - photo gallery button - accessibility hint */
-"sblCaptureCameraScreenPhotoGalleryA11yHint" = "Open your photo library to choose an existing image.";
+"sblCaptureCameraScreenPhotoGalleryA11yHint" = "Abra la biblioteca de fotos para elegir una imagen existente.";
 /* capture screen - photo gallery button - accessibility label */
-"sblCaptureCameraScreenPhotoGalleryA11yLabel" = "Photo Gallery";
+"sblCaptureCameraScreenPhotoGalleryA11yLabel" = "Galería de fotos";
 /* capture screen - captured image thumbnail button - accessibility hint */
-"sblCaptureCameraScreenPreviousPageA11yHint" = "Go back to the image preview screen to view and modify your currently captured images";
+"sblCaptureCameraScreenPreviousPageA11yHint" = "Vuelve a la pantalla de vista previa de la imagen para ver y modificar las imágenes capturadas actualmente";
 /* capture screen - captured image thumbnail button - accessibility label */
-"sblCaptureCameraScreenPreviousPageA11yLabel" = "Captured Images. %d";
+"sblCaptureCameraScreenPreviousPageA11yLabel" = "Imágenes capturadas. %d";
 /* Capture Screen - Capture Feedback Progress - Label - Processing Invoice */
-"sblCaptureCameraScreenProcessingInvoice" = "Almost done!";
+"sblCaptureCameraScreenProcessingInvoice" = "¡Ya casi está!";
 /* Capture Screen - Capture Feedback Progress - Processing Invoice Announcement */
-"sblCaptureCameraScreenProcessingInvoiceA11yAnn" = "Invoice captured, processing";
+"sblCaptureCameraScreenProcessingInvoiceA11yAnn" = "Factura capturada, procesamiento";
 /* Capture Screen - Capture Feedback Progress - Label - Processing Receipt */
-"sblCaptureCameraScreenProcessingReceipt" = "Almost done!";
+"sblCaptureCameraScreenProcessingReceipt" = "¡Ya casi está!";
 /* Capture Screen - Capture Feedback Progress - Processing Receipt Announcement */
-"sblCaptureCameraScreenProcessingReceiptA11yAnn" = "Receipt captured, processing";
+"sblCaptureCameraScreenProcessingReceiptA11yAnn" = "Recibo capturado, procesando";
 /* Capture Screen - Tips Button - Accessibility Label */
-"sblCaptureCameraScreenTipsA11yLabel" = "Tips";
+"sblCaptureCameraScreenTipsA11yLabel" = "Consejos";
 /* Sensibill Capture UI - Capture - Screen - Title */
-"sblCaptureCameraScreenTitle" = "Document Capture";
+"sblCaptureCameraScreenTitle" = "Captura de documentos";
 /* Capture Screen - Camera Feed Preview - Accessibility Label */
-"sblCaptureCameraScreenToPreviewScreenA11yLabel" = "Camera Preview";
+"sblCaptureCameraScreenToPreviewScreenA11yLabel" = "Vista previa de la cámara";
 /* Capture Screen - Top of Invoice Indicator - Label */
-"sblCaptureCameraScreenTopOfInvoiceIndicator" = "Top of invoice";
+"sblCaptureCameraScreenTopOfInvoiceIndicator" = "Parte superior del recibo";
 /* Capture Screen - Top of Receipt Indicator - Label */
-"sblCaptureCameraScreenTopOfReceiptIndicator" = "Top of receipt";
+"sblCaptureCameraScreenTopOfReceiptIndicator" = "Parte superior del recibo";
 /* Image Crop Screen - Cancel Button - Label */
-"sblCaptureCropScreenCancel" = "Cancel";
+"sblCaptureCropScreenCancel" = "Cancelar";
 /* Image Crop Screen - Done Button - Label */
-"sblCaptureCropScreenDone" = "Done";
+"sblCaptureCropScreenDone" = "Hecho";
 /* Sensibill Capture UI - Crop - Screen - Title */
-"sblCaptureCropScreenTitle" = "Crop your document";
+"sblCaptureCropScreenTitle" = "Recorta tu documento";
 /* Capture Permission Screen - Allow Access Button - Title & Accessibility Label */
-"sblCapturePermissionsCameraAllowAccess" = "Allow Access";
+"sblCapturePermissionsCameraAllowAccess" = "Permitir el acceso";
 /* Capture Permission Screen - Message Label - Text - Invoice */
-"sblCapturePermissionsCameraMessageInvoice" = "We need access to the camera in order to capture an invoice.";
+"sblCapturePermissionsCameraMessageInvoice" = "Necesitamos acceso a la cámara para capturar una factura.";
 /* Capture Permission Screen - Message Label - Text - Receipt */
-"sblCapturePermissionsCameraMessageReceipt" = "We need access to the camera in order to capture a receipt.";
+"sblCapturePermissionsCameraMessageReceipt" = "Necesitamos acceso a la cámara para capturar un recibo.";
 /* Capture Permission Screen - Title Label - Text */
-"sblCapturePermissionsCameraTitle" = "Camera Access Required";
+"sblCapturePermissionsCameraTitle" = "Se requiere acceso a la cámara";
 /* Alert - Image Gallery Permission - Action Negative */
-"sblCapturePermissionsPhotoLibraryCancel" = "Not Now";
+"sblCapturePermissionsPhotoLibraryCancel" = "Ahora no";
 /* Alert - Image Gallery Permission - Message - Invoice */
-"sblCapturePermissionsPhotoLibraryMessageInvoice" = "We need access to the photo library in order to select an invoice.";
+"sblCapturePermissionsPhotoLibraryMessageInvoice" = "Necesitamos acceso a la cámara para capturar una factura.";
 /* Alert - Image Gallery Permission - Message - Receipt */
-"sblCapturePermissionsPhotoLibraryMessageReceipt" = "We need access to the photo library in order to select a receipt.";
+"sblCapturePermissionsPhotoLibraryMessageReceipt" = "Necesitamos acceso a la cámara para capturar un recibo.";
 /* Alert - Image Gallery Permission - Action Positive */
-"sblCapturePermissionsPhotoLibraryOpenSettings" = "Go to Settings";
+"sblCapturePermissionsPhotoLibraryOpenSettings" = "Ir a Ajustes";
 /* Alert - Image Gallery Permission - Title */
-"sblCapturePermissionsPhotoLibraryTitle" = "Allow Access";
+"sblCapturePermissionsPhotoLibraryTitle" = "\"Permitir el acceso\";";
 /* Image Preview Screen - Add Button - Title */
-"sblCapturePreviewScreenAddPage" = "Add";
+"sblCapturePreviewScreenAddPage" = "Añadir";
 /* Image Preview Screen - Alert - Blur Image - Action Negative */
-"sblCapturePreviewScreenAlertBlurKeep" = "Keep";
+"sblCapturePreviewScreenAlertBlurKeep" = "Conservar";
 /* Alert - Blur Image - Message */
-"sblCapturePreviewScreenAlertBlurMessage" = "This photo looks a little blurry. Would you like to retake it?";
+"sblCapturePreviewScreenAlertBlurMessage" = "Esta foto se ve un poco borrosa. ¿Le gustaría volver a tomarla?";
 /* Image Preview Screen - Alert - Blur Image - Action Positive */
-"sblCapturePreviewScreenAlertBlurRetake" = "Retake";
+"sblCapturePreviewScreenAlertBlurRetake" = "Volver a tomar";
 /* Image Preview Screen - Alert - Blur Image - Title */
-"sblCapturePreviewScreenAlertBlurTitle" = "Blur Detected";
+"sblCapturePreviewScreenAlertBlurTitle" = "Desenfoque detectado";
 /* Image preview screen - back button - accessibility hint */
-"sblCapturePreviewScreenBackA11yHint" = "Goes back to the previous screen";
+"sblCapturePreviewScreenBackA11yHint" = "Vuelve a la pantalla anterior";
 /* Image Preview Screen - Crop Button - Label */
-"sblCapturePreviewScreenCrop" = "Crop";
+"sblCapturePreviewScreenCrop" = "Recortar";
 /* Image Preview Screen - Current Selected Page - Announcement */
-"sblCapturePreviewScreenCurrentPageA11yAnn" = "Page %d of %d";
+"sblCapturePreviewScreenCurrentPageA11yAnn" = "Página %d de %d";
 /* Image preview screen - Discard Button - Label */
-"sblCapturePreviewScreenDiscard" = "Discard";
+"sblCapturePreviewScreenDiscard" = "Descarte";
 /* Image preview screen - done button - title & accessibility label */
-"sblCapturePreviewScreenDone" = "Done";
+"sblCapturePreviewScreenDone" = "Hecho";
 /* Image preview screen - done button - accessibility hint */
-"sblCapturePreviewScreenDoneA11yHint" = "Accept image and exit capture";
+"sblCapturePreviewScreenDoneA11yHint" = "Aceptar la imagen y salir de la captura";
 /* Image preview screen - next button - title & accessibility label (button appears in place of done button when long receipt first section is captured) */
-"sblCapturePreviewScreenLongReceiptNext" = "Next Section";
+"sblCapturePreviewScreenLongReceiptNext" = "Sección siguiente";
 /* Image preview screen - next button - accessibility hint (button appears in place of done button when long receipt first section is captured)  */
-"sblCapturePreviewScreenLongReceiptNextA11yHint" = "Accept this image for the first section and start capturing the next one";
+"sblCapturePreviewScreenLongReceiptNextA11yHint" = "Acepte esta imagen para la primera sección y comience a capturar la siguiente.";
 /* Image Preview Screen - Next Image Button - Accessibility Hint */
-"sblCapturePreviewScreenNextPageA11yHint" = "Scrolls to the next captured image";
+"sblCapturePreviewScreenNextPageA11yHint" = "Se desplaza a la siguiente imagen capturada";
 /* Image Preview Screen - Next Image Button - State Enabled - Accessibility Label */
-"sblCapturePreviewScreenNextPageA11yLabel" = "Next Image";
+"sblCapturePreviewScreenNextPageA11yLabel" = "Imagen siguiente";
 /* Image Preview Screen - Next Image Button - State Disabled - Accessibility Label */
-"sblCapturePreviewScreenNextPageDisabledA11yLabel" = "Next Image. Disabled";
+"sblCapturePreviewScreenNextPageDisabledA11yLabel" = "Imagen siguiente. Deshabilitada.";
 /* Image Preview Screen - Previous Image Button - Accessibility Hint */
-"sblCapturePreviewScreenPreviousPageA11yHint" = "Scrolls to the previous captured image";
+"sblCapturePreviewScreenPreviousPageA11yHint" = "Se desplaza a la imagen capturada anterior";
 /* Image Preview Screen - Previous Image Button - State Enabled - Accessibility Label */
-"sblCapturePreviewScreenPreviousPageA11yLabel" = "Previous Image";
+"sblCapturePreviewScreenPreviousPageA11yLabel" = "Imagen anterior";
 /* Image Preview Screen - Previous Image Button - State Disabled - Accessibility Label */
-"sblCapturePreviewScreenPreviousPageDisabledA11yLabel" = "Previous Image. Disabled";
+"sblCapturePreviewScreenPreviousPageDisabledA11yLabel" = "Imagen anterior. Deshabilitada.";
 /* capture preview screen - retake button title */
-"sblCapturePreviewScreenRetake" = "Retake";
+"sblCapturePreviewScreenRetake" = "Volver a tomar";
 /* Image preview screen - screen title */
-"sblCapturePreviewScreenTitle" = "Review Image (%d/%d)";
-/* Capture Tips Screen - Close Button - Title & Accessibility Label */
-"sblCaptureTipsScreenClose" = "Close";
+"sblCapturePreviewScreenTitle" = "Revisar la imagen (%d/%d)";
 /* Capture Tips Screen - Tip - Flatten Invoice - Description Label */
-"sblCaptureTipsScreenFlattenInvoiceDescription" = "Flatten folds and curls in your invoice and place it on a dark, pattern less surface.";
+"sblCaptureTipsScreenFlattenInvoiceDescription" = "Aplana los pliegues y rizos en tu factura y colócalo sobre una superficie oscura y sin patrón.";
 /* Capture Tips Screen - Tip - Flattern Invoice - Title Label */
-"sblCaptureTipsScreenFlattenInvoiceTitle" = "Flatten your invoice";
+"sblCaptureTipsScreenFlattenInvoiceTitle" = "Aplana tu factura";
 /* Capture Tips Screen - Tip - Flatten Receipt - Description Label */
-"sblCaptureTipsScreenFlattenReceiptDescription" = "Flatten folds and curls in your receipt and place it on a dark, pattern less surface.";
+"sblCaptureTipsScreenFlattenReceiptDescription" = "Aplana los pliegues y rizos en tu recibo y colócalo sobre una superficie oscura y sin patrón.";
 /* Capture Tips Screen - Tip - Flattern Receipt - Title Label */
-"sblCaptureTipsScreenFlattenReceiptTitle" = "Flatten your receipt";
+"sblCaptureTipsScreenFlattenReceiptTitle" = "Aplana tu recibo";
 /* Capture Tips Screen - Tip - Hold Steady Invoice - Description Label */
-"sblCaptureTipsScreenHoldSteadyInvoiceDescription" = "Hold your device steady above the invoice while we take the photo.";
+"sblCaptureTipsScreenHoldSteadyInvoiceDescription" = "Mantenga su dispositivo firme sobre el factura mientras tomamos la foto.";
 /* Capture Tips Screen - Tip - Hold Steady Invoice - Title Label */
-"sblCaptureTipsScreenHoldSteadyInvoiceTitle" = "Hold it steady!";
+"sblCaptureTipsScreenHoldSteadyInvoiceTitle" = "¡Manténgalo firme!";
 /* Capture Tips Screen - Tip - Hold Steady Receipt - Description Label */
-"sblCaptureTipsScreenHoldSteadyReceiptDescription" = "Hold your device steady above the receipt while we take the photo.";
+"sblCaptureTipsScreenHoldSteadyReceiptDescription" = "Mantenga su dispositivo firme sobre el recibo mientras tomamos la foto.";
 /* Capture Tips Screen - Tip - Hold Steady Receipt - Title Label */
-"sblCaptureTipsScreenHoldSteadyReceiptTitle" = "Hold it steady!";
+"sblCaptureTipsScreenHoldSteadyReceiptTitle" = "¡Manténgalo firme!";
 /* Capture Tips Screen - Tip - Long Receipt - Description Label */
-"sblCaptureTipsScreenLongReceiptDescription" = "Take a picture of the top, then move down to the next part and take a picture!";
+"sblCaptureTipsScreenLongReceiptDescription" = "¡Tome una foto de la parte superior, luego baje a la siguiente parte y tome una foto!";
 /* Capture Tips Screen - Tip - Long Receipt - Title Label */
-"sblCaptureTipsScreenLongReceiptTitle" = "Have a long receipt?";
+"sblCaptureTipsScreenLongReceiptTitle" = "¿Tiene un recibo largo?";
 /* Capture Tips Screen - Tip - Make It Bright - Description Label */
-"sblCaptureTipsScreenMakeItBrightDescription" = "Turn on flash in dark areas to soften shadows or move closer to a light source.";
+"sblCaptureTipsScreenMakeItBrightDescription" = "Encienda el flash en áreas oscuras para suavizar las sombras o acercarse a una fuente de luz.";
 /* Capture Tips Screen - Tip - Make It Bright - Title Label */
-"sblCaptureTipsScreenMakeItBrightTitle" = "Make it bright!";
-/* Capture Tips Screen - Next Button - Title & Accessibility Label */
-"sblCaptureTipsScreenNext" = "Next";
+"sblCaptureTipsScreenMakeItBrightTitle" = "¡Hazlo brillante!";
+/* Spend Manager and Capture UI - Common (Various Screens) - Back (Label & Accessibility label for the navigation button) */
+"sblCommonBackLabel" = "Atrás";
+/* Spend Manager and Capture UI - Common (Various Screens) - Close (Label & Accessibility label for the navigation button) */
+"sblCommonCloseLabel" = "Cerrar";
+/* Spend Manager UI - Document Details - Edit - Required Field Hint */
+"sblCommonEditRequiredFieldHint" = "(requerido)";
 /* Spend Manager UI - Error View - Fatal Error Message */
-"sblCommonErrorViewMessageFatal" = "The application has been stopped due to an internal error. Please try again later.";
+"sblCommonErrorViewMessageFatal" = "La aplicación se detuvo debido a un error interno. Inténtelo de nuevo más tarde.";
 /* Spend Manager UI - Error View - Offline Error Message */
-"sblCommonErrorViewMessageOffline" = "It looks like your device is offline. Please try again when you have network access.";
+"sblCommonErrorViewMessageOffline" = "Parece que tu dispositivo está desconectado. Vuelva a intentarlo cuando tenga acceso a la red.";
 /* Spend Manager UI - Error View - OK Button - Label */
-"sblCommonErrorViewOkButtonLabel" = "Ok";
+"sblCommonErrorViewOkButtonLabel" = "Okay";
 /* Spend Manager UI - Error View - Retry Button */
-"sblCommonErrorViewRetryButtonLabel" = "Retry now";
+"sblCommonErrorViewRetryButtonLabel" = "Reintentar ahora";
+/* Spend Manager and Capture UI - Common (Various Screens) - Exit (Label & Accessibility label for the navigation button) */
+"sblCommonExitLabel" = "Salida";
+/* Spend Manager and Capture UI - Common (Various Screens) - Next (Label & Accessibility label for the navigation button) */
+"sblCommonNextLabel" = "Siguiente";
 /* Spend Manager UI - Pop Over View - Cancel - Button - Label */
-"sblCommonPopOverCancelButtonLabel" = "Cancel";
+"sblCommonPopOverCancelButtonLabel" = "Cancelar";
 /* Spend Manager UI - Pop Over View - Done - Button - Label */
-"sblCommonPopOverDoneButtonLabel" = "Done";
+"sblCommonPopOverDoneButtonLabel" = "Hecho";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorBlack" = "Negro";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorBlue" = "Azul";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorBrown" = "Marrón";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorGray" = "Gris";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorGreen" = "Verde";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorOrange" = "Naranja";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorPink" = "Rosa";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorPurple" = "Púrpura";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorSilver" = "Plata";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorTeal" = "Verde azulado";
+/* SpendManager UI - Create Email - Cancel Button Label */
+"sblCreateEmailCancelButtonLabel" = "Cancelar";
+/* Spend Manager UI - Create Email - Error - Invalid Address */
+"sblCreateEmailErrorAddressInvalid" = "Dirección de correo electrónico del documento no válida";
+/* Spend Manager UI - Create Email - Address Taken Error */
+"sblCreateEmailErrorAddressTaken" = "La dirección de correo electrónico del documento ya está en uso.";
+/* Spend Manager UI - Create Email - Required Field Error */
+"sblCreateEmailErrorFieldRequired" = "Se requiere la dirección de correo electrónico del documento.";
+/* Spend Manager UI - Create Email - Info */
+"sblCreateEmailInfo" = "Una vez que se comprometa con la dirección de correo electrónico de un documento, no podrá cambiarla.";
+/* Spend Manager UI - Create Email - Input Field Label */
+"sblCreateEmailInputFieldLabel" = "Dirección de correo del documento";
+/* Spend Manager UI - Create Email - Input Field Placeholder */
+"sblCreateEmailInputFieldPlaceholder" = "Nombre de usuario";
+/* Spend Manager UI - Create Email - Save Button Label */
+"sblCreateEmailSaveButtonLabel" = "Ahorrar";
+/* Spend Manager UI - Create Email -Title */
+"sblCreateEmailScreenTitle" = "Crear correo electrónico";
+/* Spend Manager UI - Create Email - Success Message */
+"sblCreateEmailSuccessMessage" = "Se ha guardado la dirección de correo electrónico de su documento.";
+/* Spend Manager UI - Create Email - Suggestions Title */
+"sblCreateEmailSuggestedNamesTitle" = "Aquí hay algunas opciones disponibles:";
+/* Spend Manager UI - Create Email - Tip 1 - Description */
+"sblCreateEmailTipEmailDescription" = "Envíe documentos digitales desde su bandeja de entrada de correo electrónico personal a su lista de documentos reenviándolos a su correo electrónico de documentos de gastos.";
+/* Spend Manager UI - Create Email - Tip 1 - Title */
+"sblCreateEmailTipEmailTitle" = "Desde la bandeja de entrada de tu correo electrónico";
+/* Spend Manager UI - Create Email - Tip 2 - Description */
+"sblCreateEmailTipInStoreDescription" = "Envíe documentos digitales directamente a este correo electrónico la próxima vez que esté en la tienda y el cajero le pregunte si desea que le envíen su documento por correo electrónico en lugar de imprimirlo.";
+/* Spend Manager UI - Create Email - Tip 2 - Title */
+"sblCreateEmailTipInStoreTitle" = "Cuando estás en la tienda";
+/* Spend manager UI - Create Folder - Cancel Button */
+"sblCreateFolderCancelButtonLabel" = "Cancelar";
+/* Spend Manager UI - Create Folder - Create */
+"sblCreateFolderCreateButtonLabel" = "Crear";
+"sblCreateFolderErrorMissingRequiredFieldButton" = "DE ACUERDO";
+"sblCreateFolderErrorMissingRequiredFieldMessage" = "Introduzca el nombre de la carpeta para guardar";
+"sblCreateFolderErrorMissingRequiredFieldTitle" = "Nombre de carpeta no válido";
+/* Spend Manager UI - Create Folder - Save Changes - Duplicate Name Error */
+"sblCreateFolderSaveChangesErrorDuplicateName" = "Ya existe una carpeta con el mismo nombre.";
+/* Spend Manager - Create Folder - Save Changes - Error Message */
+"sblCreateFolderSaveChangesErrorMessage" = "No pudimos guardar tus cambios.";
+/* Spend Manager UI - Create Folder - Screen Title */
+"sblCreateFolderScreenTitle" = "Nueva carpeta";
+/* Spend Manager UI - Create Folder - Success Message */
+"sblCreateFolderSuccessMessage" = "Se creó la carpeta";
+/* Spend Manager UI - Dashboard - Document Email Card - Action Label */
+"sblDashboardDocumentEmailAction" = "Crear";
+/* Spend Manager UI - Dashboard - Document Email Card - Copied To Clipboard */
+"sblDashboardDocumentEmailCopiedToClipboard" = "Copiado al portapapeles";
+/* Spend Manager UI - Dashboard - Document Email - Copy To Clipboard - Accessibility label */
+"sblDashboardDocumentEmailCopyClipboardA11yLabel" = "Copiar al portapapeles";
+/* Spend manager UI - Dashboard - Document Email Card - Explanation */
+"sblDashboardDocumentEmailExplanation" = "Cree la dirección de correo electrónico de su documento para comenzar a reenviar sus documentos de gastos digitales.";
+/* Spend Manager UI - Dashboard - Document Email Card - Title */
+"sblDashboardDocumentEmailTitle" = "Correo electrónico";
 /* Spend Manager UI - Dashboard - Error View - Description */
-"sblDashboardLoadErrorDescription" = "We were unable to load your Dashboard, please try again.";
+"sblDashboardLoadErrorDescription" = "No pudimos cargar su Tablero, inténtelo de nuevo.";
 /* Spend Manager UI - Dashboard - Error View - Title */
-"sblDashboardLoadErrorTitle" = "Failed to load Dashboard";
+"sblDashboardLoadErrorTitle" = "Error al cargar el panel";
 /* Spend Manager UI - Dashboard - Title */
-"sblDashboardScreenTitle" = "Dashboard";
+"sblDashboardScreenTitle" = "Tablero";
 /* Spend Manager UI - Dashboard - Section Title - Documents */
-"sblDashboardSectionTitleDocuments" = "Documents";
+"sblDashboardSectionTitleDocuments" = "Documentos";
 /* Spend Manager UI - Dashboard - Section Title - Downloads */
-"sblDashboardSectionTitleDownloads" = "Downloads";
+"sblDashboardSectionTitleDownloads" = "Descargas";
+/* Spend manager UI - Dashboard - Folders Card - Title */
+"sblDashboardSectionTitleFolders" = "carpetas";
 /* Spend Manager UI - Dashboard - Show All Button */
-"sblDashboardShowAllButton" = "See all";
+"sblDashboardShowAllButton" = "Ver todo";
+/* Spend Manager UI - Delete Folder Alert - Cancel button */
+"sblDeleteFolderAlertButtonCancel" = "Cancelar";
+/* Spend Manager UI - Folder Operations - Delete Confirmation Modal - Confirm Button */
+"sblDeleteFolderAlertButtonConfirm" = "Borrar";
+/* Spend Manager UI - Delete Folder Alert - Message */
+"sblDeleteFolderAlertMessage" = "¿Está seguro de que desea eliminar esta carpeta? No perderás los documentos de esta carpeta.";
+/* Spend manager UI - Delete Folder Alert - Title */
+"sblDeleteFolderAlertTitle" = "Eliminar carpeta";
+/* Spend Manager UI - Delete Folder - Failure Message */
+"sblDeleteFolderFailureMessage" = "No se pudo eliminar la carpeta";
+/* Spend manager UI - Folder Operations Menu - Folder Deletion Success Message */
+"sblDeleteFolderSuccessMessage" = "La carpeta fue eliminada";
 /* Spend Manager UI - Add Document Drop Down - Accessibility Label */
-"sblDocumentAddDocumentDropdownA11yLabel" = "Select document type";
+"sblDocumentAddDocumentDropdownA11yLabel" = "Seleccionar tipo de documento";
 /* Spend Manager UI - Add Document Button - Option Invoice */
-"sblDocumentAddDocumentDropdownOptionInvoice" = "Add Invoice";
+"sblDocumentAddDocumentDropdownOptionInvoice" = "Agregar factura";
 /* Spend Manager UI - Add Document Drop Down - Option Receipt */
-"sblDocumentAddDocumentDropdownOptionReceipt" = "Add Receipt";
-/* Spend Manager UI - Documents - Button - Filter - Label */
-"sblDocumentButtonFilterLabel" = "Filter";
+"sblDocumentAddDocumentDropdownOptionReceipt" = "Agregar recibo";
 /* Spend Manager UI - Document - Delete Alert - Button - Cancel */
-"sblDocumentDeleteAlertButtonCancel" = "Cancel";
+"sblDocumentDeleteAlertButtonCancel" = "Cancelar";
 /* Spend Manager UI - Document - Delete Alert - Button - Confirm */
-"sblDocumentDeleteAlertButtonConfirm" = "Delete";
-"sblDocumentDeleteAlertDescriptionMultiple" = "Are you sure you want to delete %d documents? This action cannot be undone and you will lose all data associated with these documents.";
+"sblDocumentDeleteAlertButtonConfirm" = "Borrar";
+"sblDocumentDeleteAlertDescriptionMultiple" = "¿Está seguro de que desea eliminar %d documentos? Esta acción no se puede deshacer y perderá todos los datos asociados con estos documentos.";
 /* Spend Manager UI - Document - Action - Delete - Alert - Description */
-"sblDocumentDeleteAlertDescriptionSingle" = "Are you sure you want to delete this document? This action cannot be undone and you will lose all data associated with this document.";
-"sblDocumentDeleteAlertTitleMultiple" = "Delete Documents";
+"sblDocumentDeleteAlertDescriptionSingle" = "¿Está seguro de que desea eliminar este documento? Esta acción no se puede deshacer y perderá todos los datos asociados con este documento.";
+"sblDocumentDeleteAlertTitleMultiple" = "Eliminar documentos";
 /* Spend Manager UI - Document - Delete Alert - Title */
-"sblDocumentDeleteAlertTitleSingle" = "Delete Document";
-/* Spend Manager UI - Delete Failed Toast */
-"sblDocumentDeleteFailedToast" = "Failed to delete document(s)";
+"sblDocumentDeleteAlertTitleSingle" = "Eliminar documento";
+/* Spend Manager UI - Delete Failed Message */
+"sblDocumentDeleteFailedMessage" = "Error al eliminar documento(s)";
 /* Spend Manager UI - Document Detail - Delete Button - Label */
-"sblDocumentDetailDeleteButtonLabel" = "Delete Document";
+"sblDocumentDetailDeleteButtonLabel" = "Eliminar documento";
 /* Spend Manager UI - Document Detail - Discounts - Discount Line Number Format */
-"sblDocumentDetailDiscountsLineNumberFormat" = "Discount %d";
+"sblDocumentDetailDiscountsLineNumberFormat" = "Descuento %d";
 /* Spend Manager UI - Document Detail - Discounts - Title */
-"sblDocumentDetailDiscountsTitle" = "Discounts";
+"sblDocumentDetailDiscountsTitle" = "Descuentos";
 /* Spend Manager UI - Document Detail - Edit Button - Label */
-"sblDocumentDetailEditButtonLabel" = "Edit";
+"sblDocumentDetailEditButtonLabel" = "Editar";
 /* Spend Manager UI - Document Detail - Line Items - No Item Name - Default Label */
-"sblDocumentDetailLineItemsItemDefaultLabel" = "item";
+"sblDocumentDetailLineItemsItemDefaultLabel" = "artículo";
 /* Spend Manager UI - Document Detail - Line Items - No Items - Label */
-"sblDocumentDetailLineItemsNoItemsLabel" = "No items found";
+"sblDocumentDetailLineItemsNoItemsLabel" = "No se encontraron artículos";
 /* Spend Manager UI - Document Detail - Line Items - Title Format */
-"sblDocumentDetailLineItemsTitleFormat" = "Items (%d)";
+"sblDocumentDetailLineItemsTitleFormat" = "Artículos ( %d )";
 /* Spend Manager UI - Document Detail - Load Error - Description */
-"sblDocumentDetailLoadErrorDescription" = "We were unable to load your document, please try again.";
+"sblDocumentDetailLoadErrorDescription" = "No pudimos cargar su documento, inténtelo de nuevo.";
 /* Spend Manager UI - Document Detail - Load Error - Title */
-"sblDocumentDetailLoadErrorTitle" = "Failed to load document";
+"sblDocumentDetailLoadErrorTitle" = "No se pudo cargar el documento";
 /* Spend Manager UI - Document Detail - Needs Review - Message */
-"sblDocumentDetailNeedsReviewMessage" = "Ensure the information for merchant name, date, and total are entered and accurate. You can refer to the image of your original document for this information.";
+"sblDocumentDetailNeedsReviewMessage" = "Asegúrese de que la información del nombre del comerciante, la fecha y el total se ingresen y sean precisas. Puede consultar la imagen de su documento original para obtener esta información.";
 /* Spend Manager UI - Document Detail - Needs Review - Title */
-"sblDocumentDetailNeedsReviewTitle" = "We couldn't read some data for this document.";
+"sblDocumentDetailNeedsReviewTitle" = "No pudimos leer algunos datos para este documento.";
 /* Spend Manager UI - Document Detail - Notes - Title */
-"sblDocumentDetailNotesTitle" = "Notes";
+"sblDocumentDetailNotesTitle" = "notas";
 /* Spend Manager UI - Document Detail - Payments - Title */
-"sblDocumentDetailPaymentsTitle" = "Payment Method";
+"sblDocumentDetailPaymentsTitle" = "Método de pago";
 /* Spend Manager UI - Document Detail - Screen Title - Invoice */
-"sblDocumentDetailScreenTitleInvoice" = "Invoice Details";
+"sblDocumentDetailScreenTitleInvoice" = "Detalles de la factura";
 /* Spend Manager UI - Document Detail - Screen Title - Receipt */
-"sblDocumentDetailScreenTitleReceipt" = "Receipt Details";
+"sblDocumentDetailScreenTitleReceipt" = "Detalles del recibo";
 /* Spend Manager UI - Document Detail - Summary - Amount Due */
-"sblDocumentDetailSummaryAmountDue" = "Amount Due";
+"sblDocumentDetailSummaryAmountDue" = "Importe adeudado";
 /* Spend Manager UI - Document Detail - Summary - Category */
-"sblDocumentDetailSummaryCategory" = "Category";
+"sblDocumentDetailSummaryCategory" = "Categoría";
 /* Spend Manager UI - Document Detail - Summary - Currency */
-"sblDocumentDetailSummaryCurrency" = "Currency";
+"sblDocumentDetailSummaryCurrency" = "Divisa";
 /* Spend Manager UI - Document Detail - Summary - Document Date - Invoice */
-"sblDocumentDetailSummaryDocumentDateInvoice" = "Invoice Date";
+"sblDocumentDetailSummaryDocumentDateInvoice" = "Fecha de la factura";
 /* Spend Manager UI - Document Detail - Summary - Document Date - Receipt */
-"sblDocumentDetailSummaryDocumentDateReceipt" = "Purchase Date";
+"sblDocumentDetailSummaryDocumentDateReceipt" = "Fecha de compra";
 /* Spend Manager UI - Document Detail - Summary - Due Date */
-"sblDocumentDetailSummaryDueDate" = "Due Date";
+"sblDocumentDetailSummaryDueDate" = "Fecha de vencimiento";
 /* Spend Manager UI - Document Detail - Summary - Expense Type */
-"sblDocumentDetailSummaryExpenseType" = "Expense Type";
+"sblDocumentDetailSummaryExpenseType" = "Tipo de gasto";
 /* Spend Manager UI - Document Detail - Expense Type - Business */
-"sblDocumentDetailSummaryExpenseTypeBusiness" = "Business";
+"sblDocumentDetailSummaryExpenseTypeBusiness" = "Negocio";
 /* Spend Manager UI - Document Detail - Expense Type - Personal */
 "sblDocumentDetailSummaryExpenseTypePersonal" = "Personal";
 /* Spend Manager UI - Document Detail - Summary - Invoice Number
  */
-"sblDocumentDetailSummaryInvoiceNumber" = "Invoice #";
+"sblDocumentDetailSummaryInvoiceNumber" = "Factura #";
 /* Spend Manager UI - Document Detail - Summary - Tax Registration Number */
-"sblDocumentDetailSummaryTaxRegistrationNumber" = "Tax Registration #";
+"sblDocumentDetailSummaryTaxRegistrationNumber" = "Registro de impuestos #";
 /* Spend Manager UI - Document Detail - Summary - Total */
 "sblDocumentDetailSummaryTotal" = "Total";
 /* Spend Manager UI - Document Detail - Summary - Upload Date */
-"sblDocumentDetailSummaryUploadDate" = "Upload Date";
+"sblDocumentDetailSummaryUploadDate" = "Fecha de carga";
 /* Spand Manager UI - Document Detail - Taxes - No taxes - Label */
-"sblDocumentDetailTaxesNoTaxesLabel" = "No tax info found";
+"sblDocumentDetailTaxesNoTaxesLabel" = "No se encontró información fiscal";
 /* Spend Manager UI - Document Detail - Taxes - Tax Line Number Format */
-"sblDocumentDetailTaxesTaxLineNumberFormat" = "Tax %d";
+"sblDocumentDetailTaxesTaxLineNumberFormat" = "Impuesto %d";
 /* Spend Manager UI - Document Detail - Taxes - Title */
-"sblDocumentDetailTaxesTitle" = "Taxes";
+"sblDocumentDetailTaxesTitle" = "Impuestos";
 /* Spend Manager UI - Document Detail - Totals - Fee Name Label - Format */
-"sblDocumentDetailTotalsFeeNameLabelFormat" = "Fee %d";
+"sblDocumentDetailTotalsFeeNameLabelFormat" = "Tarifa %d";
 /* Spend Manager UI - Document Detaails - Totals - No totals */
-"sblDocumentDetailTotalsNoTotalLabel" = "No totals found";
+"sblDocumentDetailTotalsNoTotalLabel" = "No se encontraron totales";
 /* Spend Manager UI - Document Detail - Totals - Subtotal */
-"sblDocumentDetailTotalsSubTotal" = "Subtotal";
+"sblDocumentDetailTotalsSubTotal" = "Total parcial";
 /* Spend Manager UI - Document Detail - Totals - Tip */
-"sblDocumentDetailTotalsTip" = "Tip";
+"sblDocumentDetailTotalsTip" = "Propina";
 /* Spend Manager UI - Document Detail - Totals - Title */
-"sblDocumentDetailTotalsTitle" = "Totals";
+"sblDocumentDetailTotalsTitle" = "Totales";
 /* Spend Manager UI - Document Detail - Totals - Total */
 "sblDocumentDetailTotalsTotal" = "Total";
 /* Spend Manager UI - Document Detail - Original - Title */
-"sblDocumentDetailViewOriginalButtonLabel" = "View Original Document";
+"sblDocumentDetailViewOriginalButtonLabel" = "Ver documento original";
 /* Spend Manager UI - Document Download -Toast - Create Failed - Message */
-"sblDocumentDownloadCreateFailedToast" = "Download create failed.";
-/* Spend Manager UI - Document Download - Create Succeed, but No Documents Found - Toast Message */
-"sblDocumentDownloadCreateNoDocumentsFoundToast" = "Your export criteria didn’t match any documents.  Please review and try again.";
+"sblDocumentDownloadCreateFailedMessage" = "La creación de la descarga falló.";
+/* Spend Manager UI - Document Download - Create Succeed, but No Documents Found Message */
+"sblDocumentDownloadCreateNoDocumentsFoundMessage" = "Los criterios de exportación no coincidieron con ningún documento. Por favor revise y vuelva a intentarlo.";
 /* Spend Manager UI - Document Details - Cancel Modal - Cancel Action */
 "sblDocumentEditCancelAlertButtonCancel" = "No";
 /* Spend Manager UI - Document Detail - Edit Cancel Alert - Button Confirm */
-"sblDocumentEditCancelAlertButtonConfirm" = "Yes";
+"sblDocumentEditCancelAlertButtonConfirm" = "Sí";
 /* Spend Manager UI - Document Details - Cancel Modal - Message */
-"sblDocumentEditCancelAlertDescription" = "Your unsaved changes will be lost. Are you sure you want to proceed?";
+"sblDocumentEditCancelAlertDescription" = "Los cambios no guardados se perderán. ¿Estas seguro que deseas continuar?";
 /* Spend Manager UI - Document Details - Cancel Modal - Title */
-"sblDocumentEditCancelAlertTitle" = "Discard Changes";
+"sblDocumentEditCancelAlertTitle" = "Descartar los cambios";
 /* Spend Manager UI - Document Edit - Button Cancel - Label */
-"sblDocumentEditCancelButtonLabel" = "Cancel";
-/* Spend Manager UI - Document Detail - Save Succeed Toast */
-"sblDocumentEditChangesSavedToast" = "Your changes have been saved";
+"sblDocumentEditCancelButtonLabel" = "Cancelar";
+/* Spend Manager UI - Document Detail - Save Succeed Message */
+"sblDocumentEditChangesSavedMessage" = "Se han guardado los cambios";
 /* Spend Manager UI - Document Edit - Merchant Name - Label */
-"sblDocumentEditMerchantNameLabel" = "Merchant name";
+"sblDocumentEditMerchantNameLabel" = "Nombre del comerciante";
 /* Spend Manager UI - Document Details - Missing Required Fields - Alert - Button */
-"sblDocumentEditMissingRequiredFieldsAlertButton" = "OK";
+"sblDocumentEditMissingRequiredFieldsAlertButton" = "DE ACUERDO";
 /* Spend Manager UI - Document Details - Missing Required Fields - Alert - Message */
-"sblDocumentEditMissingRequiredFieldsAlertMessage" = "Please enter the required fields in order to save.";
+"sblDocumentEditMissingRequiredFieldsAlertMessage" = "Por favor ingrese los campos requeridos para guardar.";
 /* Spend Manager UI - Document Details - Missing Required Fields - Alert - Title */
-"sblDocumentEditMissingRequiredFieldsAlertTitle" = "Missing Required Fields";
-/* Spend Manager UI - Document Details - Edit - Required Field Hint */
-"sblDocumentEditRequiredFieldHint" = "(required)";
+"sblDocumentEditMissingRequiredFieldsAlertTitle" = "Faltan campos obligatorios";
 /* Spend Manager UI - Document Detail - Button - Save - Title */
-"sblDocumentEditSaveButtonLabel" = "Save changes";
-/* Spend Manager UI - Document Detail - Save Failed Toast */
-"sblDocumentEditSaveChangesFailedToast" = "We couldn't save your changes";
+"sblDocumentEditSaveButtonLabel" = "Ahorrar";
+/* Spend Manager UI - Document Detail - Save Failed Message */
+"sblDocumentEditSaveChangesFailedMessage" = "No pudimos guardar tus cambios.";
 /* Spend Manager UI - Document Exports - Date Label */
-"sblDocumentExportsDateLabel" = "Created %@";
+"sblDocumentExportsDateLabel" = "Creado %@";
 /* Spend Manager UI - Document Exports - Export Button - Label */
-"sblDocumentExportsExportButtonLabel" = "New Download";
+"sblDocumentExportsExportButtonLabel" = "Nueva descarga";
 /* Spend Manager UI - Document Exports - Export Download an Share - Failed Message */
-"sblDocumentExportsFailedDownloadMessage" = "Failed to retrieve your download";
+"sblDocumentExportsFailedDownloadMessage" = "Error al recuperar tu descarga";
 /* Spend Manager UI - Document Exports - Export with Failed Status - Description */
-"sblDocumentExportsFailedStatusDescription" = "Something went wrong, please try again";
+"sblDocumentExportsFailedStatusDescription" = "Algo salió mal. Por favor, vuelva a intentarlo";
 /* Spend Manager UI - Document Exports - Export with Failed Status - Title */
-"sblDocumentExportsFailedStatusTitle" = "Download could not be created";
+"sblDocumentExportsFailedStatusTitle" = "No se pudo crear la descarga";
 /* Spend Manager UI - Document Exports Filter - Toolbar - Cancel Button - Label */
-"sblDocumentExportsFilterCancelButtonLabel" = "Cancel";
+"sblDocumentExportsFilterCancelButtonLabel" = "Cancelar";
 /* Spend Manager UI - Document Exports Filter - Toolbar - Create Button - Label */
-"sblDocumentExportsFilterCreateButtonLabel" = "Create";
+"sblDocumentExportsFilterCreateButtonLabel" = "Crear";
+/* Spend Manager UI - Document Exports Filter - Document Count Label */
+"sblDocumentExportsFilterDocumentCountLabel" = "Descargando %d documentos";
 /* Spend Manager UI - Document Exports Filter - Dropdown - Download By Date - Month Dropdown - Label */
-"sblDocumentExportsFilterDropdownDownloadByDateMonthLabel" = "Month";
+"sblDocumentExportsFilterDropdownDownloadByDateMonthLabel" = "Mes";
 /* Spend Manager UI - Document Exports Filter - Dropdown - Download By Date - Month Dropdown - Option - All */
-"sblDocumentExportsFilterDropdownDownloadByDateMonthOptionAll" = "All";
+"sblDocumentExportsFilterDropdownDownloadByDateMonthOptionAll" = "Todos";
 /* Spend Manager UI - Document Exports Filter - Dropdown - Download By Date - Year Dropdown - Label */
-"sblDocumentExportsFilterDropdownDownloadByDateYearLabel" = "Year";
+"sblDocumentExportsFilterDropdownDownloadByDateYearLabel" = "Año";
 /* Spend Manager UI - Document Exports Filter - Dropdown - Download By - Label */
-"sblDocumentExportsFilterDropdownDownloadByLabel" = "Download documents by";
+"sblDocumentExportsFilterDropdownDownloadByLabel" = "Descargar documentos por";
 /* Spend Manager UI - Document Exports Filter - Dropdown - Download By - Option - Date */
-"sblDocumentExportsFilterDropdownDownloadByOptionDate" = "Date";
+"sblDocumentExportsFilterDropdownDownloadByOptionDate" = "Fecha";
 /* Spend Manager UI - Document Exports Filter - Dropdown - Download Format - Label */
-"sblDocumentExportsFilterDropdownDownloadFormatLabel" = "Select download format";
+"sblDocumentExportsFilterDropdownDownloadFormatLabel" = "Seleccionar formato de descarga";
 /* Spend Manager UI - Document Exports Filter - Dropdown - Download Format - Option - CSV */
-"sblDocumentExportsFilterDropdownDownloadFormatOptionCSV" = "Expense report (csv)";
+"sblDocumentExportsFilterDropdownDownloadFormatOptionCSV" = "Informe de gastos (csv)";
 /* Spend Manager UI - Document Exports Filter - Dropdown - Download Format - Option - PDF */
-"sblDocumentExportsFilterDropdownDownloadFormatOptionPDF" = "PDF (document images)";
+"sblDocumentExportsFilterDropdownDownloadFormatOptionPDF" = "PDF (imágenes de documentos)";
 /* Spend Manager UI - Document Exports Filter - Dropdown - Download Format - Option - XLSX */
-"sblDocumentExportsFilterDropdownDownloadFormatOptionXLSX" = "Expense report (xlsx)";
+"sblDocumentExportsFilterDropdownDownloadFormatOptionXLSX" = "Informe de gastos (xlsx)";
 /* Spend Manager UI - Document Exports Filter - Dropdown - Download Format - Option - ZIP */
 "sblDocumentExportsFilterDropdownDownloadFormatOptionZIP" = "Zip (csv, xlsx, pdf)";
+/* Spend Manager UI - Document Exports Filter - Folder Download Label */
+"sblDocumentExportsFilterFolderNameLabel" = "Descargando %@";
 /* Spend Manager UI - Document Exports Filter - Screen -Title */
-"sblDocumentExportsFilterScreenTitle" = "New Download";
+"sblDocumentExportsFilterScreenTitle" = "Nueva descarga";
 /* Spend Manager UI - Document Exports - List Header */
-"sblDocumentExportsListHeader" = "Downloads are available for 14 days";
+"sblDocumentExportsListHeader" = "Las descargas están disponibles durante 14 días";
 /* Spend Manager UI - Document Exports - Load Error - Description */
-"sblDocumentExportsLoadErrorDescription" = "Failed to retrieve your downloads. Please try again.";
+"sblDocumentExportsLoadErrorDescription" = "No se pudieron recuperar tus descargas. Inténtalo de nuevo.";
 /* Spend Manager UI - Document Exports - Load Error - Title */
-"sblDocumentExportsLoadErrorTitle" = "Failed to retrieve downloads";
+"sblDocumentExportsLoadErrorTitle" = "No se pudieron recuperar las descargas";
 /* Spend Manager UI - Document Exports - No Items - Message */
-"sblDocumentExportsNoItemsMessage" = "Create a new download or go to your Document List or Folders to select documents to download.";
+"sblDocumentExportsNoItemsMessage" = "Crear una descarga primero";
 /* Spend Manager UI - Document Exports - No Items - Title */
-"sblDocumentExportsNoItemsTitle" = "No downloads available";
+"sblDocumentExportsNoItemsTitle" = "No hay descargas todavía";
 /* Spend Manager UI - Document Exports - Screen - Title */
-"sblDocumentExportsScreenTitle" = "Downloads";
+"sblDocumentExportsScreenTitle" = "Descargas";
 /* Spend Manager UI - Document - Merchant Name - Unavailable */
-"sblDocumentFieldMerchantNameUnavailable" = "Merchant name";
+"sblDocumentFieldMerchantNameUnavailable" = "Nombre del comerciante";
 /* Spend Manager UI - Document - Field - Unavailable */
 "sblDocumentFieldUnavailable" = "--";
 /* Spend Manager UI - Document Details - Field - Unavailable - Accessibility */
-"sblDocumentFieldUnavailableA11yLabel" = "Missing Information";
+"sblDocumentFieldUnavailableA11yLabel" = "Información faltante";
 /* Spend Manager UI - Document Filter - Button Apply - Label */
-"sblDocumentFilterApplyButtonLabel" = "Apply";
+"sblDocumentFilterApplyButtonLabel" = "Solicitar";
 /* Spend Manager UI - Document Filter - Category - Label */
-"sblDocumentFilterCategoryLabel" = "Category";
+"sblDocumentFilterCategoryLabel" = "Categoría";
 /* Spend Manager UI - Document Filter - Category - Option - All */
-"sblDocumentFilterCategoryOptionAll" = "All";
+"sblDocumentFilterCategoryOptionAll" = "Todos";
 /* Spend Manager UI - Document Filter - Document Type - Label */
-"sblDocumentFilterDocumentTypeLabel" = "Document Type";
+"sblDocumentFilterDocumentTypeLabel" = "Tipo de Documento";
 /* Spend Manager UI - Document Filter - Document Type - Option - All */
-"sblDocumentFilterDocumentTypeOptionAll" = "All";
+"sblDocumentFilterDocumentTypeOptionAll" = "Todos";
 /* Spend Manager UI - Document Filter - Document Type - Option - Invoice */
-"sblDocumentFilterDocumentTypeOptionInvoice" = "Invoice";
+"sblDocumentFilterDocumentTypeOptionInvoice" = "Factura";
 /* Spend Manager UI - Document Filter - Document Type - Option - Receipt */
-"sblDocumentFilterDocumentTypeOptionReceipt" = "Receipt";
+"sblDocumentFilterDocumentTypeOptionReceipt" = "Recibo";
 /* Spend Manager UI - Document Filter - Expense Type - Label */
-"sblDocumentFilterExpenseTypeLabel" = "Expense Type";
+"sblDocumentFilterExpenseTypeLabel" = "Tipo de gasto";
 /* Spend Manager UI - Document Filter - Expense Type - All */
-"sblDocumentFilterExpenseTypeOptionAll" = "All";
+"sblDocumentFilterExpenseTypeOptionAll" = "Todos";
 /* Spend Manager UI - Document Filter - Expense Type - Business */
-"sblDocumentFilterExpenseTypeOptionBusiness" = "Business";
+"sblDocumentFilterExpenseTypeOptionBusiness" = "Negocio";
 /* Spend Manager UI - Document Filter - Expense Type - Personal */
 "sblDocumentFilterExpenseTypeOptionPersonal" = "Personal";
 /* Spend Manager UI - Document Filter - Button Reset - Label */
-"sblDocumentFilterResetButtonLabel" = "Reset";
+"sblDocumentFilterResetButtonLabel" = "Reiniciar";
 /* Spend Manager UI - Document Filter - Screen Title */
-"sblDocumentFilterScreenTitle" = "Filters";
+"sblDocumentFilterScreenTitle" = "filtros";
 /* Spend Manager UI - Document Filter - Sort By */
-"sblDocumentFilterSortByLabel" = "Sort By";
+"sblDocumentFilterSortByLabel" = "Ordenar por";
 /* Spend Manager UI - Document Filter - Sort By - Option - Purchase Date */
-"sblDocumentFilterSortByOptionPurchaseDate" = "Purchase Date";
+"sblDocumentFilterSortByOptionPurchaseDate" = "Fecha de compra";
 /* Spend Manager UI - Document Filter - Sort By - Option - Recently Added */
-"sblDocumentFilterSortByOptionRecentlyAdded" = "Recently Added";
-"sblDocumentListDeleteSelectedButton" = "Delete selected documents";
+"sblDocumentFilterSortByOptionRecentlyAdded" = "Recientemente añadido";
+/* Spend Manager UI - Documents - Button - Filter - Label */
+"sblDocumentListButtonFilterLabel" = "Filtrar";
+/* Spend Manager UI - Document List - Delete Selected Documents */
+"sblDocumentListDeleteSelectedButton" = "Eliminar documentos seleccionados";
 /* Label displayed when in multi select to display how many items have been selected */
-"sblDocumentListDocumentSelectedLabelFormat" = "%@ selected";
+"sblDocumentListDocumentSelectedLabelFormat" = "%@ seleccionado";
+/* Spend Manager UI - Document List - Download Selected Documents */
+"sblDocumentListDownloadSelectedButton" = "Descargar documentos seleccionados";
 /* Spend Manager UI - Document List Item - Date - Unavailable */
-"sblDocumentListItemDateUnavailable" = "Date unavailable";
+"sblDocumentListItemDateUnavailable" = "Fecha no disponible";
+/* Spend Manager UI - Document List - Item - Folder Icon A11y label, when Item is in folder(s) */
+"sblDocumentListItemHasFolders" = "Este documento está en al menos una carpeta.";
+/* Spend Manager UI - Document List - Item - Folder Icon A11y label, when Item is not in any folder */
+"sblDocumentListItemHasNoFolders" = "Este documento no está en ninguna carpeta.";
 /* Spend Manager UI - Document List - Load Error - Description */
-"sblDocumentListLoadErrorDescription" = "We were unable to load your documents, please try again.";
+"sblDocumentListLoadErrorDescription" = "No pudimos cargar sus documentos, inténtelo de nuevo.";
 /* Spend Manager UI - Document List - Load Error - Title */
-"sblDocumentListLoadErrorTitle" = "Failed to load documents";
+"sblDocumentListLoadErrorTitle" = "Error al cargar documentos";
 /* Spend Manager UI - Document List - Load More - Button - Label */
-"sblDocumentListLoadMoreButtonLabel" = "Load more";
+"sblDocumentListLoadMoreButtonLabel" = "Carga más";
 /* Spend Manager UI - Document List - No Documents Filtered - Label */
-"sblDocumentListNoDocumentsFilteredTitle" = "Sorry, we couldn't find any results.";
+"sblDocumentListNoDocumentsFilteredTitle" = "Lo sentimos, no pudimos encontrar ningún resultado.";
 /* Spend Manager UI - Document List - No Documents - Message */
-"sblDocumentListNoDocumentsMessage" = "Start uploading your documents to stay better organized.";
+"sblDocumentListNoDocumentsMessage" = "Comienza a cargar tus documentos para estar mejor organizado.";
 /* Spend Manager UI - Document List - No Documents - Title */
-"sblDocumentListNoDocumentsTitle" = "All your documents in one place.";
+"sblDocumentListNoDocumentsTitle" = "Todos tus documentos en un solo lugar.";
 /* Spend Manager UI - Document List - No More Items - Label */
-"sblDocumentListNoMoreItemsLabel" = "You have reached the end of the list.";
+"sblDocumentListNoMoreItemsLabel" = "Has llegado al final de la lista.";
+/* Spend Manager UI - Document List - Organize Documents - Feedback when failed */
+"sblDocumentListOrganizeFailed" = "No se pudieron guardar los cambios. Actualice sus documentos e inténtelo de nuevo.";
+/* Spend Manager - Document List - Toolbar - Organize Folders Button */
+"sblDocumentListOrganizeFoldersButton" = "Agregar documentos seleccionados a la carpeta";
+/* Spend Manager UI - Document List - Organize Documents - Feedback when some failed */
+"sblDocumentListOrganizeSomeFailed" = "Algunos de sus cambios no se pudieron guardar. Actualice sus documentos e inténtelo de nuevo.";
+/* Spend Manager UI - Document List - Organize Documents - Feedback on Success */
+"sblDocumentListOrganizeSuccess" = "Se han guardado los cambios";
 /* Spend Manager UI - Document List - Top Bar - Title */
-"sblDocumentListScreenTitle" = "Document List";
+"sblDocumentListScreenTitle" = "Lista de documentos";
 /* Document List - Search Field - Clear Button - Label */
-"sblDocumentListSearchClearButtonLabel" = "Clear Search";
+"sblDocumentListSearchClearButtonLabel" = "Borrar búsqueda";
 /* Spend Manager UI - Document List - Search - Placeholder - Text */
-"sblDocumentListSearchPlaceholderText" = "Merchant or item";
+"sblDocumentListSearchPlaceholderText" = "comerciante o artículo";
 /* Spend Manager UI - Document - Needs Review - Label */
-"sblDocumentNeedsReviewLabel" = "Needs review";
+"sblDocumentNeedsReviewLabel" = "Necesita revisión";
 /* Spend Manager UI - Document Original - Download Button - Label */
-"sblDocumentOriginalDownloadButtonLabel" = "Download";
+"sblDocumentOriginalDownloadButtonLabel" = "Descargar";
 /* Spend Manager UI - Document Original - Image Preview - Accessibility Label */
-"sblDocumentOriginalImagePreviewA11yLabel" = "Image Preview";
+"sblDocumentOriginalImagePreviewA11yLabel" = "Vista previa de la imagen";
 /* Spend Manager UI - Document Original - Load Error - Title */
-"sblDocumentOriginalLoadErrorTitle" = "Failed to download original image.";
+"sblDocumentOriginalLoadErrorTitle" = "Error al descargar la imagen original.";
 /* Spend Manager UI - Document Original - Screen - Title */
-"sblDocumentOriginalScreenTitle" = "Original Document";
+"sblDocumentOriginalScreenTitle" = "Documento original";
+/* Spend Manager UI - Common - Exports Alert - Cancel Action */
+"sblDocumentsExportAlertCancel" = "DE ACUERDO";
+/* Spend Manager UI - Common - Exports Alert - Confirm Action */
+"sblDocumentsExportAlertConfirm" = "Descargas";
+/* Spend Manager UI - Common - Exports Alert - Description */
+"sblDocumentsExportAlertDescription" = "Su descarga se está preparando. Cuando esté listo, podrás encontrarlo en tu página de Descargas.";
+/* Spend Manager UI - Common - Exports Alert - Title */
+"sblDocumentsExportAlertTitle" = "Preparando la descarga";
+/* Spend Manager UI - Edit Folder - Cancel */
+"sblEditFolderCancelButtonLabel" = "Cancelar";
+/* Spend Manager UI - Edit Folder - The label to display for a folder color that doesn't match any predefined colors */
+"sblEditFolderCurrentColor" = "Color actual";
+/* Spend Manager UI - Edit Folder Screen - Title */
+"sblEditFolderScreenTitle" = "Editar carpeta";
+/* Spend Manaer UI - Edit Folder - Update Success Message */
+"sblEditFolderSuccessMessage" = "La carpeta fue actualizada";
+/* Spend Manager UI - Edit Folder - Update Folder Button Label */
+"sblEditFolderUpdateButtonLabel" = "Actualizar";
+/* Spend Manager UI - Folder List - Create Folder Button */
+"sblFolderListCreateButtonLabel" = "Crear carpeta";
+/* Spend Manager UI - Folder List - Folder Icon - Accessibility label */
+"sblFolderListFolderIconA11yLabel" = "Carpeta";
+/* Spend Manager UI - Folder List - Item - Multiple Currencies */
+"sblFolderListItemAmountMultipleCurrencies" = "%d monedas";
+/* Spend Manager UI - Folder List - Item - Document Count */
+"sblFolderListItemDocumentCount" = "%d documento(s)";
+/* Spend Manager UI - Folder List - Load Error - Description */
+"sblFolderListLoadErrorDescription" = "No pudimos cargar sus carpetas, inténtelo de nuevo.";
+/* Spend Manager UI - Folder List - Load Error - Title */
+"sblFolderListLoadErrorTitle" = "Error al cargar carpetas";
+/* Spend Manager UI - Folder List - Delete Folder Menu Option */
+"sblFolderListMenuDeleteFolder" = "Eliminar carpeta";
+/* Spend Manager UI - Folder List - Download Folder Menu Option */
+"sblFolderListMenuDownloadFolder" = "Carpeta de descargas";
+/* Spend Manager UI - Folder List - Menu - Edit Folder */
+"sblFolderListMenuEditFolder" = "Editar carpeta";
+/* Spend Manager UI - Folder List - No Folders - Message */
+"sblFolderListNoFoldersMessage" = "Comienza a crear carpetas para organizar mejor tus documentos.";
+/* Spend Manager UI - Folder List - No Folders - Title */
+"sblFolderListNoFoldersTitle" = "no tienes carpetas";
+/* Spend Manager UI - Folder List - Title */
+"sblFolderListScreenTitle" = "Carpetas";
+/* Spend Manager UI - Create Folder - Folder Color */
+"sblFolderPropertiesColorLabel" = "Color de carpeta";
+/* Spend Manager UI - Create Folder - Folder Name */
+"sblFolderPropertiesNameLabel" = "Nombre de la carpeta";
+/* Spend manager UI - Organize Folders - Cancel Button Label */
+"sblOrganizeFoldersCancelButtonLabel" = "Cancelar";
+/* Spend Manager UI - Organize Folders - Description */
+"sblOrganizeFoldersDescription" = "Agregar documentos a carpetas o eliminar documentos de carpetas";
+/* Spend Manager UI - Organize Folders - Folder - Selected Count View - Accessibility Label */
+"sblOrganizeFoldersItemCountA11yLabel" = "%d de %d documentos seleccionados en la carpeta";
+/* Spend Manager UI - Organize Folders - Folder - Count Label */
+"sblOrganizeFoldersItemCountLabel" = "%d/%d";
+/* Spend manager UI - Organize Folders - Folder - Icon Accessibility Label */
+"sblOrganizeFoldersItemIconA11yLabel" = "Carpeta";
+/* Spend Manager UI - Organize Folders - Save Button Label */
+"sblOrganizeFoldersSaveButtonLabel" = "Ahorrar";
+/* Spend Manager UI - Organize Folders - Screen Title */
+"sblOrganizeFoldersScreenTitle" = "Organizar documentos";

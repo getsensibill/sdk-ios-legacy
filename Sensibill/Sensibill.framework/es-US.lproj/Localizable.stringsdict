@@ -13,9 +13,9 @@
         <key>NSStringFormatValueTypeKey</key>
         <string>li</string>
         <key>one</key>
-        <string>No, conserve esta imagen</string>
+        <string>No, conservar esta imagen</string>
         <key>other</key>
-        <string>No, conserve estas imágenes</string>
+        <string>No, conservar estas imágenes</string>
       </dict>
     </dict>
     <key>sblCaptureCameraScreenAlertDiscardImageMessage</key>

@@ -15,7 +15,7 @@
 /* Capture Screen - Capture Feedback Progress - Label - Capturing Invoice */
 "sblCaptureCameraScreenCapturingInvoice" = "Capturer, ne bougez pas";
 /* Capture Screen - Capture Feedback Progress - Capturing Invoice Announcement */
-"sblCaptureCameraScreenCapturingInvoiceA11yAnn" = "";
+"sblCaptureCameraScreenCapturingInvoiceA11yAnn" = "Saisie facture";
 /* Capture Screen - Capture Feedback Progress - Label - Capturing Receipt */
 "sblCaptureCameraScreenCapturingReceipt" = "Capturer, ne bougez pas";
 /* Capture Screen - Capture Feedback Progress - Capturing Receipt Announcement */
@@ -154,8 +154,6 @@
 "sblCapturePreviewScreenRetake" = "Reprendre";
 /* Image preview screen - screen title */
 "sblCapturePreviewScreenTitle" = "Examiner l'image (%d/%d)";
-/* Capture Tips Screen - Close Button - Title & Accessibility Label */
-"sblCaptureTipsScreenClose" = "Proche";
 /* Capture Tips Screen - Tip - Flatten Invoice - Description Label */
 "sblCaptureTipsScreenFlattenInvoiceDescription" = "Aplatissez les plis et les courbes de votre facturer et placez-le sur une surface foncée et sans motif.";
 /* Capture Tips Screen - Tip - Flattern Invoice - Title Label */
@@ -180,8 +178,12 @@
 "sblCaptureTipsScreenMakeItBrightDescription" = "Activez le flash dans les endroits sombres pour adoucir les ombres; ou bien approchez-vous d’une source lumineuse.";
 /* Capture Tips Screen - Tip - Make It Bright - Title Label */
 "sblCaptureTipsScreenMakeItBrightTitle" = "Faites-le clair!";
-/* Capture Tips Screen - Next Button - Title & Accessibility Label */
-"sblCaptureTipsScreenNext" = "Prochain";
+/* Spend Manager and Capture UI - Common (Various Screens) - Back (Label & Accessibility label for the navigation button) */
+"sblCommonBackLabel" = "Dos";
+/* Spend Manager and Capture UI - Common (Various Screens) - Close (Label & Accessibility label for the navigation button) */
+"sblCommonCloseLabel" = "Proche";
+/* Spend Manager UI - Document Details - Edit - Required Field Hint */
+"sblCommonEditRequiredFieldHint" = "(obligatoire)";
 /* Spend Manager UI - Error View - Fatal Error Message */
 "sblCommonErrorViewMessageFatal" = "L'application s'est arrêtée en raison d'une erreur interne. Veuillez réessayer plus tard.";
 /* Spend Manager UI - Error View - Offline Error Message */
@@ -190,10 +192,89 @@
 "sblCommonErrorViewOkButtonLabel" = "D'accord";
 /* Spend Manager UI - Error View - Retry Button */
 "sblCommonErrorViewRetryButtonLabel" = "Réessayer maintenant";
+/* Spend Manager and Capture UI - Common (Various Screens) - Exit (Label & Accessibility label for the navigation button) */
+"sblCommonExitLabel" = "Sortie";
+/* Spend Manager and Capture UI - Common (Various Screens) - Next (Label & Accessibility label for the navigation button) */
+"sblCommonNextLabel" = "Prochain";
 /* Spend Manager UI - Pop Over View - Cancel - Button - Label */
 "sblCommonPopOverCancelButtonLabel" = "Annuler";
 /* Spend Manager UI - Pop Over View - Done - Button - Label */
 "sblCommonPopOverDoneButtonLabel" = "Fait";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorBlack" = "Noir";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorBlue" = "Bleu";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorBrown" = "Brun";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorGray" = "Gris";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorGreen" = "Vert";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorOrange" = "Orange";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorPink" = "Rose";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorPurple" = "Violet";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorSilver" = "Argent";
+/* Default Folder Colors - DO NOT CHANGE */
+"sblConstantFolderColorTeal" = "Sarcelle";
+/* SpendManager UI - Create Email - Cancel Button Label */
+"sblCreateEmailCancelButtonLabel" = "Annuler";
+/* Spend Manager UI - Create Email - Error - Invalid Address */
+"sblCreateEmailErrorAddressInvalid" = "Adresse e-mail de document non valide";
+/* Spend Manager UI - Create Email - Address Taken Error */
+"sblCreateEmailErrorAddressTaken" = "L'adresse e-mail du document est déjà prise.";
+/* Spend Manager UI - Create Email - Required Field Error */
+"sblCreateEmailErrorFieldRequired" = "L'adresse e-mail du document est requise.";
+/* Spend Manager UI - Create Email - Info */
+"sblCreateEmailInfo" = "Une fois que vous vous êtes engagé sur une adresse e-mail de document, vous ne pourrez plus la modifier.";
+/* Spend Manager UI - Create Email - Input Field Label */
+"sblCreateEmailInputFieldLabel" = "Adresse e-mail du document";
+/* Spend Manager UI - Create Email - Input Field Placeholder */
+"sblCreateEmailInputFieldPlaceholder" = "Nom d'utilisateur";
+/* Spend Manager UI - Create Email - Save Button Label */
+"sblCreateEmailSaveButtonLabel" = "Sauvegarder";
+/* Spend Manager UI - Create Email -Title */
+"sblCreateEmailScreenTitle" = "Créer un e-mail";
+/* Spend Manager UI - Create Email - Success Message */
+"sblCreateEmailSuccessMessage" = "L'adresse e-mail de votre document a été enregistrée.";
+/* Spend Manager UI - Create Email - Suggestions Title */
+"sblCreateEmailSuggestedNamesTitle" = "Voici quelques options disponibles :";
+/* Spend Manager UI - Create Email - Tip 1 - Description */
+"sblCreateEmailTipEmailDescription" = "Envoyez des documents numériques depuis votre boîte de réception personnelle vers votre liste de documents en les transférant vers votre adresse e-mail Spend Document.";
+/* Spend Manager UI - Create Email - Tip 1 - Title */
+"sblCreateEmailTipEmailTitle" = "Depuis votre boîte mail";
+/* Spend Manager UI - Create Email - Tip 2 - Description */
+"sblCreateEmailTipInStoreDescription" = "Envoyez des documents numériques directement à cet e-mail la prochaine fois que vous serez en magasin et le caissier vous demandera si vous souhaitez que votre document soit envoyé par e-mail au lieu d'être imprimé.";
+/* Spend Manager UI - Create Email - Tip 2 - Title */
+"sblCreateEmailTipInStoreTitle" = "Lorsque vous êtes en magasin";
+/* Spend manager UI - Create Folder - Cancel Button */
+"sblCreateFolderCancelButtonLabel" = "Annuler";
+/* Spend Manager UI - Create Folder - Create */
+"sblCreateFolderCreateButtonLabel" = "Créer";
+"sblCreateFolderErrorMissingRequiredFieldButton" = "D'ACCORD";
+"sblCreateFolderErrorMissingRequiredFieldMessage" = "Veuillez entrer le nom du dossier afin d'enregistrer";
+"sblCreateFolderErrorMissingRequiredFieldTitle" = "Nom de dossier invalide";
+/* Spend Manager UI - Create Folder - Save Changes - Duplicate Name Error */
+"sblCreateFolderSaveChangesErrorDuplicateName" = "Un dossier portant le même nom existe déjà.";
+/* Spend Manager - Create Folder - Save Changes - Error Message */
+"sblCreateFolderSaveChangesErrorMessage" = "Nous n'avons pas pu enregistrer vos modifications";
+/* Spend Manager UI - Create Folder - Screen Title */
+"sblCreateFolderScreenTitle" = "Nouveau dossier";
+/* Spend Manager UI - Create Folder - Success Message */
+"sblCreateFolderSuccessMessage" = "Le dossier a été créé";
+/* Spend Manager UI - Dashboard - Document Email Card - Action Label */
+"sblDashboardDocumentEmailAction" = "Créer";
+/* Spend Manager UI - Dashboard - Document Email Card - Copied To Clipboard */
+"sblDashboardDocumentEmailCopiedToClipboard" = "Copié dans le presse-papier";
+/* Spend Manager UI - Dashboard - Document Email - Copy To Clipboard - Accessibility label */
+"sblDashboardDocumentEmailCopyClipboardA11yLabel" = "Copier dans le presse-papier";
+/* Spend manager UI - Dashboard - Document Email Card - Explanation */
+"sblDashboardDocumentEmailExplanation" = "Créez votre adresse e-mail de document pour commencer à transférer vos documents de dépenses numériques.";
+/* Spend Manager UI - Dashboard - Document Email Card - Title */
+"sblDashboardDocumentEmailTitle" = "E-mail de document";
 /* Spend Manager UI - Dashboard - Error View - Description */
 "sblDashboardLoadErrorDescription" = "Nous n'avons pas pu charger votre tableau de bord, veuillez réessayer.";
 /* Spend Manager UI - Dashboard - Error View - Title */
@@ -204,16 +285,28 @@
 "sblDashboardSectionTitleDocuments" = "Documents";
 /* Spend Manager UI - Dashboard - Section Title - Downloads */
 "sblDashboardSectionTitleDownloads" = "Téléchargements";
+/* Spend manager UI - Dashboard - Folders Card - Title */
+"sblDashboardSectionTitleFolders" = "Dossiers";
 /* Spend Manager UI - Dashboard - Show All Button */
 "sblDashboardShowAllButton" = "Voir tout";
+/* Spend Manager UI - Delete Folder Alert - Cancel button */
+"sblDeleteFolderAlertButtonCancel" = "Annuler";
+/* Spend Manager UI - Folder Operations - Delete Confirmation Modal - Confirm Button */
+"sblDeleteFolderAlertButtonConfirm" = "Supprimer";
+/* Spend Manager UI - Delete Folder Alert - Message */
+"sblDeleteFolderAlertMessage" = "Êtes-vous sûr de vouloir supprimer ce dossier ? Vous ne perdrez pas les documents de ce dossier";
+/* Spend manager UI - Delete Folder Alert - Title */
+"sblDeleteFolderAlertTitle" = "Supprimer le dossier";
+/* Spend Manager UI - Delete Folder - Failure Message */
+"sblDeleteFolderFailureMessage" = "Échec de la suppression du dossier";
+/* Spend manager UI - Folder Operations Menu - Folder Deletion Success Message */
+"sblDeleteFolderSuccessMessage" = "Le dossier a été supprimé";
 /* Spend Manager UI - Add Document Drop Down - Accessibility Label */
 "sblDocumentAddDocumentDropdownA11yLabel" = "Sélectionnez le type de document";
 /* Spend Manager UI - Add Document Button - Option Invoice */
 "sblDocumentAddDocumentDropdownOptionInvoice" = "Ajouter une facture";
 /* Spend Manager UI - Add Document Drop Down - Option Receipt */
 "sblDocumentAddDocumentDropdownOptionReceipt" = "Ajouter un reçu";
-/* Spend Manager UI - Documents - Button - Filter - Label */
-"sblDocumentButtonFilterLabel" = "Filtre";
 /* Spend Manager UI - Document - Delete Alert - Button - Cancel */
 "sblDocumentDeleteAlertButtonCancel" = "Annuler";
 /* Spend Manager UI - Document - Delete Alert - Button - Confirm */
@@ -224,8 +317,8 @@
 "sblDocumentDeleteAlertTitleMultiple" = "Supprimer des documents";
 /* Spend Manager UI - Document - Delete Alert - Title */
 "sblDocumentDeleteAlertTitleSingle" = "Supprimer le document";
-/* Spend Manager UI - Delete Failed Toast */
-"sblDocumentDeleteFailedToast" = "Impossible de supprimer le(s) document(s)";
+/* Spend Manager UI - Delete Failed Message */
+"sblDocumentDeleteFailedMessage" = "Impossible de supprimer le(s) document(s)";
 /* Spend Manager UI - Document Detail - Delete Button - Label */
 "sblDocumentDetailDeleteButtonLabel" = "Supprimer le document";
 /* Spend Manager UI - Document Detail - Discounts - Discount Line Number Format */
@@ -304,9 +397,9 @@
 /* Spend Manager UI - Document Detail - Original - Title */
 "sblDocumentDetailViewOriginalButtonLabel" = "Afficher le document d'origine";
 /* Spend Manager UI - Document Download -Toast - Create Failed - Message */
-"sblDocumentDownloadCreateFailedToast" = "La création du téléchargement a échoué.";
-/* Spend Manager UI - Document Download - Create Succeed, but No Documents Found - Toast Message */
-"sblDocumentDownloadCreateNoDocumentsFoundToast" = "Vos critères d'exportation ne correspondent à aucun document. Veuillez vérifier et réessayer.";
+"sblDocumentDownloadCreateFailedMessage" = "La création du téléchargement a échoué.";
+/* Spend Manager UI - Document Download - Create Succeed, but No Documents Found Message */
+"sblDocumentDownloadCreateNoDocumentsFoundMessage" = "Les critères d'exportation ne correspondent à aucun document. Veuillez vérifier et réessayer.";
 /* Spend Manager UI - Document Details - Cancel Modal - Cancel Action */
 "sblDocumentEditCancelAlertButtonCancel" = "Non";
 /* Spend Manager UI - Document Detail - Edit Cancel Alert - Button Confirm */
@@ -317,8 +410,8 @@
 "sblDocumentEditCancelAlertTitle" = "Annuler les modifications";
 /* Spend Manager UI - Document Edit - Button Cancel - Label */
 "sblDocumentEditCancelButtonLabel" = "Annuler";
-/* Spend Manager UI - Document Detail - Save Succeed Toast */
-"sblDocumentEditChangesSavedToast" = "Vos changements ont été enregistrés";
+/* Spend Manager UI - Document Detail - Save Succeed Message */
+"sblDocumentEditChangesSavedMessage" = "Vos changements ont été enregistrés";
 /* Spend Manager UI - Document Edit - Merchant Name - Label */
 "sblDocumentEditMerchantNameLabel" = "Nom du commerçant";
 /* Spend Manager UI - Document Details - Missing Required Fields - Alert - Button */
@@ -327,12 +420,10 @@
 "sblDocumentEditMissingRequiredFieldsAlertMessage" = "Veuillez saisir les champs obligatoires pour enregistrer.";
 /* Spend Manager UI - Document Details - Missing Required Fields - Alert - Title */
 "sblDocumentEditMissingRequiredFieldsAlertTitle" = "Champs obligatoires manquants";
-/* Spend Manager UI - Document Details - Edit - Required Field Hint */
-"sblDocumentEditRequiredFieldHint" = "(obligatoire)";
 /* Spend Manager UI - Document Detail - Button - Save - Title */
-"sblDocumentEditSaveButtonLabel" = "Sauvegarder les modifications";
-/* Spend Manager UI - Document Detail - Save Failed Toast */
-"sblDocumentEditSaveChangesFailedToast" = "Nous n'avons pas pu enregistrer vos modifications";
+"sblDocumentEditSaveButtonLabel" = "Sauvegarder";
+/* Spend Manager UI - Document Detail - Save Failed Message */
+"sblDocumentEditSaveChangesFailedMessage" = "Nous n'avons pas pu enregistrer vos modifications";
 /* Spend Manager UI - Document Exports - Date Label */
 "sblDocumentExportsDateLabel" = "Créé %@";
 /* Spend Manager UI - Document Exports - Export Button - Label */
@@ -347,6 +438,8 @@
 "sblDocumentExportsFilterCancelButtonLabel" = "Annuler";
 /* Spend Manager UI - Document Exports Filter - Toolbar - Create Button - Label */
 "sblDocumentExportsFilterCreateButtonLabel" = "Créer";
+/* Spend Manager UI - Document Exports Filter - Document Count Label */
+"sblDocumentExportsFilterDocumentCountLabel" = "Téléchargement %d documents";
 /* Spend Manager UI - Document Exports Filter - Dropdown - Download By Date - Month Dropdown - Label */
 "sblDocumentExportsFilterDropdownDownloadByDateMonthLabel" = "Mois";
 /* Spend Manager UI - Document Exports Filter - Dropdown - Download By Date - Month Dropdown - Option - All */
@@ -367,6 +460,8 @@
 "sblDocumentExportsFilterDropdownDownloadFormatOptionXLSX" = "Note de frais (xlsx)";
 /* Spend Manager UI - Document Exports Filter - Dropdown - Download Format - Option - ZIP */
 "sblDocumentExportsFilterDropdownDownloadFormatOptionZIP" = "Zip (csv, xlsx, pdf)";
+/* Spend Manager UI - Document Exports Filter - Folder Download Label */
+"sblDocumentExportsFilterFolderNameLabel" = "Téléchargement de %@";
 /* Spend Manager UI - Document Exports Filter - Screen -Title */
 "sblDocumentExportsFilterScreenTitle" = "Nouveau téléchargement";
 /* Spend Manager UI - Document Exports - List Header */
@@ -419,11 +514,20 @@
 "sblDocumentFilterSortByOptionPurchaseDate" = "date d'achat";
 /* Spend Manager UI - Document Filter - Sort By - Option - Recently Added */
 "sblDocumentFilterSortByOptionRecentlyAdded" = "Récemment ajouté";
+/* Spend Manager UI - Documents - Button - Filter - Label */
+"sblDocumentListButtonFilterLabel" = "Filtre";
+/* Spend Manager UI - Document List - Delete Selected Documents */
 "sblDocumentListDeleteSelectedButton" = "Supprimer les documents sélectionnés";
 /* Label displayed when in multi select to display how many items have been selected */
 "sblDocumentListDocumentSelectedLabelFormat" = "%@ sélectionné";
+/* Spend Manager UI - Document List - Download Selected Documents */
+"sblDocumentListDownloadSelectedButton" = "Télécharger les documents sélectionnés";
 /* Spend Manager UI - Document List Item - Date - Unavailable */
 "sblDocumentListItemDateUnavailable" = "Date indisponible";
+/* Spend Manager UI - Document List - Item - Folder Icon A11y label, when Item is in folder(s) */
+"sblDocumentListItemHasFolders" = "Ce document se trouve dans au moins un dossier";
+/* Spend Manager UI - Document List - Item - Folder Icon A11y label, when Item is not in any folder */
+"sblDocumentListItemHasNoFolders" = "Ce document ne se trouve dans aucun dossier";
 /* Spend Manager UI - Document List - Load Error - Description */
 "sblDocumentListLoadErrorDescription" = "Nous n'avons pas pu charger vos documents, veuillez réessayer.";
 /* Spend Manager UI - Document List - Load Error - Title */
@@ -438,6 +542,14 @@
 "sblDocumentListNoDocumentsTitle" = "Tous vos documents en un seul endroit.";
 /* Spend Manager UI - Document List - No More Items - Label */
 "sblDocumentListNoMoreItemsLabel" = "Vous avez atteint la fin de la liste.";
+/* Spend Manager UI - Document List - Organize Documents - Feedback when failed */
+"sblDocumentListOrganizeFailed" = "Vos modifications n'ont pas pu être enregistrées. Veuillez actualiser vos documents et réessayer";
+/* Spend Manager - Document List - Toolbar - Organize Folders Button */
+"sblDocumentListOrganizeFoldersButton" = "Ajouter les documents sélectionnés au dossier";
+/* Spend Manager UI - Document List - Organize Documents - Feedback when some failed */
+"sblDocumentListOrganizeSomeFailed" = "Certaines de vos modifications n'ont pas pu être enregistrées. Veuillez actualiser vos documents et réessayer";
+/* Spend Manager UI - Document List - Organize Documents - Feedback on Success */
+"sblDocumentListOrganizeSuccess" = "Vos changements ont été enregistrés";
 /* Spend Manager UI - Document List - Top Bar - Title */
 "sblDocumentListScreenTitle" = "Liste de documents";
 /* Document List - Search Field - Clear Button - Label */
@@ -454,3 +566,63 @@
 "sblDocumentOriginalLoadErrorTitle" = "Échec du téléchargement de l'image d'origine.";
 /* Spend Manager UI - Document Original - Screen - Title */
 "sblDocumentOriginalScreenTitle" = "Document original";
+/* Spend Manager UI - Common - Exports Alert - Cancel Action */
+"sblDocumentsExportAlertCancel" = "D'ACCORD";
+/* Spend Manager UI - Common - Exports Alert - Confirm Action */
+"sblDocumentsExportAlertConfirm" = "Téléchargements";
+/* Spend Manager UI - Common - Exports Alert - Description */
+"sblDocumentsExportAlertDescription" = "Votre téléchargement est en cours de préparation. Lorsqu'il est prêt, vous pouvez le trouver sur votre page Téléchargements.";
+/* Spend Manager UI - Common - Exports Alert - Title */
+"sblDocumentsExportAlertTitle" = "Préparation du téléchargement";
+/* Spend Manager UI - Edit Folder - Cancel */
+"sblEditFolderCancelButtonLabel" = "Annuler";
+/* Spend Manager UI - Edit Folder - The label to display for a folder color that doesn't match any predefined colors */
+"sblEditFolderCurrentColor" = "Couleur actuelle";
+/* Spend Manager UI - Edit Folder Screen - Title */
+"sblEditFolderScreenTitle" = "Modifier le dossier";
+/* Spend Manaer UI - Edit Folder - Update Success Message */
+"sblEditFolderSuccessMessage" = "Le dossier a été mis à jour";
+/* Spend Manager UI - Edit Folder - Update Folder Button Label */
+"sblEditFolderUpdateButtonLabel" = "Mise à jour";
+/* Spend Manager UI - Folder List - Create Folder Button */
+"sblFolderListCreateButtonLabel" = "Créer le dossier";
+/* Spend Manager UI - Folder List - Folder Icon - Accessibility label */
+"sblFolderListFolderIconA11yLabel" = "Dossier";
+/* Spend Manager UI - Folder List - Item - Multiple Currencies */
+"sblFolderListItemAmountMultipleCurrencies" = "%d devises";
+/* Spend Manager UI - Folder List - Item - Document Count */
+"sblFolderListItemDocumentCount" = "%d document(s)";
+/* Spend Manager UI - Folder List - Load Error - Description */
+"sblFolderListLoadErrorDescription" = "Nous n'avons pas pu charger vos dossiers, veuillez réessayer.";
+/* Spend Manager UI - Folder List - Load Error - Title */
+"sblFolderListLoadErrorTitle" = "Impossible de charger les dossiers";
+/* Spend Manager UI - Folder List - Delete Folder Menu Option */
+"sblFolderListMenuDeleteFolder" = "Supprimer le dossier";
+/* Spend Manager UI - Folder List - Download Folder Menu Option */
+"sblFolderListMenuDownloadFolder" = "Dossier de téléchargement";
+/* Spend Manager UI - Folder List - Menu - Edit Folder */
+"sblFolderListMenuEditFolder" = "Modifier le dossier";
+/* Spend Manager UI - Folder List - No Folders - Message */
+"sblFolderListNoFoldersMessage" = "Commencez à créer des dossiers pour mieux organiser vos documents.";
+/* Spend Manager UI - Folder List - No Folders - Title */
+"sblFolderListNoFoldersTitle" = "Vous n'avez aucun dossier";
+/* Spend Manager UI - Folder List - Title */
+"sblFolderListScreenTitle" = "Dossiers";
+/* Spend Manager UI - Create Folder - Folder Color */
+"sblFolderPropertiesColorLabel" = "Couleur du dossier";
+/* Spend Manager UI - Create Folder - Folder Name */
+"sblFolderPropertiesNameLabel" = "Nom de dossier";
+/* Spend manager UI - Organize Folders - Cancel Button Label */
+"sblOrganizeFoldersCancelButtonLabel" = "Annuler";
+/* Spend Manager UI - Organize Folders - Description */
+"sblOrganizeFoldersDescription" = "Ajouter des documents aux dossiers ou supprimer des documents des dossiers";
+/* Spend Manager UI - Organize Folders - Folder - Selected Count View - Accessibility Label */
+"sblOrganizeFoldersItemCountA11yLabel" = "%d sur %d documents sélectionnés dans le dossier";
+/* Spend Manager UI - Organize Folders - Folder - Count Label */
+"sblOrganizeFoldersItemCountLabel" = "%d/%d";
+/* Spend manager UI - Organize Folders - Folder - Icon Accessibility Label */
+"sblOrganizeFoldersItemIconA11yLabel" = "Dossier";
+/* Spend Manager UI - Organize Folders - Save Button Label */
+"sblOrganizeFoldersSaveButtonLabel" = "Sauvegarder";
+/* Spend Manager UI - Organize Folders - Screen Title */
+"sblOrganizeFoldersScreenTitle" = "Organiser les documents";
