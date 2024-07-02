@@ -1,7 +1,7 @@
 framework module Sensibill {
   umbrella header "Sensibill.h"
-
   export *
+
   module * { export * }
 }
 

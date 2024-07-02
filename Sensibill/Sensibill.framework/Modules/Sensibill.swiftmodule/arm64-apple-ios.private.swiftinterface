@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
 // swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name Sensibill
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
@@ -8,6 +8,7 @@ import Combine
 import CommonCrypto
 import CoreGraphics
 import CoreLocation
+import DeveloperToolsSupport
 import Foundation
 import Metal
 import MetalKit
@@ -22,6 +23,7 @@ import UIKit
 import Vision
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 import libkern
 import os.log
 import os
@@ -29,7 +31,7 @@ import os.signpost
 extension Sensibill.SensibillAPIClient {
   @_hasMissingDesignatedInitializers final public class Task<Model> where Model : Swift.Decodable, Model : Swift.Encodable {
     final public var options: Sensibill.SensibillAPIClient.TaskOptions
-    final public var result: Swift.Result<Model, Swift.Error>? {
+    final public var result: Swift.Result<Model, any Swift.Error>? {
       get
     }
     final public func execute(completion: @escaping (Sensibill.SensibillAPIClient.Task<Model>) -> Swift.Void)
@@ -62,14 +64,14 @@ extension Sensibill.SensibillAPIModel {
     public let deleteDocuments: Swift.Bool?
     public init(deleteDocuments: Swift.Bool? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.FolderDeleteRequestDto, b: Sensibill.SensibillAPIModel.FolderDeleteRequestDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIClient {
   public enum TaskError : Swift.Error {
     case invalidInput(Swift.String)
-    case executionFailure(Swift.Error)
+    case executionFailure(any Swift.Error)
     case missingUserAccessToken
     case serverCertificatePublicKeyUnknown
     case apiFailure(Sensibill.SensibillAPIClient.APIError, Sensibill.SensibillAPIModel.ErrorDetails?)
@@ -106,8 +108,8 @@ extension Swift.String : Swift.Identifiable {
 extension Sensibill.SensibillAPIModel {
   public struct Empty {
     public static func == (a: Sensibill.SensibillAPIModel.Empty, b: Sensibill.SensibillAPIModel.Empty) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -119,8 +121,8 @@ extension Sensibill.SensibillAPIModel {
     public let createdAt: Foundation.Date
     public let destructionTime: Foundation.Date
     public static func == (a: Sensibill.SensibillAPIModel.ExportCreateResponseDto, b: Sensibill.SensibillAPIModel.ExportCreateResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -134,8 +136,8 @@ extension Sensibill.SensibillAPIModel {
     public let baseUrl: Swift.String
     public let endpoints: [Swift.String : Swift.String]
     public static func == (a: Sensibill.SensibillAPIModel.GeneralInfo, b: Sensibill.SensibillAPIModel.GeneralInfo) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.UIParts.TipsFeature {
@@ -155,8 +157,8 @@ extension Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings {
   public struct Options {
     public let email: Swift.Bool?
     public static func == (a: Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings.Options, b: Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings.Options) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -165,8 +167,8 @@ extension Sensibill.SensibillAPIModel {
     public let secret: Swift.String
     public init(key: Swift.String, secret: Swift.String)
     public static func == (a: Sensibill.SensibillAPIModel.ClientCredentials, b: Sensibill.SensibillAPIModel.ClientCredentials) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -178,16 +180,16 @@ extension Sensibill.SensibillAPIModel {
     public let expiresIn: Swift.Int?
     public let refreshExpiresIn: Swift.Int?
     public static func == (a: Sensibill.SensibillAPIModel.AccessToken, b: Sensibill.SensibillAPIModel.AccessToken) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
   public struct AuthorizationGrant {
     public let code: Swift.String?
     public static func == (a: Sensibill.SensibillAPIModel.AuthorizationGrant, b: Sensibill.SensibillAPIModel.AuthorizationGrant) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -196,8 +198,8 @@ extension Sensibill.SensibillAPIModel {
     public let password: Swift.String
     public init(username: Swift.String, password: Swift.String)
     public static func == (a: Sensibill.SensibillAPIModel.UserCredentials, b: Sensibill.SensibillAPIModel.UserCredentials) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -214,8 +216,8 @@ extension Sensibill.SensibillAPIModel {
     public let policies: [Sensibill.SensibillAPIModel.ClientInfo.Policies]?
     public let authenticationSettings: Sensibill.SensibillAPIModel.ClientInfo.AuthenticationSettings?
     public static func == (a: Sensibill.SensibillAPIModel.ClientInfo, b: Sensibill.SensibillAPIModel.ClientInfo) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.ClientInfo {
@@ -225,8 +227,8 @@ extension Sensibill.SensibillAPIModel.ClientInfo {
     public let receiptEmailDomains: [Swift.String]?
     public let receiptEmailDomainsAndAliases: [Sensibill.SensibillAPIModel.ClientInfo.Policies.ReceiptEmailDomainAndAliases]?
     public static func == (a: Sensibill.SensibillAPIModel.ClientInfo.Policies, b: Sensibill.SensibillAPIModel.ClientInfo.Policies) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.ClientInfo {
@@ -240,8 +242,8 @@ extension Sensibill.SensibillAPIModel.ClientInfo {
     public let maximumFailedLoginAttempts: Swift.Int?
     public let allowResetTempPassword: Swift.Bool?
     public static func == (a: Sensibill.SensibillAPIModel.ClientInfo.AuthenticationSettings, b: Sensibill.SensibillAPIModel.ClientInfo.AuthenticationSettings) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.ClientInfo.Policies {
@@ -250,16 +252,16 @@ extension Sensibill.SensibillAPIModel.ClientInfo.Policies {
     public let webDebug: Swift.Bool
     public let webSDKUrl: Swift.String?
     public static func == (a: Sensibill.SensibillAPIModel.ClientInfo.Policies.WebSDKOptions, b: Sensibill.SensibillAPIModel.ClientInfo.Policies.WebSDKOptions) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.ExportsResponseDto {
   public struct Document {
     public let id: Swift.String
     public static func == (a: Sensibill.SensibillAPIModel.ExportsResponseDto.Document, b: Sensibill.SensibillAPIModel.ExportsResponseDto.Document) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.ClientInfo.Policies {
@@ -267,8 +269,8 @@ extension Sensibill.SensibillAPIModel.ClientInfo.Policies {
     public let emailDomain: Swift.String
     public let aliases: [Swift.String]
     public static func == (a: Sensibill.SensibillAPIModel.ClientInfo.Policies.ReceiptEmailDomainAndAliases, b: Sensibill.SensibillAPIModel.ClientInfo.Policies.ReceiptEmailDomainAndAliases) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 public protocol EndpointsProvider {
@@ -278,21 +280,21 @@ public protocol EndpointsProvider {
   @objc deinit
 }
 public protocol SensibillAPIProvider : AnyObject {
-  var authentication: Sensibill.AuthenticationEndpointsProvider { get }
-  var documents: Sensibill.DocumentsEndpointsProvider { get }
-  var emailAccounts: Sensibill.EmailAccountsEndpointsProvider { get }
-  var emails: Sensibill.EmailsEndpointsProvider { get }
-  var exports: Sensibill.ExportsEndpointsProvider { get }
-  var folders: Sensibill.FoldersEndpointsProvider { get }
-  var home: Sensibill.HomeEndpointsProvider { get }
-  var intercepts: Sensibill.InterceptsEndpointsProvider { get }
-  var lookups: Sensibill.LookupsEndpointsProvider { get }
-  var merchants: Sensibill.MerchantsEndpointsProvider { get }
-  var receipts: Sensibill.ReceiptsEndpointsProvider { get }
-  var reminders: Sensibill.RemindersEndpointsProvider { get }
-  var users: Sensibill.UsersEndpointsProvider { get }
+  var authentication: any Sensibill.AuthenticationEndpointsProvider { get }
+  var documents: any Sensibill.DocumentsEndpointsProvider { get }
+  var emailAccounts: any Sensibill.EmailAccountsEndpointsProvider { get }
+  var emails: any Sensibill.EmailsEndpointsProvider { get }
+  var exports: any Sensibill.ExportsEndpointsProvider { get }
+  var folders: any Sensibill.FoldersEndpointsProvider { get }
+  var home: any Sensibill.HomeEndpointsProvider { get }
+  var intercepts: any Sensibill.InterceptsEndpointsProvider { get }
+  var lookups: any Sensibill.LookupsEndpointsProvider { get }
+  var merchants: any Sensibill.MerchantsEndpointsProvider { get }
+  var receipts: any Sensibill.ReceiptsEndpointsProvider { get }
+  var reminders: any Sensibill.RemindersEndpointsProvider { get }
+  var users: any Sensibill.UsersEndpointsProvider { get }
   init(configuration: Sensibill.SensibillAPIClient.Configuration, urlSession: Foundation.URLSession?)
-  func setUserAccessTokenDelegate(_ delegate: Sensibill.UserAccessTokenDelegate, withUserIdentifier userIdentifier: Swift.String)
+  func setUserAccessTokenDelegate(_ delegate: any Sensibill.UserAccessTokenDelegate, withUserIdentifier userIdentifier: Swift.String)
   func resetUserAccessTokenDelegate()
 }
 public protocol RemindersEndpointsProvider : Sensibill.EndpointsProvider {
@@ -301,8 +303,8 @@ extension Sensibill.SensibillAPIModel {
   public struct DocumentsAddedOrRemovedFromFolderResponseDto {
     public let updated: Swift.UInt
     public static func == (a: Sensibill.SensibillAPIModel.DocumentsAddedOrRemovedFromFolderResponseDto, b: Sensibill.SensibillAPIModel.DocumentsAddedOrRemovedFromFolderResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 public protocol UsersEndpointsProvider : Sensibill.EndpointsProvider {
@@ -391,8 +393,8 @@ extension Sensibill.SensibillAPIModel {
     public let userMetadata: Sensibill.SensibillAPIModel.DocumentUserMetadataDto?
     public init(id: Swift.String, foreignId: Swift.String? = nil, accountMetadata: Sensibill.SensibillAPIModel.AccountMetadata? = nil, arrivalDateTime: Foundation.Date? = nil, lastUpdateDateTime: Foundation.Date? = nil, documentType: Sensibill.SensibillAPIModel.DocumentType? = nil, description: Swift.String? = nil, status: Sensibill.SensibillAPIModel.Status? = nil, content: Sensibill.SensibillAPIModel.DocumentContentDto? = nil, source: Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto? = nil, userMetadata: Sensibill.SensibillAPIModel.DocumentUserMetadataDto? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentDto, b: Sensibill.SensibillAPIModel.DocumentDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.UIParts {
@@ -428,8 +430,8 @@ extension Sensibill.SensibillAPIModel {
     public let currencies: [Sensibill.SensibillAPIModel.GetLookupCurrencyListResponseDto.DocumentCurrencyListItemDto]
     public init(currencies: [Sensibill.SensibillAPIModel.GetLookupCurrencyListResponseDto.DocumentCurrencyListItemDto])
     public static func == (a: Sensibill.SensibillAPIModel.GetLookupCurrencyListResponseDto, b: Sensibill.SensibillAPIModel.GetLookupCurrencyListResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -441,8 +443,8 @@ extension Sensibill.SensibillAPIModel {
     public var returnPeriod: Sensibill.SensibillAPIModel.DocumentUserMetadataDto.DocumentUserMetadataPeriodDto?
     public init(expenseType: Swift.String? = nil, notes: Swift.String? = nil, folders: [Swift.String]? = nil, warrantyPeriod: Sensibill.SensibillAPIModel.DocumentUserMetadataDto.DocumentUserMetadataPeriodDto? = nil, returnPeriod: Sensibill.SensibillAPIModel.DocumentUserMetadataDto.DocumentUserMetadataPeriodDto? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentUserMetadataDto, b: Sensibill.SensibillAPIModel.DocumentUserMetadataDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 public protocol MerchantsEndpointsProvider : Sensibill.EndpointsProvider {
@@ -523,8 +525,8 @@ extension Sensibill.SensibillAPIModel.ExportCriteria.AccountMetadata {
     case id(_: [Swift.String])
     case exists(_: Swift.Bool)
     public static func == (a: Sensibill.SensibillAPIModel.ExportCriteria.AccountMetadata.TransactionCriteriaType, b: Sensibill.SensibillAPIModel.ExportCriteria.AccountMetadata.TransactionCriteriaType) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -533,16 +535,16 @@ extension Sensibill.SensibillAPIModel {
     public let count: Swift.Int
     public init(documents: [Sensibill.SensibillAPIModel.DocumentDto], count: Swift.Int)
     public static func == (a: Sensibill.SensibillAPIModel.GetDocumentListResponseDto, b: Sensibill.SensibillAPIModel.GetDocumentListResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
   public struct FolderCreationResponseDto {
     public let id: Swift.String
     public static func == (a: Sensibill.SensibillAPIModel.FolderCreationResponseDto, b: Sensibill.SensibillAPIModel.FolderCreationResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.Branding {
@@ -573,8 +575,8 @@ extension Sensibill.SensibillAPIModel {
     public var type: Swift.String?
     public init(amount: Swift.Double? = nil, percent: Swift.Double? = nil, type: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentTaxDto, b: Sensibill.SensibillAPIModel.DocumentTaxDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 @objc @_hasMissingDesignatedInitializers public class IdentityBasedService : ObjectiveC.NSObject {
@@ -583,7 +585,7 @@ extension Sensibill.SensibillAPIModel {
 public protocol TaskContextProvider : AnyObject {
   var urlSession: Foundation.URLSession { get }
   var userIdentifier: Swift.String? { get }
-  var userAccessTokenDelegate: Sensibill.UserAccessTokenDelegate? { get }
+  var userAccessTokenDelegate: (any Sensibill.UserAccessTokenDelegate)? { get }
 }
 extension Sensibill.SensibillAPIModel {
   public struct GetDocumentListFilter {
@@ -618,8 +620,8 @@ extension Sensibill.SensibillAPIModel {
     public var totalLTE: Swift.Double?
     public init()
     public static func == (a: Sensibill.SensibillAPIModel.GetDocumentListFilter, b: Sensibill.SensibillAPIModel.GetDocumentListFilter) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.UserResponseDto {
@@ -628,8 +630,8 @@ extension Sensibill.SensibillAPIModel.UserResponseDto {
     public let count: Swift.Int?
     public let list: [Sensibill.SensibillAPIModel.UserResponseDto.Alert.AlertDocument]?
     public static func == (a: Sensibill.SensibillAPIModel.UserResponseDto.Alert, b: Sensibill.SensibillAPIModel.UserResponseDto.Alert) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -637,8 +639,8 @@ extension Sensibill.SensibillAPIModel {
     public let documentCategories: [Sensibill.SensibillAPIModel.GetLookupCategoryListResponseDto.DocumentCategoryListItemDto]
     public init(documentCategories: [Sensibill.SensibillAPIModel.GetLookupCategoryListResponseDto.DocumentCategoryListItemDto])
     public static func == (a: Sensibill.SensibillAPIModel.GetLookupCategoryListResponseDto, b: Sensibill.SensibillAPIModel.GetLookupCategoryListResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 public enum EndpointVersion : Swift.String {
@@ -675,8 +677,8 @@ extension Sensibill.SensibillAPIModel {
     public let ids: [Swift.String]
     public init(ids: [Swift.String])
     public static func == (a: Sensibill.SensibillAPIModel.DocumentsStatusRequestDto, b: Sensibill.SensibillAPIModel.DocumentsStatusRequestDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -685,8 +687,8 @@ extension Sensibill.SensibillAPIModel {
     public let maxStrength: Swift.Float
     public let strength: Swift.Float
     public static func == (a: Sensibill.SensibillAPIModel.PasswordStrength, b: Sensibill.SensibillAPIModel.PasswordStrength) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 @_hasMissingDesignatedInitializers @objc(SBLDocumentUploadService) public class DocumentUploadService : Sensibill.IdentityBasedService {
@@ -694,7 +696,7 @@ extension Sensibill.SensibillAPIModel {
   @objc deinit
 }
 extension Sensibill.DocumentUploadService {
-  public func add(source: Foundation.Data, metadata: Sensibill.DocumentMetadata) -> Swift.Result<Swift.String, Swift.Error>
+  public func add(source: Foundation.Data, metadata: Sensibill.DocumentMetadata) -> Swift.Result<Swift.String, any Swift.Error>
   @objc dynamic public func addSource(_ source: Foundation.Data, metadata: Sensibill.DocumentMetadata) throws -> Swift.String
   @objc dynamic public func remove(sourceId: Swift.String) throws
 }
@@ -703,16 +705,16 @@ extension Sensibill.DocumentUploadService {
   @objc dynamic public func renotify(sourceId: Swift.String) throws
 }
 extension Sensibill.DocumentUploadService {
-  public func addObserver(_ observer: Sensibill.DocumentUploadObserver, for key: Swift.String)
-  @objc dynamic public func addObserver(_ observer: Sensibill.SBLDocumentUploadObserver, key: Swift.String)
+  public func addObserver(_ observer: any Sensibill.DocumentUploadObserver, for key: Swift.String)
+  @objc dynamic public func addObserver(_ observer: any Sensibill.SBLDocumentUploadObserver, key: Swift.String)
   @objc dynamic public func removeObserver(forKey: Swift.String)
 }
 extension Sensibill.SensibillAPIModel {
   public struct EmailOrUsernameAvailabilityResponseDto {
     public let available: Swift.Bool
     public static func == (a: Sensibill.SensibillAPIModel.EmailOrUsernameAvailabilityResponseDto, b: Sensibill.SensibillAPIModel.EmailOrUsernameAvailabilityResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -721,16 +723,16 @@ extension Sensibill.SensibillAPIModel {
     public let color: Swift.String
     public init(name: Swift.String, color: Swift.String)
     public static func == (a: Sensibill.SensibillAPIModel.FolderCreateRequestDto, b: Sensibill.SensibillAPIModel.FolderCreateRequestDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.IdentityService : Sensibill.UserAccessTokenDelegate {
   public func currentAccessToken(for userIdentifier: Swift.String) -> Swift.String?
-  public func updateToken(for userIdentifier: Swift.String, completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func updateToken(for userIdentifier: Swift.String, completion: @escaping ((any Swift.Error)?) -> Swift.Void)
 }
 extension Sensibill.IdentityService {
-  @objc dynamic public func updateToken(completion: @escaping (_ error: Swift.Error?) -> Swift.Void)
+  @objc dynamic public func updateToken(completion: @escaping (_ error: (any Swift.Error)?) -> Swift.Void)
 }
 extension Sensibill.SensibillAPIModel.DocumentDto {
   public struct SourceDocumentDto {
@@ -739,8 +741,8 @@ extension Sensibill.SensibillAPIModel.DocumentDto {
     public let imagePreview: Swift.String?
     public init(format: Sensibill.SensibillAPIModel.SourceDocumentFormat? = nil, url: Swift.String? = nil, imagePreview: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto, b: Sensibill.SensibillAPIModel.DocumentDto.SourceDocumentDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.UIParts {
@@ -759,8 +761,8 @@ extension Sensibill.SensibillAPIModel {
     public let error: Sensibill.SensibillAPIModel.GetDocumentErrorDto?
     public init(document: Sensibill.SensibillAPIModel.DocumentDto? = nil, error: Sensibill.SensibillAPIModel.GetDocumentErrorDto? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.GetDocumentResponseDto, b: Sensibill.SensibillAPIModel.GetDocumentResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -769,8 +771,8 @@ extension Sensibill.SensibillAPIModel {
     public let color: Swift.String?
     public init(name: Swift.String? = nil, color: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.FolderUpdateRequestDto, b: Sensibill.SensibillAPIModel.FolderUpdateRequestDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.GetFoldersListResponseDto.FolderListItemDto {
@@ -780,8 +782,8 @@ extension Sensibill.SensibillAPIModel.GetFoldersListResponseDto.FolderListItemDt
     public let currencyCode: Swift.String
     public let displayAmount: Swift.String
     public static func == (a: Sensibill.SensibillAPIModel.GetFoldersListResponseDto.FolderListItemDto.FolderListItemTotalsDto, b: Sensibill.SensibillAPIModel.GetFoldersListResponseDto.FolderListItemDto.FolderListItemTotalsDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -798,8 +800,8 @@ extension Sensibill.SensibillAPIModel {
     public let filesize: Swift.Int?
     public let documents: [Sensibill.SensibillAPIModel.ExportsResponseDto.Document]
     public static func == (a: Sensibill.SensibillAPIModel.ExportsResponseDto, b: Sensibill.SensibillAPIModel.ExportsResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.Branding {
@@ -856,8 +858,8 @@ extension Sensibill.SensibillAPIModel {
     public let status: Swift.String?
     public init(receiptAccountEmail: Swift.String? = nil, firstName: Swift.String? = nil, lastName: Swift.String? = nil, defaultCurrency: Swift.String? = nil, locale: Swift.String? = nil, status: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.UserUpdateRequest, b: Sensibill.SensibillAPIModel.UserUpdateRequest) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.UserResponseDto {
@@ -867,8 +869,8 @@ extension Sensibill.SensibillAPIModel.UserResponseDto {
     public let receiptExport: Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings.ReceiptExportOptions?
     public let other: Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings.Options?
     public static func == (a: Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings, b: Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -879,8 +881,8 @@ extension Sensibill.SensibillAPIModel {
     public let credentialType: Swift.String?
     public init(accessID: Swift.String, tempPassword: Swift.String, password: Swift.String, credentialType: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.ResetTempPasswordRequestDto, b: Sensibill.SensibillAPIModel.ResetTempPasswordRequestDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.GetLookupCurrencyListResponseDto {
@@ -889,8 +891,8 @@ extension Sensibill.SensibillAPIModel.GetLookupCurrencyListResponseDto {
     public let code: Swift.String
     public let symbol: Swift.String
     public static func == (a: Sensibill.SensibillAPIModel.GetLookupCurrencyListResponseDto.DocumentCurrencyListItemDto, b: Sensibill.SensibillAPIModel.GetLookupCurrencyListResponseDto.DocumentCurrencyListItemDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.DocumentDiscountDto {
@@ -925,8 +927,8 @@ extension Sensibill.SensibillAPIModel {
     public let transactionId: Swift.String?
     public init(account: Swift.String? = nil, transactionId: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.AccountMetadata, b: Sensibill.SensibillAPIModel.AccountMetadata) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.Branding {
@@ -944,8 +946,8 @@ extension Sensibill.SensibillAPIModel.UserResponseDto {
     public let receipt: Swift.Int?
     public let nonreceipt: Swift.Int?
     public static func == (a: Sensibill.SensibillAPIModel.UserResponseDto.EmailCounts, b: Sensibill.SensibillAPIModel.UserResponseDto.EmailCounts) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.UserResponseDto.Alert {
@@ -958,16 +960,16 @@ extension Sensibill.SensibillAPIModel.UserResponseDto.Alert {
     public let renderURL: Swift.String?
     public let total: Sensibill.SensibillAPIModel.UserResponseDto.Alert.AlertDocument.Total?
     public static func == (a: Sensibill.SensibillAPIModel.UserResponseDto.Alert.AlertDocument, b: Sensibill.SensibillAPIModel.UserResponseDto.Alert.AlertDocument) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
   public struct GetFoldersListResponseDto {
     public let folders: [Sensibill.SensibillAPIModel.GetFoldersListResponseDto.FolderListItemDto]
     public static func == (a: Sensibill.SensibillAPIModel.GetFoldersListResponseDto, b: Sensibill.SensibillAPIModel.GetFoldersListResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 public protocol BrandingColorsProvider {
@@ -1062,15 +1064,15 @@ extension Sensibill.SensibillAPIModel {
     public let mimeType: Sensibill.SensibillAPIModel.MIMEType?
     public let filename: Swift.String?
     public static func == (a: Sensibill.SensibillAPIModel.Binary, b: Sensibill.SensibillAPIModel.Binary) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
   public struct DocumentsStatusResponseErrorDto {
     public static func == (a: Sensibill.SensibillAPIModel.DocumentsStatusResponseErrorDto, b: Sensibill.SensibillAPIModel.DocumentsStatusResponseErrorDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -1123,8 +1125,8 @@ extension Sensibill.SensibillAPIModel {
     public let afterTax: Swift.Double?
     public init(description: Swift.String? = nil, type: Sensibill.SensibillAPIModel.DocumentFeeDto.FeeTypes? = nil, taxes: [Sensibill.SensibillAPIModel.DocumentTaxDto]? = nil, beforeTax: Swift.Double? = nil, afterTax: Swift.Double? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentFeeDto, b: Sensibill.SensibillAPIModel.DocumentFeeDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -1147,7 +1149,7 @@ extension Sensibill.SensibillAPIModel {
   @objc deinit
 }
 extension Sensibill.SensibillAPIClient {
-  public static func get(configuration: Sensibill.SensibillAPIClient.Configuration) -> Sensibill.SensibillAPIProvider
+  public static func get(configuration: Sensibill.SensibillAPIClient.Configuration) -> any Sensibill.SensibillAPIProvider
 }
 extension Sensibill.SensibillAPIModel {
   public struct DocumentItemDto {
@@ -1172,8 +1174,8 @@ extension Sensibill.SensibillAPIModel {
     public let unitQuantity: Swift.Double?
     public init(description: Swift.String? = nil, brand: Swift.String? = nil, buyLink: Swift.String? = nil, discounts: [Sensibill.SensibillAPIModel.DocumentDiscountDto]? = nil, fees: [Sensibill.SensibillAPIModel.DocumentFeeDto]? = nil, imageUrl: Swift.String? = nil, itemIds: [Swift.String]? = nil, listPrice: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, loyaltyRewards: Sensibill.SensibillAPIModel.DocumentLoyaltyRewardsDto? = nil, name: Swift.String? = nil, price: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, priceBeforeDiscountsFees: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, properties: [Sensibill.SensibillAPIModel.DocumentItemDto.DocumentItemDtoProperties]? = nil, serialNumbers: [Swift.String]? = nil, sku: Swift.String? = nil, unitListPrice: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, unitOfMeasure: Swift.String? = nil, unitPrice: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, unitQuantity: Swift.Double? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentItemDto, b: Sensibill.SensibillAPIModel.DocumentItemDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 @_inheritsConvenienceInitializers @objc(SBLClientIdentity) public class ClientIdentity : ObjectiveC.NSObject {
@@ -1189,7 +1191,7 @@ extension Sensibill.SensibillAPIModel {
   @objc deinit
 }
 extension Sensibill.Analytics {
-  @objc dynamic public func addListener(key: Swift.String, listener: Sensibill.EventListener)
+  @objc dynamic public func addListener(key: Swift.String, listener: any Sensibill.EventListener)
   @objc dynamic public func removeListener(key: Swift.String)
 }
 @_hasMissingDesignatedInitializers public class DetectedReceipt {
@@ -1209,13 +1211,13 @@ extension Sensibill.SensibillAPIModel.GetLookupCategoryListResponseDto {
     public let name: Swift.String
     public let icon: Swift.String
     public static func == (a: Sensibill.SensibillAPIModel.GetLookupCategoryListResponseDto.DocumentCategoryListItemDto, b: Sensibill.SensibillAPIModel.GetLookupCategoryListResponseDto.DocumentCategoryListItemDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 public protocol UserAccessTokenDelegate : AnyObject {
   func currentAccessToken(for userIdentifier: Swift.String) -> Swift.String?
-  func updateToken(for userIdentifier: Swift.String, completion: @escaping (Swift.Error?) -> Swift.Void)
+  func updateToken(for userIdentifier: Swift.String, completion: @escaping ((any Swift.Error)?) -> Swift.Void)
 }
 extension Sensibill.SensibillAPIModel {
   public struct DocumentDiscountDto {
@@ -1228,8 +1230,8 @@ extension Sensibill.SensibillAPIModel {
     public let afterTax: Swift.Double?
     public init(description: Swift.String? = nil, methodCode: Swift.String? = nil, percent: Swift.Double? = nil, type: Sensibill.SensibillAPIModel.DocumentDiscountDto.DiscountTypes? = nil, taxes: [Sensibill.SensibillAPIModel.DocumentTaxDto]? = nil, beforeTax: Swift.Double? = nil, afterTax: Swift.Double? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentDiscountDto, b: Sensibill.SensibillAPIModel.DocumentDiscountDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -1255,8 +1257,8 @@ extension Sensibill.SensibillAPIModel {
     public var status: [Sensibill.SensibillAPIModel.Status]?
     public var total: Sensibill.SensibillAPIModel.ExportCriteria.ValueAndRangeCriterion<Foundation.Decimal>?
     public init(accountMetadata: Sensibill.SensibillAPIModel.ExportCriteria.AccountMetadata? = nil, amountDue: Sensibill.SensibillAPIModel.ExportCriteria.ValueAndRangeCriterion<Swift.Int>? = nil, arrivalDateTime: Sensibill.SensibillAPIModel.ExportCriteria.RangeCriterion<Swift.String>? = nil, categoryCode: [Swift.String]? = nil, currencyCode: [Swift.String]? = nil, documentDate: Sensibill.SensibillAPIModel.ExportCriteria.ValueAndRangeCriterion<Swift.String>? = nil, documentDescription: [Swift.String]? = nil, documentNumber: [Swift.String]? = nil, documentTime: Sensibill.SensibillAPIModel.ExportCriteria.ValueAndRangeCriterion<Swift.String>? = nil, documentType: [Sensibill.SensibillAPIModel.DocumentType]? = nil, foreignId: [Swift.String]? = nil, id: [Swift.String]? = nil, lastUpdateDateTime: Sensibill.SensibillAPIModel.ExportCriteria.RangeCriterion<Swift.String>? = nil, merchantName: [Swift.String]? = nil, merchantTaxIdNumber: [Swift.String]? = nil, paymentTender: [Sensibill.SensibillAPIModel.TenderType]? = nil, sourceFormat: [Sensibill.SensibillAPIModel.SourceDocumentFormat]? = nil, status: [Sensibill.SensibillAPIModel.Status]? = nil, total: Sensibill.SensibillAPIModel.ExportCriteria.ValueAndRangeCriterion<Foundation.Decimal>? = nil)
-    public init(from decoder: Swift.Decoder) throws
-    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
     public static func == (a: Sensibill.SensibillAPIModel.ExportCriteria, b: Sensibill.SensibillAPIModel.ExportCriteria) -> Swift.Bool
   }
 }
@@ -1281,8 +1283,8 @@ extension Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings {
     public let email: Swift.Bool?
     public let push: Swift.Bool?
     public static func == (a: Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings.ReceiptExportOptions, b: Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings.ReceiptExportOptions) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.Capture {
@@ -1312,8 +1314,8 @@ extension Sensibill.SensibillAPIModel {
     public let ids: [Swift.String]
     public init(ids: [Swift.String])
     public static func == (a: Sensibill.SensibillAPIModel.DocumentDeleteRequestDto, b: Sensibill.SensibillAPIModel.DocumentDeleteRequestDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.Branding {
@@ -1330,7 +1332,7 @@ extension Sensibill.Branding.ObjCBridge {
 }
 @_hasMissingDesignatedInitializers @objc(SBLCaptureNavigationController) @_Concurrency.MainActor(unsafe) public class CaptureNavigationController : UIKit.UINavigationController {
   @objc @_Concurrency.MainActor(unsafe) final public let settings: Sensibill.Capture.RuntimeSettings
-  @objc @_Concurrency.MainActor(unsafe) weak public var captureDelegate: Sensibill.CaptureNavigationControllerDelegate?
+  @objc @_Concurrency.MainActor(unsafe) weak public var captureDelegate: (any Sensibill.CaptureNavigationControllerDelegate)?
   @_Concurrency.MainActor(unsafe) @objc convenience dynamic public init()
   @objc @_Concurrency.MainActor(unsafe) public init(settings: Sensibill.Capture.RuntimeSettings)
   @objc deinit
@@ -1368,7 +1370,7 @@ extension Sensibill.SensibillSDK {
     case cannotStart
     case notAcceptingRequests
     case noAPIProvider
-    case failedToCreateAPIRequest(Swift.Error)
+    case failedToCreateAPIRequest(any Swift.Error)
     case noAPIResponse
     case failedAPIRequest(Swift.String)
     case responseFailedValidation
@@ -1413,16 +1415,16 @@ extension Sensibill.SensibillAPIModel.ExportCriteria.AccountMetadata {
     case account(_: [Swift.String])
     case exists(_: Swift.Bool)
     public static func == (a: Sensibill.SensibillAPIModel.ExportCriteria.AccountMetadata.AccountCriteriaType, b: Sensibill.SensibillAPIModel.ExportCriteria.AccountMetadata.AccountCriteriaType) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
   public struct SourceFile {
     public init(data: Foundation.Data, filename: Swift.String, mimeType: Sensibill.SensibillAPIModel.MIMEType) throws
     public static func == (a: Sensibill.SensibillAPIModel.SourceFile, b: Sensibill.SensibillAPIModel.SourceFile) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.Branding {
@@ -1446,8 +1448,8 @@ extension Sensibill.SensibillAPIModel.ExportCriteria {
     public init?(greaterThanOrEqual: Unit? = nil, lessThanOrEqual: Unit? = nil)
     public static func == (lhs: Sensibill.SensibillAPIModel.ExportCriteria.RangeCriterion<Unit>, rhs: Sensibill.SensibillAPIModel.ExportCriteria.RangeCriterion<Unit>) -> Swift.Bool
     @objc deinit
-    public func encode(to encoder: Swift.Encoder) throws
-    required public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    required public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -1493,8 +1495,8 @@ extension Sensibill.SensibillAPIModel {
     public var totalBeforeDiscountsFeesTips: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto?
     public init(amountDue: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, barcodes: [Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentBarcodeDto]? = nil, countryCode: Sensibill.SensibillAPIModel.DocumentContentDto.CountryCode? = nil, currencyCode: Swift.String? = nil, customer: Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentCustomerDto? = nil, discounts: [Sensibill.SensibillAPIModel.DocumentDiscountDto]? = nil, documentNumber: Swift.String? = nil, dueDate: Swift.String? = nil, documentDate: Swift.String? = nil, documentTime: Swift.String? = nil, fees: [Sensibill.SensibillAPIModel.DocumentFeeDto]? = nil, items: [Sensibill.SensibillAPIModel.DocumentItemDto]? = nil, languageCode: Swift.String? = nil, merchant: Sensibill.SensibillAPIModel.DocumentMerchantDto? = nil, savings: Swift.Double? = nil, deliveries: [Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryDto]? = nil, loyaltyRewards: Sensibill.SensibillAPIModel.DocumentLoyaltyRewardsDto? = nil, payments: [Sensibill.SensibillAPIModel.DocumentPaymentDto]? = nil, total: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, totalBeforeTips: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, totalBeforeDiscountsFeesTips: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto? = nil, tipAmount: Swift.Double? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentContentDto, b: Sensibill.SensibillAPIModel.DocumentContentDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.ExportCriteria {
@@ -1505,8 +1507,8 @@ extension Sensibill.SensibillAPIModel.ExportCriteria {
     public init?(values: [Unit]? = nil, greaterThanOrEqual: Unit? = nil, lessThanOrEqual: Unit? = nil)
     public static func == (lhs: Sensibill.SensibillAPIModel.ExportCriteria.ValueAndRangeCriterion<Unit>, rhs: Sensibill.SensibillAPIModel.ExportCriteria.ValueAndRangeCriterion<Unit>) -> Swift.Bool
     @objc deinit
-    public func encode(to encoder: Swift.Encoder) throws
-    required public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    required public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.UserResponseDto {
@@ -1517,8 +1519,8 @@ extension Sensibill.SensibillAPIModel.UserResponseDto {
     public let createdAt: Swift.String?
     public let updatedAt: Swift.String?
     public static func == (a: Sensibill.SensibillAPIModel.UserResponseDto.Folder, b: Sensibill.SensibillAPIModel.UserResponseDto.Folder) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.Capture.RuntimeSettings {
@@ -1529,8 +1531,8 @@ extension Sensibill.SensibillAPIModel.UserResponseDto.PilotAccess {
   public struct Diagnostics {
     public let enabled: Swift.Bool?
     public static func == (a: Sensibill.SensibillAPIModel.UserResponseDto.PilotAccess.Diagnostics, b: Sensibill.SensibillAPIModel.UserResponseDto.PilotAccess.Diagnostics) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 public protocol DocumentsEndpointsProvider : Sensibill.EndpointsProvider {
@@ -1550,8 +1552,8 @@ public protocol DocumentsEndpointsProvider : Sensibill.EndpointsProvider {
 }
 extension Sensibill.SensibillAPIModel {
   public struct ErrorDetails : Swift.Codable {
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.ErrorDetails : Swift.CustomStringConvertible {
@@ -1562,14 +1564,14 @@ extension Sensibill.SensibillAPIModel.ErrorDetails : Swift.CustomStringConvertib
 public protocol BrandingL10NProvider {
   var selectedLocale: Foundation.Locale { get }
   func localizedString(forKey key: Swift.String) -> Swift.String
-  func localizedString(forKey key: Swift.String, tokens: [Swift.CVarArg]) -> Swift.String
+  func localizedString(forKey key: Swift.String, tokens: [any Swift.CVarArg]) -> Swift.String
 }
 extension Sensibill.BrandingL10NProvider {
   public var selectedLocale: Foundation.Locale {
     get
   }
   public func localizedString(forKey key: Swift.String) -> Swift.String
-  public func localizedString(forKey key: Swift.String, tokens: [Swift.CVarArg]) -> Swift.String
+  public func localizedString(forKey key: Swift.String, tokens: [any Swift.CVarArg]) -> Swift.String
 }
 extension Sensibill.SensibillAPIModel.DocumentContentDto {
   public enum DeliveryTypes : Swift.String, Swift.Codable, Swift.CaseIterable {
@@ -1594,8 +1596,8 @@ extension Sensibill.SensibillAPIModel {
     public let locale: Swift.String?
     public init(outputFormats: [Sensibill.SensibillAPIModel.ExportOutputFormat], criteria: Sensibill.SensibillAPIModel.ExportCriteria, locale: Foundation.Locale? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.ExportCreateDto, b: Sensibill.SensibillAPIModel.ExportCreateDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.Capture.RuntimeSettings {
@@ -1678,12 +1680,12 @@ extension Sensibill.SensibillAPIModel {
     public let programName: Swift.String?
     public init(accountNumber: Swift.String? = nil, currentBalance: Swift.Double? = nil, nextRewardLevel: Swift.Double? = nil, pointsAwarded: Swift.Double? = nil, programName: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentLoyaltyRewardsDto, b: Sensibill.SensibillAPIModel.DocumentLoyaltyRewardsDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 @_hasMissingDesignatedInitializers @objc(SBLIdentityService) public class IdentityService : ObjectiveC.NSObject {
-  @objc public var tokenProvider: Sensibill.TokenProvider? {
+  @objc public var tokenProvider: (any Sensibill.TokenProvider)? {
     get
   }
   @objc public var clientIdentity: Sensibill.ClientIdentity {
@@ -1721,8 +1723,8 @@ extension Sensibill.SensibillAPIModel {
     public let documentIds: [Swift.String]
     public init(documentIds: [Swift.String])
     public static func == (a: Sensibill.SensibillAPIModel.AddOrRemoveDocumentsFromFolderDto, b: Sensibill.SensibillAPIModel.AddOrRemoveDocumentsFromFolderDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.DocumentMetadata {
@@ -1771,8 +1773,8 @@ extension Sensibill.SensibillAPIModel {
     public let defaultCurrency: Swift.String?
     public init(accessID: Swift.String, accessSecret: Swift.String, credentialType: Swift.String, firstName: Swift.String? = nil, lastName: Swift.String? = nil, receiptAccountEmail: Swift.String? = nil, email: Swift.String? = nil, defaultCurrency: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.UserRequestDto, b: Sensibill.SensibillAPIModel.UserRequestDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 public protocol BrandingFontsProvider {
@@ -1834,8 +1836,8 @@ extension Sensibill.SensibillAPIModel.DocumentUserMetadataDto {
     public let duration: Swift.UInt
     public init(unit: Sensibill.SensibillAPIModel.PeriodUnit, duration: Swift.UInt)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentUserMetadataDto.DocumentUserMetadataPeriodDto, b: Sensibill.SensibillAPIModel.DocumentUserMetadataDto.DocumentUserMetadataPeriodDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.Branding {
@@ -1909,8 +1911,8 @@ extension Sensibill.SensibillAPIModel.DocumentItemDto {
     public let value: Swift.String?
     public init(name: Swift.String? = nil, value: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentItemDto.DocumentItemDtoProperties, b: Sensibill.SensibillAPIModel.DocumentItemDto.DocumentItemDtoProperties) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.DocumentContentDto {
@@ -1919,16 +1921,16 @@ extension Sensibill.SensibillAPIModel.DocumentContentDto {
     public let type: Swift.String?
     public init(text: Swift.String? = nil, type: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentBarcodeDto, b: Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentBarcodeDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
   public struct DocumentCreationResponseDto {
     public let id: Swift.String
     public static func == (a: Sensibill.SensibillAPIModel.DocumentCreationResponseDto, b: Sensibill.SensibillAPIModel.DocumentCreationResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SMUI.ViewProvider {
@@ -1960,8 +1962,8 @@ extension Sensibill.SensibillAPIModel {
     public let available: Swift.Bool
     public let alternatives: [Swift.String]?
     public static func == (a: Sensibill.SensibillAPIModel.ReceiptEmailAvailabilityResponseDto, b: Sensibill.SensibillAPIModel.ReceiptEmailAvailabilityResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Swift.Int : Swift.Identifiable {
@@ -1988,8 +1990,8 @@ extension Sensibill.SensibillAPIModel {
     public let accountTransactionData: Sensibill.SensibillAPIModel.ReceiptUpdateDto.AccountTransactionData?
     public init(accountTransactionData: Sensibill.SensibillAPIModel.ReceiptUpdateDto.AccountTransactionData? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.ReceiptUpdateDto, b: Sensibill.SensibillAPIModel.ReceiptUpdateDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -1997,8 +1999,8 @@ extension Sensibill.SensibillAPIModel {
     public let ids: [Swift.String]
     public init(ids: [Swift.String])
     public static func == (a: Sensibill.SensibillAPIModel.DocumentDeleteResponseDto, b: Sensibill.SensibillAPIModel.DocumentDeleteResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -2026,8 +2028,8 @@ extension Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings {
     public let push: Swift.Bool?
     public let includeOriginal: Swift.Bool?
     public static func == (a: Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings.ReceiptOptions, b: Sensibill.SensibillAPIModel.UserResponseDto.NotificationSettings.ReceiptOptions) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SMUI.ViewProvider {
@@ -2078,8 +2080,8 @@ extension Sensibill.SensibillAPIModel {
     public let errors: [Sensibill.SensibillAPIModel.DocumentsStatusResponseErrorDto]?
     public init(documents: [Sensibill.SensibillAPIModel.DocumentDto], errors: [Sensibill.SensibillAPIModel.DocumentsStatusResponseErrorDto]?)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentsStatusResponseDto, b: Sensibill.SensibillAPIModel.DocumentsStatusResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.DocumentContentDto {
@@ -2093,16 +2095,16 @@ extension Sensibill.SensibillAPIModel.DocumentContentDto {
     public let trackingNumber: Swift.String?
     public init(addressLines: [Swift.String]? = nil, courier: Sensibill.SensibillAPIModel.DocumentContentDto.CourierDto? = nil, deliveryType: Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryTypes? = nil, expectedShipmentDate: Foundation.Date? = nil, name: Swift.String? = nil, telephoneNumber: Swift.String? = nil, trackingNumber: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryDto, b: Sensibill.SensibillAPIModel.DocumentContentDto.DeliveryDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 @_inheritsConvenienceInitializers @objc(SBLBranding) public class Branding : ObjectiveC.NSObject {
-  public var fonts: Sensibill.BrandingFontsProvider
-  public var colors: Sensibill.BrandingColorsProvider
-  public var images: Sensibill.BrandingImagesProvider
-  public var localization: Sensibill.BrandingL10NProvider
-  public var metadata: Sensibill.BrandingMetadataProvider
+  public var fonts: any Sensibill.BrandingFontsProvider
+  public var colors: any Sensibill.BrandingColorsProvider
+  public var images: any Sensibill.BrandingImagesProvider
+  public var localization: any Sensibill.BrandingL10NProvider
+  public var metadata: any Sensibill.BrandingMetadataProvider
   @objc override dynamic public init()
   @objc deinit
 }
@@ -2154,8 +2156,8 @@ extension Sensibill.SensibillAPIModel {
   public struct EditDocumentResponseDto {
     public let id: Swift.String
     public static func == (a: Sensibill.SensibillAPIModel.EditDocumentResponseDto, b: Sensibill.SensibillAPIModel.EditDocumentResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 public protocol BrandingImagesProvider {
@@ -2522,7 +2524,7 @@ extension Sensibill.SensibillAPIClient.Environment : Swift.Equatable {
   @objc public static let shared: Sensibill.SensibillSDK
   final public let smui: Sensibill.SMUI.ViewProvider
   @objc public var identityService: Sensibill.IdentityService
-  public var apiClient: Sensibill.SensibillAPIProvider?
+  public var apiClient: (any Sensibill.SensibillAPIProvider)?
   @objc deinit
 }
 extension Sensibill.SensibillSDK {
@@ -2533,13 +2535,13 @@ extension Sensibill.SensibillSDK {
     @objc get
   }
   #if compiler(>=5.3) && $AsyncAwait
-  public class func start(userIdentifier: Swift.String, tokenProvider: Sensibill.TokenProvider, configuration: Sensibill.SensibillSDK.Configuration) async -> Swift.Result<Swift.Void, Swift.Error>
+  public class func start(userIdentifier: Swift.String, tokenProvider: any Sensibill.TokenProvider, configuration: Sensibill.SensibillSDK.Configuration) async -> Swift.Result<Swift.Void, any Swift.Error>
   #endif
-  public class func start(userIdentifier: Swift.String, tokenProvider: Sensibill.TokenProvider, configuration: Sensibill.SensibillSDK.Configuration, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public class func start(userIdentifier: Swift.String, tokenProvider: any Sensibill.TokenProvider, configuration: Sensibill.SensibillSDK.Configuration, completion: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
   #if compiler(>=5.3) && $AsyncAwait
-  public class func stop(invalidateToken: Swift.Bool = true) async -> Swift.Result<Swift.Void, Swift.Error>
+  public class func stop(invalidateToken: Swift.Bool = true) async -> Swift.Result<Swift.Void, any Swift.Error>
   #endif
-  public class func stop(invalidateToken: Swift.Bool = true, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public class func stop(invalidateToken: Swift.Bool = true, completion: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
 }
 @objc(SBLDocumentMetadata) public class DocumentMetadata : ObjectiveC.NSObject, Foundation.NSSecureCoding {
   @objc public static var supportsSecureCoding: Swift.Bool {
@@ -2588,8 +2590,8 @@ extension Sensibill.SensibillAPIModel.DocumentContentDto {
     public let serviceLevel: Swift.String?
     public init(name: Swift.String? = nil, serviceLevel: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentContentDto.CourierDto, b: Sensibill.SensibillAPIModel.DocumentContentDto.CourierDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.DocumentContentDto {
@@ -2601,8 +2603,8 @@ extension Sensibill.SensibillAPIModel.DocumentContentDto {
     public let telephoneNumber: Swift.String?
     public init(customerId: Swift.String? = nil, billingAddressLines: [Swift.String]? = nil, email: Swift.String? = nil, name: Swift.String? = nil, telephoneNumber: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentCustomerDto, b: Sensibill.SensibillAPIModel.DocumentContentDto.DocumentContentCustomerDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.ReceiptUpdateDto {
@@ -2610,8 +2612,8 @@ extension Sensibill.SensibillAPIModel.ReceiptUpdateDto {
     public let id: Swift.String?
     public init(id: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.ReceiptUpdateDto.AccountTransactionData, b: Sensibill.SensibillAPIModel.ReceiptUpdateDto.AccountTransactionData) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -2621,12 +2623,12 @@ extension Sensibill.SensibillAPIModel {
     public var afterTax: Swift.Double?
     public init(taxes: [Sensibill.SensibillAPIModel.DocumentTaxDto]? = nil, beforeTax: Swift.Double? = nil, afterTax: Swift.Double? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto, b: Sensibill.SensibillAPIModel.DocumentTaxableAmountDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 @objc(SBLCaptureFlowCoordinator) public class CaptureFlowCoordinator : ObjectiveC.NSObject {
-  @objc weak public var delegate: Sensibill.CaptureFlowCoordinatorDelegate?
+  @objc weak public var delegate: (any Sensibill.CaptureFlowCoordinatorDelegate)?
   public init(host: UIKit.UIViewController, branding: Sensibill.Branding = Branding(), captureFeatureFlags: Sensibill.Capture.FeatureFlags = .default)
   @objc deinit
 }
@@ -2642,8 +2644,8 @@ extension Sensibill.SensibillAPIModel {
     public let userMetadata: Sensibill.SensibillAPIModel.DocumentUserMetadataDto?
     public init(content: Sensibill.SensibillAPIModel.DocumentContentDto, description: Swift.String? = nil, accountMetadata: Sensibill.SensibillAPIModel.AccountMetadata? = nil, userMetadata: Sensibill.SensibillAPIModel.DocumentUserMetadataDto? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.EditDocumentRequestDto, b: Sensibill.SensibillAPIModel.EditDocumentRequestDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.UIParts {
@@ -2662,8 +2664,8 @@ extension Sensibill.SensibillAPIModel.UserResponseDto.Alert.AlertDocument {
     public let grand: Swift.Double?
     public let currencyCode: Swift.String?
     public static func == (a: Sensibill.SensibillAPIModel.UserResponseDto.Alert.AlertDocument.Total, b: Sensibill.SensibillAPIModel.UserResponseDto.Alert.AlertDocument.Total) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -2682,8 +2684,8 @@ extension Sensibill.SensibillAPIModel {
     public var categoryCode: Swift.String?
     public init(addressLines: [Swift.String]? = nil, merchantId: Swift.String? = nil, email: Swift.String? = nil, geoLocation: Swift.String? = nil, storeName: Swift.String? = nil, storeId: Swift.String? = nil, telephone: Swift.String? = nil, channel: Sensibill.SensibillAPIModel.DocumentMerchantDto.OrderChannelTypes? = nil, url: Swift.String? = nil, merchantName: Swift.String? = nil, taxIdNumber: Swift.String? = nil, categoryCode: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentMerchantDto, b: Sensibill.SensibillAPIModel.DocumentMerchantDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.GetFoldersListResponseDto {
@@ -2696,8 +2698,8 @@ extension Sensibill.SensibillAPIModel.GetFoldersListResponseDto {
     public let count: Swift.Int
     public let totals: [Sensibill.SensibillAPIModel.GetFoldersListResponseDto.FolderListItemDto.FolderListItemTotalsDto]?
     public static func == (a: Sensibill.SensibillAPIModel.GetFoldersListResponseDto.FolderListItemDto, b: Sensibill.SensibillAPIModel.GetFoldersListResponseDto.FolderListItemDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -2707,8 +2709,8 @@ extension Sensibill.SensibillAPIModel {
     public let credentialType: Swift.String?
     public init(oldPassword: Swift.String, newPassword: Swift.String, credentialType: Swift.String? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.SetPasswordRequestDto, b: Sensibill.SensibillAPIModel.SetPasswordRequestDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -2732,8 +2734,8 @@ extension Sensibill.SensibillAPIModel {
     public let folders: [Sensibill.SensibillAPIModel.UserResponseDto.Folder]?
     public let alerts: [Sensibill.SensibillAPIModel.UserResponseDto.Alert]?
     public static func == (a: Sensibill.SensibillAPIModel.UserResponseDto, b: Sensibill.SensibillAPIModel.UserResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 public enum SMUI {
@@ -2750,8 +2752,8 @@ extension Sensibill.SensibillAPIModel {
   public struct RegisterUserResponseDto {
     public let id: Swift.String
     public static func == (a: Sensibill.SensibillAPIModel.RegisterUserResponseDto, b: Sensibill.SensibillAPIModel.RegisterUserResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -2774,8 +2776,8 @@ extension Sensibill.SensibillAPIModel.UserResponseDto {
   public struct PilotAccess {
     public let diagnostics: Sensibill.SensibillAPIModel.UserResponseDto.PilotAccess.Diagnostics?
     public static func == (a: Sensibill.SensibillAPIModel.UserResponseDto.PilotAccess, b: Sensibill.SensibillAPIModel.UserResponseDto.PilotAccess) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 @_hasMissingDesignatedInitializers @objc(SBLCaptureResult) public class CaptureResult : ObjectiveC.NSObject {
@@ -2793,8 +2795,8 @@ extension Sensibill.SensibillAPIModel {
     public let errorDescription: Swift.String?
     public let code: Swift.String?
     public static func == (a: Sensibill.SensibillAPIModel.GetDocumentErrorDto, b: Sensibill.SensibillAPIModel.GetDocumentErrorDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.GetDocumentErrorDto : Swift.CustomStringConvertible {
@@ -2808,8 +2810,8 @@ extension Sensibill.SensibillAPIModel {
     public let deleteDocuments: Swift.Bool?
     public init(folders: [Swift.String], deleteDocuments: Swift.Bool? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.FoldersDeleteRequestDto, b: Sensibill.SensibillAPIModel.FoldersDeleteRequestDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -2821,8 +2823,8 @@ extension Sensibill.SensibillAPIModel {
     public let accountMetadata: Sensibill.SensibillAPIModel.AccountMetadata?
     public init(sourceFile: Sensibill.SensibillAPIModel.SourceFile, documentType: Sensibill.SensibillAPIModel.DocumentType, foreignId: Swift.String? = nil, description: Swift.String? = nil, accountMetdata: Sensibill.SensibillAPIModel.AccountMetadata? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentCreationRequestDto, b: Sensibill.SensibillAPIModel.DocumentCreationRequestDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.IdentityService {
@@ -2847,7 +2849,7 @@ extension Sensibill.IdentityService.Errors : Foundation.LocalizedError {
   }
 }
 @objc(SBLTokenProvider) public protocol TokenProvider {
-  @objc func provideTokenReplacement(userIdentifier: Swift.String, completion: @escaping (_ credentials: Sensibill.Credentials?, _ error: Swift.Error?) -> Swift.Void)
+  @objc func provideTokenReplacement(userIdentifier: Swift.String, completion: @escaping (_ credentials: Sensibill.Credentials?, _ error: (any Swift.Error)?) -> Swift.Void)
 }
 extension Sensibill.Capture.RuntimeSettings {
   @_inheritsConvenienceInitializers public class CapturePreviewScreen : Sensibill.Capture.RuntimeSettings.CameraScreen {
@@ -2989,8 +2991,8 @@ extension Sensibill.SensibillAPIModel {
   public struct EditReceiptResponseDto {
     public let id: Swift.String
     public static func == (a: Sensibill.SensibillAPIModel.EditReceiptResponseDto, b: Sensibill.SensibillAPIModel.EditReceiptResponseDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.UserResponseDto {
@@ -2999,8 +3001,8 @@ extension Sensibill.SensibillAPIModel.UserResponseDto {
     public let favorite: Swift.Int?
     public let thisMonth: Swift.Int?
     public static func == (a: Sensibill.SensibillAPIModel.UserResponseDto.ReceiptCounts, b: Sensibill.SensibillAPIModel.UserResponseDto.ReceiptCounts) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel {
@@ -3053,8 +3055,8 @@ extension Sensibill.SensibillAPIModel {
     public let type: Sensibill.SensibillAPIModel.TenderType?
     public init(afterTax: Swift.Double? = nil, cashBack: Swift.Double? = nil, changeAdjustment: Swift.Double? = nil, changeDue: Swift.Double? = nil, changeIssued: Swift.Double? = nil, currencyCode: Swift.String? = nil, maskedCardNumber: Swift.String? = nil, type: Sensibill.SensibillAPIModel.TenderType? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.DocumentPaymentDto, b: Sensibill.SensibillAPIModel.DocumentPaymentDto) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.ExportCriteria {
@@ -3063,8 +3065,8 @@ extension Sensibill.SensibillAPIModel.ExportCriteria {
     public let transaction: Sensibill.SensibillAPIModel.ExportCriteria.AccountMetadata.TransactionCriteriaType?
     public init?(account: Sensibill.SensibillAPIModel.ExportCriteria.AccountMetadata.AccountCriteriaType? = nil, transaction: Sensibill.SensibillAPIModel.ExportCriteria.AccountMetadata.TransactionCriteriaType? = nil)
     public static func == (a: Sensibill.SensibillAPIModel.ExportCriteria.AccountMetadata, b: Sensibill.SensibillAPIModel.ExportCriteria.AccountMetadata) -> Swift.Bool
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
 }
 extension Sensibill.SensibillAPIModel.FolderDeleteRequestDto : Swift.Decodable {}

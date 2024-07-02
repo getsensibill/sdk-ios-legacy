@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = 'Sensibill'
-  s.version             = '2023.1.0'
+  s.version             = '2023.1.1'
   s.summary             = 'Sensibill Spend Manager SDK for iOS.'
 
   s.description         = <<-DESC
